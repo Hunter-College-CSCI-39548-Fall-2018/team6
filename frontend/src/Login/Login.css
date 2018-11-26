@@ -1,0 +1,125 @@
+.LoginBg {
+  background-image: url("https://stemcell.keck.usc.edu/wp-content/uploads/2017/11/150324_flights-hero-image_1330x742.jpg");
+  background-position: center;
+  background-color: rgb(74, 74, 121);
+}
+
+.Login {
+  text-align: center;
+  width: 300px;
+  margin: auto;
+  margin-top: 15%;
+  height: 320px;
+  max-height: 500px;
+  border: solid black 1px;
+  box-shadow: 0px 0px 5px 5px hsl(240, 1%, 55%);
+  padding-bottom: 30px;
+  padding-top: 20px;
+  background-color: rgb(189, 222, 238);
+  opacity: 0.9;
+  border-radius: 25px;
+}
+
+.Forgot-Password {
+  font-size: 12px;
+}
+.Forgot-Password:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+input {
+  height: 20px;
+  border-radius: 5px;
+}
+
+.input-box {
+  padding-bottom: 10px;
+}
+
+.button {
+  background-color: rgb(100, 170, 236);
+  color: white;
+  width: 150px;
+  padding-top: 5x;
+}
+.button:hover {
+  opacity: 0.8;
+}
+
+/* a[href$="/forgot-password"] {
+  display: inline-block;
+  text-align: center;
+  color: rgb(67, 134, 179);
+  margin-top: 10px;
+} */
+
+.react-tabs {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.react-tabs__tab-list {
+  border-bottom: 1px solid #aaa;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.react-tabs__tab {
+  display: inline-block;
+  border: 1px solid transparent;
+  border-bottom: none;
+  bottom: -1px;
+  position: relative;
+  list-style: none;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.react-tabs__tab--selected {
+  background: #fff;
+  border-color: #aaa;
+  color: black;
+  border-radius: 5px 5px 0 0;
+}
+
+.react-tabs__tab--disabled {
+  color: GrayText;
+  cursor: default;
+}
+
+.react-tabs__tab:focus {
+  box-shadow: 0 0 5px hsl(208, 99%, 50%);
+  border-color: hsl(208, 99%, 50%);
+  outline: none;
+}
+
+/* .react-tabs__tab:focus:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  left: -4px;
+  right: -4px;
+  bottom: -5px;
+  background: #fff;
+} */
+
+.react-tabs__tab-panel {
+  display: none;
+}
+
+.react-tabs__tab-panel--selected {
+  display: block;
+}
+
+input::placeholder {
+  padding-left: 5px;
+  /* text-align: center; */
+}
+
+/* .jwt-icon {
+  background: url("http://jwt.io/img/logo-asset.svg");
+  width: 100%;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+} */
