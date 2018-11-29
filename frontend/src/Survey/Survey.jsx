@@ -13,7 +13,7 @@ import {
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Survey.css";
-import ResultList from "../ResultList/ResultList";
+// import ResultList from "../ResultList/ResultList";
 
 /*
 Author: Eunice Hew
@@ -40,7 +40,7 @@ class Survey extends Component {
   render() {
     let modal;
     if (this.state.submit) {
-      modal = <ResultList />;
+      // modal = <ResultList />;
     }
     return (
       <Grid>
