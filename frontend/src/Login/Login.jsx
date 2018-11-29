@@ -3,8 +3,12 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { ForgotPassword } from "../ForgotPassword";
 import { Register } from "../Register";
 import "./Login.css";
-// import axios from "axios";
 import AuthService from "../AuthService/AuthService";
+
+/*
+Author: Eunice Hew
+Login screen, contains links to registration and forgot password
+*/
 
 class Login extends Component {
   constructor(props) {

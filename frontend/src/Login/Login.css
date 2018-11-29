@@ -6,22 +6,24 @@
 
 .Login {
   text-align: center;
-  width: 300px;
   margin: auto;
   margin-top: 15%;
-  height: 320px;
+  height: 350px;
+  width: 300px;
   max-height: 500px;
+  max-width: 400px;
   border: solid black 1px;
   box-shadow: 0px 0px 5px 5px hsl(240, 1%, 55%);
+  background-color: rgb(189, 222, 238);
   padding-bottom: 30px;
   padding-top: 20px;
-  background-color: rgb(189, 222, 238);
-  opacity: 0.9;
   border-radius: 25px;
+  opacity: 0.9;
 }
 
 .Forgot-Password {
   font-size: 12px;
+  margin-top: 5px;
 }
 .Forgot-Password:hover {
   opacity: 0.8;
@@ -29,8 +31,10 @@
 }
 
 input {
-  height: 20px;
+  height: 25px;
   border-radius: 5px;
+  font-size: 10px;
+  padding-left: 5px;
 }
 
 .input-box {

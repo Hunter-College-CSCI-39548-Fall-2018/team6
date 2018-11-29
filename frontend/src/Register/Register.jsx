@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import "../Login/Login.css";
 import AuthService from "../AuthService/AuthService";
 
+/*
+Author: Eunice Hew
+Registration on login screen
+*/
+
 class Register extends Component {
   constructor(props) {
     super(props);

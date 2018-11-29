@@ -8,18 +8,75 @@
   table-layout: auto;*/
   background-color: rgb(198, 241, 248);
 }
-/* form {
-  padding-top: 50px;
-  padding-left: 50px;
+.survey-body {
+  /* padding-top: 100px; */
+  border: solid black 1px;
+  box-shadow: 0px 0px 5px 5px hsl(240, 1%, 55%);
+  /* margin: auto;
+  margin-top: 2%;
+  height: 550px;
+  width: 1400px;
+  max-height: 1500px;
+  max-width: 1800px; */
+  border-radius: 25px;
+}
+.head {
+  text-align: center;
+}
+.survey {
   text-align: left;
+  display: flex;
+  padding-left: 50px;
+  /* padding-right: 200px; */
+}
+
+/* input {
+  height: 15px;
+  border-radius: 5px;
+  font-size: 10px;
+  padding-left: 5px;
 } */
 
-/* .form-button {
+.row:after {
+  clear: both;
+  content: "";
+}
+.column {
+  float: left;
+}
+.column.left,
+.column.right {
   padding: 10px;
-} */
+  width: 50%;
+}
+.survey-button {
+  text-align: center;
+  padding-top: 30px;
+}
 /* .button {
   background-color: rgb(100, 170, 236);
   color: white;
   width: 150px;
   padding: 5x;
 } */
+.radio-inline {
+  padding-left: 0px;
+}
+.pics {
+  text-align: left;
+  display: inline-flex;
+}
+/* .pics:after {
+  clear: both;
+  content: "";
+} */
+.Pikachu {
+  margin-right: 25px !important;
+  width: 60%;
+  height: auto;
+}
+
+.Mod {
+  text-align: center;
+  padding-top: -50px;
+}
