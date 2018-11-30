@@ -2,6 +2,7 @@ target/
 .idea/
 *.iml
 mysql.properties
+application.properties
 
 # Front End Packages
 node_modules

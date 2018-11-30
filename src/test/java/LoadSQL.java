@@ -16,15 +16,14 @@ public class LoadSQL {
         // creates tables
         initializeTables("src/test/resources/schema/");
 
-        loadCSV("DATA/csv/US-Airports.csv", "Airports");
+        loadCSV("DATA/csv/US-Airport_Codes.csv", "Airports");
         loadCSV("DATA/csv/US-Cities-Cost-Index.csv", "Cost_Indexes");
         loadCSV("DATA/csv/US-Cities.csv", "Top_Cities");
         loadCSV("DATA/csv/States.csv", "States");
         loadCSV("DATA/csv/Climate_Clean.csv", "Climate");
-        loadCSV("DATA/csv/2018_Q1_Fares_CLEAN.csv", "Fares");
+        loadCSV("DATA/csv/Fares_Clean.csv", "Fares");
     }
 
-    // init("DATA/airports.csv", "src/test/resources/schema/airports.sql")
     private static void initializeTables(String schemaPath) {
         Setup setup = new Setup();
         Connection connection = getSQLConnection(setup);
