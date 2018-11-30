@@ -11,7 +11,7 @@ Author: Eunice Hew
 Routing for login page and components with the navigation bar 
 */
 
-ReactDOM.render7(
+ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route exact path="/Login" component={Login} />
