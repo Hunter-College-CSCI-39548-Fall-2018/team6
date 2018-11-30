@@ -1,0 +1,383 @@
+State,City,FAA,Airport
+ARIZONA,Peach Springs,1G4,Grand Canyon West Airport
+PENNSYLVANIA,Allentown,ABE,Lehigh Valley International Airport
+TEXAS,Abilene,ABI,Abilene Regional Airport
+NEW MEXICO,Albuquerque,ABQ,Albuquerque International Sunport
+SOUTH DAKOTA,Aberdeen,ABR,Aberdeen Regional Airport
+GEORGIA,Albany,ABY,Southwest Georgia Regional Airport
+MASSACHUSETTS,Nantucket,ACK,Nantucket Memorial Airport
+TEXAS,Waco,ACT,Waco Regional Airport
+CALIFORNIA,Arcata / Eureka,ACV,Arcata Airport
+NEW JERSEY,Atlantic City,ACY,Atlantic City International Airport
+ALASKA,Kodiak,ADQ,Kodiak Airport
+LOUISIANA,Alexandria,AEX,Alexandria International Airport
+GEORGIA,Augusta,AGS,Augusta Regional Airport (Bush Field)
+ALASKA,King Salmon,AKN,King Salmon Airport
+NEW YORK,Albany,ALB,Albany International Airport
+IOWA,Waterloo,ALO,Waterloo Regional Airport
+WASHINGTON,Walla Walla,ALW,Walla Walla Regional Airport
+TEXAS,Amarillo,AMA,Rick Husband Amarillo International Airport
+ALASKA,Anchorage,ANC,Ted Stevens Anchorage International Airport
+ALASKA,Aniak,ANI,Aniak Airport
+MICHIGAN,Alpena,APN,Alpena County Regional Airport
+NEW YORK,Watertown,ART,Watertown International Airport
+COLORADO,Aspen,ASE,Aspen-Pitkin County Airport (Sardy Field)
+GEORGIA,Atlanta,ATL,Hartsfield“Jackson Atlanta International Airport
+WISCONSIN,Appleton,ATW,Appleton International Airport
+TEXAS,Austin,AUS,Austin-Bergstrom International Airport
+NORTH CAROLINA,Asheville,AVL,Asheville Regional Airport
+PENNSYLVANIA,Wilkes-Barre / Scranton,AVP,Wilkes-Barre/Scranton International Airport
+MICHIGAN,Kalamazoo / Battle Creek,AZO,Kalamazoo/Battle Creek International Airport
+CONNECTICUT,Hartford,BDL,Bradley International Airport
+ALASKA,Bethel,BET,Bethel Airport (also see Bethel Seaplane Base)
+WASHINGTON,Seattle,BFI,King County International Airport (Boeing Field)
+CALIFORNIA,Bakersfield,BFL,Meadows Field
+NEW YORK,Binghamton,BGM,Greater Binghamton Airport (Edwin A. Link Field)
+MAINE,Bangor,BGR,Bangor International Airport
+ALABAMA,Birmingham,BHM,Birmingham“Shuttlesworth International Airport
+RHODE ISLAND,Block Island / New Shoreham,BID,Block Island State Airport
+MONTANA,Billings,BIL,Billings Logan International Airport
+NORTH DAKOTA,Bismarck,BIS,Bismarck Municipal Airport
+MINNESOTA,Bemidji,BJI,Bemidji Regional Airport
+WASHINGTON,Bellingham,BLI,Bellingham International Airport
+ILLINOIS,Belleville,BLV,MidAmerica St. Louis Airport / Scott Air Force Base
+ILLINOIS,Bloomington / Normal,BMI,Central Illinois Regional Airport at Bloomington-Normal
+TENNESSEE,Nashville,BNA,Nashville International Airport (Berry Field)
+IDAHO,Boise,BOI,Boise Airport (Boise Air Terminal) (Gowen Field)
+MASSACHUSETTS,Boston,BOS,Gen. Edward Lawrence Logan International Airport
+TEXAS,Beaumont / Port Arthur,BPT,Jack Brooks Regional Airport (was Southeast Texas Regional)
+GEORGIA,Brunswick,BQK,Brunswick Golden Isles Airport
+PUERTO RICO,Aguadilla,BQN,Rafael HernÃ¡ndez International Airport
+MINNESOTA,Brainerd,BRD,Brainerd Lakes Regional Airport
+TEXAS,Brownsville,BRO,Brownsville/South Padre Island International Airport
+ALASKA,Barrow,BRW,Wiley Post“Will Rogers Memorial Airport
+MONTANA,Butte,BTM,Bert Mooney Airport
+LOUISIANA,Baton Rouge,BTR,Baton Rouge Metropolitan Airport (Ryan Field)
+VERMONT,Burlington,BTV,Burlington International Airport
+NEW YORK,Buffalo,BUF,Buffalo Niagara International Airport
+CALIFORNIA,Burbank,BUR,Bob Hope Airport (Hollywood Burbank Airport)
+NEVADA,Boulder City,BVU,Boulder City Municipal Airport
+MARYLAND,Baltimore / Glen Burnie,BWI,Baltimore/Washington International Thurgood Marshall Airport
+MONTANA,Bozeman,BZN,Bozeman Yellowstone International Airport (was Gallatin Field Airport)
+SOUTH CAROLINA,Columbia,CAE,Columbia Metropolitan Airport
+OHIO,Akron / Canton,CAK,Akron-Canton Regional Airport
+UTAH,Cedar City,CDC,Cedar City Regional Airport
+ALASKA,Cordova,CDV,Merle K. (Mudhole) Smith Airport
+CALIFORNIA,Crescent City,CEC,Del Norte County Airport (Jack McNamara Field)
+TENNESSEE,Chattanooga,CHA,Chattanooga Metropolitan Airport (Lovell Field)
+VIRGINIA,Charlottesville,CHO,Charlottesville“Albemarle Airport
+SOUTH CAROLINA,Charleston,CHS,Charleston International Airport / Charleston AFB
+CALIFORNIA,Chico,CIC,Chico Municipal Airport
+IOWA,Cedar Rapids,CID,The Eastern Iowa Airport
+MICHIGAN,Sault Ste. Marie,CIU,Chippewa County International Airport
+WEST VIRGINIA,Clarksburg,CKB,North Central West Virginia Airport (was Harrison-Marion Regional)
+OHIO,Cleveland,CLE,Cleveland-Hopkins International Airport
+TEXAS,College Station,CLL,Easterwood Airport (Easterwood Field)
+NORTH CAROLINA,Charlotte,CLT,Charlotte/Douglas International Airport
+OHIO,Columbus,CMH,John Glenn Columbus International Airport
+ILLINOIS,Champaign / Urbana,CMI,University of Illinois - Willard Airport
+MICHIGAN,Hancock / Calumet,CMX,Houghton County Memorial Airport
+WYOMING,Cody,COD,Yellowstone Regional Airport
+COLORADO,Colorado Springs,COS,City of Colorado Springs Municipal Airport
+MISSOURI,Columbia,COU,Columbia Regional Airport
+WYOMING,Casper,CPR,Casper/Natrona County International Airport
+PUERTO RICO,Culebra,CPX,BenjamÃ­n Rivera Noriega Airport
+TEXAS,Corpus Christi / Kingsville,CRP,Corpus Christi International Airport
+CALIFORNIA,Carlsbad,CRQ,McClellan“Palomar Airport
+WEST VIRGINIA,Charleston,CRW,Yeager Airport
+GEORGIA,Columbus,CSG,Columbus Metropolitan Airport
+KENTUCKY,Cincinnati/Covington,CVG,Cincinnati/Northern Kentucky International Airport
+WISCONSIN,Mosinee,CWA,Central Wisconsin Airport
+FLORIDA,Daytona Beach,DAB,Daytona Beach International Airport
+TEXAS,Dallas,DAL,Dallas Love Field
+OHIO,Dayton,DAY,James M. Cox Dayton International Airport
+IOWA,Dubuque,DBQ,Dubuque Regional Airport
+VIRGINIA,"Washington, D.C. / Arlington County",DCA,Ronald Reagan Washington National Airport
+COLORADO,Denver,DEN,Denver International Airport
+TEXAS,Dallas-Fort Worth,DFW,Dallas/Fort Worth International Airport
+ALABAMA,Dothan,DHN,Dothan Regional Airport
+NORTH DAKOTA,Dickinson,DIK,Dickinson Theodore Roosevelt Regional Airport
+ALASKA,Dillingham,DLG,Dillingham Airport
+MINNESOTA,Duluth,DLH,Duluth International Airport
+COLORADO,Durango,DRO,Durango-La Plata County Airport
+IOWA,Des Moines,DSM,Des Moines International Airport
+MICHIGAN,Detroit / Romulus,DTW,Detroit Metropolitan Wayne County Airport
+ALASKA,Unalaska,DUT,Unalaska Airport (Tom Madsen Airport)
+WASHINGTON,Wenatchee,EAT,Pangborn Memorial Airport
+WISCONSIN,Eau Claire,EAU,Chippewa Valley Regional Airport
+FLORIDA,Panama City Beach,ECP,Northwest Florida Beaches International Airport  [nb 2]
+COLORADO,Eagle,EGE,Eagle County Regional Airport
+NEVADA,Elko,EKO,Elko Regional Airport (J.C. Harris Field)
+NEW YORK,Elmira / Corning,ELM,Elmira/Corning Regional Airport
+TEXAS,El Paso,ELP,El Paso International Airport
+ALASKA,Kenai,ENA,Kenai Municipal Airport
+PENNSYLVANIA,Erie,ERI,Erie International Airport (Tom Ridge Field)
+MICHIGAN,Escanaba,ESC,Delta County Airport
+OREGON,Eugene,EUG,Eugene Airport (Mahlon Sweet Field)
+INDIANA,Evansville,EVV,Evansville Regional Airport
+NORTH CAROLINA,New Bern,EWN,Coastal Carolina Regional Airport (was Craven County Regional)
+NEW JERSEY,Newark,EWR,Newark Liberty International Airport
+FLORIDA,Key West,EYW,Key West International Airport
+ALASKA,Fairbanks,FAI,Fairbanks International Airport
+NORTH DAKOTA,Fargo,FAR,Hector International Airport
+CALIFORNIA,Fresno,FAT,Fresno Yosemite International Airport
+NORTH CAROLINA,Fayetteville,FAY,Fayetteville Regional Airport (Grannis Field)
+WASHINGTON,Friday Harbor,FHR,Friday Harbor Airport
+ARIZONA,Flagstaff,FLG,Flagstaff Pulliam Airport
+FLORIDA,Fort Lauderdale,FLL,Fort Lauderdale“Hollywood International Airport
+SOUTH CAROLINA,Florence,FLO,Florence Regional Airport
+MICHIGAN,Flint,FNT,Bishop International Airport
+KANSAS,Topeka,FOE,Topeka Regional Airport (formerly Forbes Field Airport)
+NEW YORK,Farmingdale,FRG,Republic Airport
+SOUTH DAKOTA,Sioux Falls,FSD,Sioux Falls Regional Airport (Joe Foss Field)
+ARKANSAS,Fort Smith,FSM,Fort Smith Regional Airport
+INDIANA,Fort Wayne,FWA,Fort Wayne International Airport
+ALASKA,Galena,GAL,Edward G. Pitka Sr. Airport
+WYOMING,Gillette,GCC,Gillette-Campbell County Airport
+KANSAS,Garden City,GCK,Garden City Regional Airport
+ARIZONA,Grand Canyon / Tusayan,GCN,Grand Canyon National Park Airport
+WASHINGTON,Spokane,GEG,Spokane International Airport (Geiger Field)
+NORTH DAKOTA,Grand Forks,GFK,Grand Forks International Airport
+TEXAS,Longview,GGG,East Texas Regional Airport
+COLORADO,Grand Junction,GJT,Grand Junction Regional Airport (Walker Field)
+FLORIDA,Gainesville,GNV,Gainesville Regional Airport
+MONTANA,Kalispell,GPI,Glacier Park International Airport
+MISSISSIPPI,Gulfport / Biloxi,GPT,Gulfport“Biloxi International Airport
+WISCONSIN,Green Bay,GRB,Green Bay“Austin Straubel International Airport
+NEBRASKA,Grand Island,GRI,Central Nebraska Regional Airport
+TEXAS,Fort Hood / Killeen / Temple,GRK,Killeen-Fort Hood Regional Airport / Robert Gray Army Airfield
+NORTHERN MARIANAS,Rota Island,GRO,Rota International Airport
+MICHIGAN,Grand Rapids,GRR,Gerald R. Ford International Airport
+NORTHERN MARIANAS,"Obyan, Saipan Island",GSN,Saipan International Airport (Francisco C. Ada)
+NORTH CAROLINA,Greensboro,GSO,Piedmont Triad International Airport
+SOUTH CAROLINA,Greenville,GSP,Greenville-Spartanburg International Airport (Roger Milliken Field)
+MONTANA,Great Falls,GTF,Great Falls International Airport
+MISSISSIPPI,Columbus / West Point / Starkville,GTR,Golden Triangle Regional Airport
+COLORADO,Gunnison,GUC,Gunnison-Crested Butte Regional Airport
+GUAM,Agana / Tamuning,GUM,Antonio B. Won Pat International Airport
+COLORADO,Hayden,HDN,Yampa Valley Airport (Yampa Valley Regional)
+MARYLAND,Hagerstown,HGR,Hagerstown Regional Airport (Richard A. Henson Field)
+MINNESOTA,Hibbing,HIB,Range Regional Airport (was Chisholm“Hibbing Airport)
+MONTANA,Helena,HLN,Helena Regional Airport
+HAWAII,"Honolulu, Oahu",HNL,Daniel K. Inouye International Airport
+NEW MEXICO,Hobbs,HOB,Lea County Regional Airport
+ALASKA,Homer,HOM,Homer Airport
+TEXAS,Houston,HOU,William P. Hobby Airport
+NEW YORK,White Plains,HPN,Westchester County Airport
+TEXAS,Harlingen,HRL,Valley International Airport
+ALABAMA,Huntsville,HSV,Huntsville International Airport (Carl T. Jones Field)
+WEST VIRGINIA,Huntington,HTS,Tri-State Airport (Milton J. Ferguson Field)
+CONNECTICUT,New Haven,HVN,Tweed New Haven Regional Airport
+SOUTH CAROLINA,Hilton Head Island,HXD,Hilton Head Airport
+MASSACHUSETTS,Hyannis,HYA,Barnstable Municipal Airport (Boardman/Polando Field)
+VIRGINIA,"Washington, D.C. / Dulles / Chantilly",IAD,Washington Dulles International Airport
+NEW YORK,Niagara Falls,IAG,Niagara Falls International Airport
+TEXAS,Houston,IAH,George Bush Intercontinental Airport
+KANSAS,Wichita,ICT,Wichita Dwight D. Eisenhower National Airport (formerly Wichita Mid-Continent Airport)
+IDAHO,Idaho Falls,IDA,Idaho Falls Regional Airport (Fanning Field)
+ARIZONA,Bullhead City,IFP,Laughlin/Bullhead International Airport
+DELAWARE,Wilmington,ILG,Wilmington Airport
+NORTH CAROLINA,Wilmington,ILM,Wilmington International Airport
+MICHIGAN,Iron Mountain / Kingsford,IMT,Ford Airport
+INDIANA,Indianapolis,IND,Indianapolis International Airport
+MINNESOTA,International Falls,INL,Falls International Airport
+PENNSYLVANIA,Williamsport,IPT,Williamsport Regional Airport
+NORTH DAKOTA,Williston,ISN,Sloulin Field International Airport
+NEW YORK,Islip,ISP,Long Island MacArthur Airport
+NEW YORK,Ithaca,ITH,Ithaca Tompkins Regional Airport
+HAWAII,"Hilo, Hawaii",ITO,Hilo International Airport
+ARIZONA,Mesa,IWA,Phoenix“Mesa Gateway Airport (formerly Williams AFB)
+WYOMING,Jackson,JAC,Jackson Hole Airport
+MISSISSIPPI,Jackson,JAN,Jackson“Evers International Airport
+FLORIDA,Jacksonville,JAX,Jacksonville International Airport
+NEW YORK,New York,JFK,John F. Kennedy International Airport (was New York International Airport)
+MISSOURI,Joplin,JLN,Joplin Regional Airport
+ALASKA,Juneau,JNU,Juneau International Airport
+NORTH CAROLINA,Concord,JQF,Concord Regional Airport
+HAWAII,"Kailua-Kona, Hawaii",KOA,Kona International Airport at Keahole
+ALASKA,St. Mary's,KSM,St. Mary's Airport
+ALASKA,Ketchikan,KTN,Ketchikan International Airport
+MICHIGAN,Lansing,LAN,Capital Region International Airport (was Lansing Capital City)
+WYOMING,Laramie,LAR,Laramie Regional Airport
+NEVADA,Las Vegas,LAS,McCarran International Airport
+OKLAHOMA,Lawton,LAW,Lawton“Fort Sill Regional Airport
+CALIFORNIA,Los Angeles,LAX,Los Angeles International Airport
+TEXAS,Lubbock,LBB,Lubbock Preston Smith International Airport
+PENNSYLVANIA,Latrobe,LBE,Arnold Palmer Regional Airport
+LOUISIANA,Lake Charles,LCH,Lake Charles Regional Airport
+OHIO,Columbus,LCK,Rickenbacker International Airport
+NEW HAMPSHIRE,Lebanon,LEB,Lebanon Municipal Airport
+KENTUCKY,Lexington,LEX,Blue Grass Airport
+LOUISIANA,Lafayette,LFT,Lafayette Regional Airport
+NEW YORK,New York,LGA,LaGuardia Airport (and Marine Air Terminal)
+CALIFORNIA,Long Beach,LGB,Long Beach Airport (Daugherty Field)
+ALASKA,Anchorage,LHD,Lake Hood Seaplane Base (also see Lake Hood Airstrip)
+HAWAII,"Lihue, Kauai",LIH,Lihue Airport
+ARKANSAS,Little Rock,LIT,Bill and Hillary Clinton National Airport (Adams Field) (was Little Rock National)
+NEBRASKA,Lincoln,LNK,Lincoln Airport (was Lincoln Municipal)
+HAWAII,"Lanai City, Lanai",LNY,Lanai Airport
+TEXAS,Laredo,LRD,Laredo International Airport
+WISCONSIN,La Crosse,LSE,La Crosse Regional Airport
+OHIO,Cincinnati,LUK,Cincinnati Municipal Lunken Airport
+IDAHO,Lewiston,LWS,Lewiston-Nez Perce County Airport
+VIRGINIA,Lynchburg,LYH,Lynchburg Regional Airport (Preston Glenn Field)
+TEXAS,Midland,MAF,Midland International Airport
+MICHIGAN,Saginaw,MBS,MBS International Airport
+MISSOURI,Kansas City,MCI,Kansas City International Airport (originally Mid-Continent International Airport)
+FLORIDA,Orlando,MCO,Orlando International Airport
+PENNSYLVANIA,Harrisburg / Middletown,MDT,Harrisburg International Airport
+ILLINOIS,Chicago,MDW,Chicago Midway International Airport
+TENNESSEE,Memphis,MEM,Memphis International Airport
+TEXAS,McAllen,MFE,McAllen Miller International Airport
+OREGON,Medford,MFR,Rogue Valley International-Medford Airport
+ALABAMA,Montgomery,MGM,Montgomery Regional Airport (Dannelly Field)
+WEST VIRGINIA,Morgantown,MGW,Morgantown Municipal Airport (Walter L. Bill Hart Field)
+KANSAS,Manhattan,MHK,Manhattan Regional Airport
+NEW HAMPSHIRE,Manchester,MHT,Manchester“Boston Regional Airport
+FLORIDA,Miami,MIA,Miami International Airport
+WISCONSIN,Milwaukee,MKE,General Mitchell International Airport
+MICHIGAN,Muskegon,MKG,Muskegon County Airport
+HAWAII,"Kaunakakai, Molokai",MKK,Molokai Airport
+FLORIDA,Melbourne,MLB,Melbourne International Airport
+ILLINOIS,Moline,MLI,Quad City International Airport
+LOUISIANA,Monroe,MLU,Monroe Regional Airport
+CALIFORNIA,Mammoth Lakes,MMH,Mammoth Yosemite Airport
+ALABAMA,Mobile,MOB,Mobile Regional Airport
+NORTH DAKOTA,Minot,MOT,Minot International Airport
+ALASKA,Anchorage,MRI,Merrill Field
+CALIFORNIA,Monterey,MRY,Monterey Regional Airport (was Monterey Peninsula Airport)
+WISCONSIN,Madison,MSN,Dane County Regional Airport (Truax Field)
+MONTANA,Missoula,MSO,Missoula International Airport
+MINNESOTA,Minneapolis,MSP,Minneapolis“St. Paul International Airport (Wold“Chamberlain Field)
+LOUISIANA,New Orleans,MSY,Louis Armstrong New Orleans International Airport
+COLORADO,Montrose,MTJ,Montrose Regional Airport
+MASSACHUSETTS,Vineyard Haven,MVY,Martha's Vineyard Airport
+ILLINOIS,Marion,MWA,Williamson County Regional Airport
+SOUTH CAROLINA,Myrtle Beach,MYR,Myrtle Beach International Airport
+ARIZONA,Yuma,NYL,Yuma International Airport / MCAS Yuma
+NORTH CAROLINA,Jacksonville,OAJ,Albert J. Ellis Airport
+CALIFORNIA,Oakland,OAK,Oakland International Airport
+UTAH,Ogden,OGD,Ogden-Hinckley Airport
+HAWAII,"Kahului, Maui",OGG,Kahului Airport
+OKLAHOMA,Oklahoma City,OKC,Will Rogers World Airport
+NEBRASKA,Omaha,OMA,Eppley Airfield
+ALASKA,Nome,OME,Nome Airport
+CALIFORNIA,Ontario,ONT,Ontario International Airport
+ILLINOIS,Chicago,ORD,Chicago O'Hare International Airport
+VIRGINIA,Norfolk,ORF,Norfolk International Airport
+MASSACHUSETTS,Worcester,ORH,Worcester Regional Airport
+OREGON,North Bend,OTH,Southwest Oregon Regional Airport (was North Bend Municipal)
+ALASKA,Kotzebue,OTZ,Ralph Wien Memorial Airport
+KENTUCKY,Owensboro,OWB,Owensboro-Daviess County Regional Airport
+KENTUCKY,Paducah,PAH,Barkley Regional Airport
+NEW YORK,Plattsburgh,PBG,Plattsburgh International Airport
+FLORIDA,West Palm Beach,PBI,Palm Beach International Airport
+OREGON,Portland,PDX,Portland International Airport
+ARIZONA,Page,PGA,Page Municipal Airport
+FLORIDA,Punta Gorda,PGD,Punta Gorda Airport (was Charlotte County Airport)
+NORTH CAROLINA,Greenville,PGV,Pitt-Greenville Airport
+VIRGINIA,Newport News,PHF,Newport News/Williamsburg International Airport (Patrick Henry Field)
+PENNSYLVANIA,Philadelphia,PHL,Philadelphia International Airport
+ARIZONA,Phoenix,PHX,Phoenix Sky Harbor International Airport
+ILLINOIS,Peoria,PIA,General Wayne A. Downing Peoria International Airport
+FLORIDA,St. Petersburg/Clearwater,PIE,St. Pete“Clearwater International Airport
+IDAHO,Pocatello / Arbon Valley,PIH,Pocatello Regional Airport
+PENNSYLVANIA,Pittsburgh,PIT,Pittsburgh International Airport
+MICHIGAN,Pellston,PLN,Pellston Regional Airport of Emmet County
+FLORIDA,Pensacola,PNS,Pensacola International Airport (Pensacola Gulf Coast Regional Airport)
+AMERICAN SAMOA,"Pago Pago, Tutuila",PPG,Pago Pago International Airport
+MAINE,Presque Isle,PQI,Northern Maine Regional Airport at Presque Isle
+WASHINGTON,Pasco,PSC,Tri-Cities Airport
+PUERTO RICO,Ponce,PSE,Mercedita International Airport
+ALASKA,Petersburg,PSG,Petersburg James A. Johnson Airport
+NEW HAMPSHIRE,Portsmouth,PSM,Portsmouth International Airport at Pease
+CALIFORNIA,Palm Springs,PSP,Palm Springs International Airport
+WASHINGTON,"Pullman / Moscow, Idaho",PUW,Pullman/Moscow Regional Airport
+MASSACHUSETTS,Provincetown,PVC,Provincetown Municipal Airport
+RHODE ISLAND,Providence / Warwick,PVD,Theodore Francis Green State Airport
+UTAH,Provo,PVU,Provo Municipal Airport
+MAINE,Portland,PWM,Portland International Jetport
+SOUTH DAKOTA,Rapid City,RAP,Rapid City Regional Airport
+CALIFORNIA,Redding,RDD,Redding Municipal Airport
+OREGON,Redmond,RDM,Redmond Municipal Airport (Roberts Field)
+NORTH CAROLINA,Raleigh,RDU,Raleigh-Durham International Airport
+ILLINOIS,Rockford,RFD,Chicago Rockford International Airport (was Northwest Chicagoland Regional Airport at Rockford)
+WISCONSIN,Rhinelander,RHI,Rhinelander“Oneida County Airport
+VIRGINIA,Richmond,RIC,Richmond International Airport (Byrd Field)
+MAINE,Rockland,RKD,Knox County Regional Airport
+WYOMING,Rock Springs,RKS,Southwest Wyoming Regional Airport (Rock Springs“Sweetwater County Airport)
+NEVADA,Reno,RNO,Reno/Tahoe International Airport
+VIRGINIA,Roanoke,ROA,Roanoke Regional Airport (Woodrum Field)
+NEW YORK,Rochester,ROC,Greater Rochester International Airport
+NEW MEXICO,Roswell,ROW,Roswell International Air Center
+MINNESOTA,Rochester,RST,Rochester International Airport
+FLORIDA,Fort Myers,RSW,Southwest Florida International Airport
+PUERTO RICO,Ceiba,RVR,Jose Aponte de la Torre Airport
+NEW MEXICO,Santa Fe,SAF,Santa Fe Regional Airport
+CALIFORNIA,San Diego,SAN,San Diego International Airport (Lindbergh Field)
+TEXAS,San Antonio,SAT,San Antonio International Airport
+GEORGIA,Savannah,SAV,Savannah/Hilton Head International Airport
+MICHIGAN,Marquette / Gwinn,SAW,Sawyer International Airport
+CALIFORNIA,Santa Barbara,SBA,Santa Barbara Municipal Airport (Santa Barbara Airport)
+INDIANA,South Bend,SBN,South Bend International Airport (was South Bend Regional)
+CALIFORNIA,San Luis Obispo,SBP,San Luis Obispo County Regional Airport (McChesney Field)
+MARYLAND,Salisbury,SBY,Salisbury-Ocean City Wicomico Regional Airport
+ALASKA,Deadhorse / Prudhoe Bay,SCC,Deadhorse Airport (Prudhoe Bay Airport)
+CALIFORNIA,Stockton,SCK,Stockton Metropolitan Airport
+KENTUCKY,Louisville,SDF,Louisville International Airport (Standiford Field)
+MONTANA,Sidney,SDY,Sidney“Richland Municipal Airport
+WASHINGTON,Seattle / Tacoma (SeaTac),SEA,Seattle“Tacoma International Airport
+FLORIDA,Orlando/Sanford,SFB,Orlando Sanford International Airport
+CALIFORNIA,San Francisco,SFO,San Francisco International Airport
+MISSOURI,Springfield,SGF,Springfield-Branson National Airport
+FLORIDA,St. Augustine,SGJ,Northeast Florida Regional Airport (was St. Augustine Airport)
+UTAH,St. George,SGU,St. George Regional Airport (opened 2011)
+LOUISIANA,Shreveport,SHV,Shreveport Regional Airport
+PUERTO RICO,San Juan / Miramar,SIG,Fernando Luis Ribas Dominicci Airport (Isla Grande Airport)
+ALASKA,Sitka,SIT,Sitka Rocky Gutierrez Airport
+CALIFORNIA,San Jose,SJC,Norman Y. Mineta San JosÃ© International Airport
+TEXAS,San Angelo,SJT,San Angelo Regional Airport (Mathis Field)
+PUERTO RICO,San Juan / Carolina,SJU,Luis MuÃ±oz MarÃ­n International Airport
+UTAH,Salt Lake City,SLC,Salt Lake City International Airport
+CALIFORNIA,Sacramento,SMF,Sacramento International Airport
+CALIFORNIA,Santa Maria,SMX,Santa Maria Public Airport (Capt G. Allan Hancock Field)
+CALIFORNIA,Santa Ana,SNA,John Wayne Airport (was Orange County Airport)
+ILLINOIS,Springfield,SPI,Abraham Lincoln Capital Airport
+TEXAS,Wichita Falls,SPS,Wichita Falls Municipal Airport / Sheppard Air Force Base
+FLORIDA,Sarasota / Bradenton,SRQ,Sarasota“Bradenton International Airport
+MINNESOTA,St. Cloud,STC,St. Cloud Regional Airport
+MISSOURI,St. Louis,STL,St. Louis Lambert International Airport
+CALIFORNIA,Santa Rosa,STS,Charles M. Schulz“Sonoma County Airport
+U.S. VIRGIN ISLANDS,"Charlotte Amalie, St. Thomas",STT,Cyril E. King Airport
+U.S. VIRGIN ISLANDS,"Christiansted, St. Croix",STX,Henry E. Rohlsen Airport
+IDAHO,Hailey,SUN,Friedman Memorial Airport
+IOWA,Sioux City,SUX,Sioux Gateway Airport (Col. Bud Day Field)
+NEW YORK,Newburgh,SWF,Stewart International Airport
+NEW YORK,Syracuse,SYR,Syracuse Hancock International Airport
+FLORIDA,Tallahassee,TLH,Tallahassee International Airport
+NORTHERN MARIANAS,Tinian Island,TNI,Tinian International Airport (West Tinian)
+OHIO,Toledo,TOL,Toledo Express Airport
+FLORIDA,Tampa,TPA,Tampa International Airport
+TENNESSEE,Bristol / Johnson City / Kingsport,TRI,Tri-Cities Regional Airport (Tri-Cities Regional TN/VA)
+NEW JERSEY,Trenton,TTN,Trenton Mercer Airport
+OKLAHOMA,Tulsa,TUL,Tulsa International Airport
+ARIZONA,Tucson,TUS,Tucson International Airport
+MICHIGAN,Traverse City,TVC,Cherry Capital Airport (was Cherry County Airpark)
+IDAHO,Twin Falls,TWF,Magic Valley Regional Airport (Joslin Field)
+ARKANSAS,Texarkana,TXK,Texarkana Regional Airport (Webb Field)
+TEXAS,Tyler,TYR,Tyler Pounds Regional Airport
+TENNESSEE,Knoxville,TYS,McGhee Tyson Airport
+ILLINOIS,Quincy,UIN,Quincy Regional Airport (Baldwin Field)
+ALASKA,Unalakleet,UNK,Unalakleet Airport
+PENNSYLVANIA,State College,UNV,University Park Airport
+ALASKA,Valdez,VDZ,Valdez Airport (Pioneer Field)
+NEVADA,Las Vegas / North Las Vegas,VGT,North Las Vegas Airport
+GEORGIA,Valdosta,VLD,Valdosta Regional Airport
+FLORIDA,Valparaiso,VPS,Destin“Fort Walton Beach Airport / Eglin Air Force Base
+PUERTO RICO,Vieques,VQS,Antonio Rivera RodrÃ­guez Airport
+ALASKA,Wrangell,WRG,Wrangell Airport (also see Wrangell Seaplane Base)
+RHODE ISLAND,Westerly,WST,Westerly State Airport
+ARKANSAS,Fayetteville,XNA,Northwest Arkansas Regional Airport
+ALASKA,Yakutat,YAK,Yakutat Airport (also see Yakutat Seaplane Base)
+WASHINGTON,Yakima,YKM,Yakima Air Terminal (McAllister Field)
+OHIO,Youngstown / Warren,YNG,Youngstown-Warren Regional Airport / Youngstown ARS

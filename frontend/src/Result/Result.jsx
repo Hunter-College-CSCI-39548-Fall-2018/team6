@@ -22,7 +22,7 @@ class Result extends React.Component {
       items: [],
       isLoaded: false
     };
-    this.submit = this.submit.bind(this);
+    // this.submit = this.submit.bind(this);
   }
   //method runs after render and updates render method
   componentDidMount() {
@@ -42,7 +42,7 @@ class Result extends React.Component {
     var { isLoaded, items } = this.state;
 
     if (!isLoaded) {
-      return <div>laoding..</div>;
+      return <div>loading..</div>;
     } else {
       return (
         <div className="main">
@@ -50,7 +50,7 @@ class Result extends React.Component {
             <input
               className="button"
               type="result"
-              value="Submit"
+              value="Back"
               onClick={e => this.onClickSubmit(e)}
             />
             {/*.bind(this) 
