@@ -4,10 +4,15 @@ import React from "react";
 //import { Nav, Navbar, NavItem } from "react-bootstrap";
 //import AuthService from "../AuthService/AuthService";
 //const Auth = new AuthService();
+
 /*
-Topgyal 
+Topgyal Gurung
 Result 
 
+Status: Just getting city name List using API( can be useful for ResultList)
+        Back Button: need to figure out how to go back to Result List
+        Need to render image
+        Show the info:
 */
 class Result extends React.Component {
   constructor(props) {
@@ -47,13 +52,13 @@ class Result extends React.Component {
             </form>
           </div>
           <div className="cityInfo">
-            <ul>
+            <ol>
               {/* get the asked city Name */}
               {items.map(item => (
-                <li key={item.state}>CityList:{item.city}</li>
+                <li key={item.state}>City: {item.city}</li>
               ))}
               {/* get city picture */}
-            </ul>
+            </ol>
           </div>
           <div className="Info" />
           <h1 className="title-container__title">
