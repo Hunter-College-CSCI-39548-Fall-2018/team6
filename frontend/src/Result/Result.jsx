@@ -18,9 +18,11 @@ class Result extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      submit: false,
       items: [],
       isLoaded: false
     };
+    this.submit = this.submit.bind(this);
   }
   //method runs after render and updates render method
   componentDidMount() {
@@ -45,11 +47,15 @@ class Result extends React.Component {
       return (
         <div className="main">
           <div className="back_button">
-            <form onSubmit={this.handleSubmit}>
-              {/*.bind(this) 
-             <button onClick={BrowserHistory.goBack}>Go Back</button>*/}
-              <button type="submit"> Back</button>
-            </form>
+            <input
+              className="button"
+              type="result"
+              value="Submit"
+              onClick={e => this.onClickSubmit(e)}
+            />
+            {/*.bind(this) 
+             <button onClick={BrowserHistory.goBack}>Go Back</button>
+              <button type="submit"> Back</button> </form> */}
           </div>
           <div className="cityInfo">
             <ol>
@@ -78,7 +84,11 @@ class Result extends React.Component {
       );
     }
   }
+  onClickSubmit(e) {
+    this.setState({ submit: true });
+  }
 }
+
 /*
 React.render((
     <Router history={BrowserHistory}>
