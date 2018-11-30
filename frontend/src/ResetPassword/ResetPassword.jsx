@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import "../Login/Login.css";
 import AuthService from "../AuthService/AuthService";
 
+/*
+Author: Eunice Hew
+Reset password on login screen
+*/
+
 class ResetPassword extends Component {
   constructor(props) {
     super(props);
@@ -92,7 +97,7 @@ class ResetPassword extends Component {
 
   submit(e) {
     e.preventDefault();
-    this.Auth.login(this.state.email, this.state.password) // change
+    this.Auth.login(this.state.email, this.state.password) // change?
       .then(res => {
         this.props.history.replace("/Login");
       })

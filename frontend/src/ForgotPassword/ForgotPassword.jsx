@@ -1,6 +1,10 @@
 import React, { Component } from "react";
-// import axios from "axios";
 import AuthService from "../AuthService/AuthService";
+
+/*
+Author: Eunice Hew
+Forgot password on login screen
+*/
 
 class ForgotPassword extends Component {
   constructor(props) {
@@ -57,21 +61,6 @@ class ForgotPassword extends Component {
         this.setState({ hasError: true });
       });
   }
-  /*submit(e) {
-    e.preventDefault();
-    axios
-      .post("/sendForgetPasswordEmail", {
-        email: this.state.email
-      })
-      .then(res => {
-        localStorage.setItem("cool-jwt", res.data);
-        console.log(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-        this.setState({ hasError: true });
-      });
-  }*/
 }
 
 export default ForgotPassword;

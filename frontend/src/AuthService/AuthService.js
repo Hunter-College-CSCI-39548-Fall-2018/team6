@@ -1,9 +1,14 @@
 import decode from "jwt-decode";
+
+/*
+Author: Eunice Hew
+Authentication for login, registration, forget password
+*/
+
 export default class AuthService {
-  // Initializing important variables
   constructor(domain) {
     this.domain = domain || "http://localhost:8080"; // API server domain
-    this.fetch = this.fetch.bind(this); // React binding stuff
+    this.fetch = this.fetch.bind(this);
     this.login = this.login.bind(this);
     this.getProfile = this.getProfile.bind(this);
   }
@@ -29,14 +34,14 @@ export default class AuthService {
         email
       })
     }).then(res => {
-      this.setToken(res.token); // Setting the token in localStorage
+      this.setToken(res.token);
       return Promise.resolve(res);
     });
   }
 
   loggedIn() {
     // Checks if there is a saved token and it's still valid
-    const token = this.getToken(); // GEtting token from localstorage
+    const token = this.getToken(); // Getting token from localstorage
     return !!token && !this.isTokenExpired(token); // handwaiving here
   }
 
@@ -44,7 +49,7 @@ export default class AuthService {
     try {
       const decoded = decode(token);
       if (decoded.exp < Date.now() / 1000) {
-        // Checking if token is expired. N
+        // Checking if token is expired.
         return true;
       } else return false;
     } catch (err) {
