@@ -21,10 +21,10 @@ public class LoadSQL {
         loadCSV(csvRoot + "Airport_Codes.csv", "Airport_Codes");
         loadCSV(csvRoot + "Airport_Passengers.csv", "Airport_Passengers");
         loadCSV(csvRoot + "Airport_Traffic.csv", "Airport_Traffic");
-        loadCSV(csvRoot + "City_Populations.csv", "Airport_Traffic");
+        loadCSV(csvRoot + "City_Populations.csv", "City_Populations");
         loadCSV(csvRoot + "Climate.csv", "Climate");
         loadCSV(csvRoot + "Cost_Indexes.csv", "Cost_Indexes");
-        loadCSV(csvRoot + "Fares.csv", "Fares");
+//        loadCSV(csvRoot + "Fares_Matrix.csv", "Fares");
         loadCSV(csvRoot + "States.csv", "States");
     }
 

@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS Airport_Traffic(
   rank int,
-  airport_name varchar(32),
+  airport_name varchar(64),
   airport_code varchar(3),
   city_name varchar(64),
   state_code varchar(2),

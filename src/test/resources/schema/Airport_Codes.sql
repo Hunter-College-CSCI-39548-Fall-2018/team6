@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS Airport_Codes(
-    State_Name VARCHAR(64),
-    City_Name VARCHAR(64),
-    Airport_Code VARCHAR(64),
-    Airport_Name VARCHAR(64)
+    state_name VARCHAR(64),
+    city_name VARCHAR(64),
+    airport_code VARCHAR(64),
+    airport_name VARCHAR(64)
 );
