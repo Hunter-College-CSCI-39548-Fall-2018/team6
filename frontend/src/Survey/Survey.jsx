@@ -1,19 +1,14 @@
 import React, { Component } from "react";
-import {
-  FormGroup,
-  /* ControlLabel,
-  FormControl,
-  HelpBlock,*/
-  Checkbox,
-  Radio,
-  Grid,
-  Row,
-  Col
-} from "react-bootstrap";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { FormGroup, Checkbox, Radio, Grid, Row, Col } from "react-bootstrap";
+import moment from "moment";
+import DayPickerInput from "react-day-picker/DayPickerInput";
+import "react-day-picker/lib/style.css";
+import { formatDate, parseDate } from "react-day-picker/moment";
+import "rc-slider/assets/index.css";
+import Slider from "rc-slider";
+
 import "./Survey.css";
-// import ResultList from "../ResultList/ResultList";
+import ResultList from "../ResultList/ResultList";
 
 /*
 Author: Eunice Hew
@@ -25,22 +20,32 @@ class Survey extends Component {
 
   constructor(props, context) {
     super(props, context);
-
     this.state = {
       submit: false,
-      startDate: new Date(),
-      endDate: new Date(),
+      from: undefined,
+      to: undefined,
+      origin: "",
       distance: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.submit = this.submit.bind(this);
+    this.handleFromChange = this.handleFromChange.bind(this);
+    this.handleToChange = this.handleToChange.bind(this);
   }
 
   render() {
+    const marks = {
+      0: <strong>0</strong>,
+      100: <strong>100</strong>
+    };
+    const today = new Date();
+    const { from, to } = this.state;
+    const modifiers = { start: from, end: to };
+
     let modal;
     if (this.state.submit) {
-      // modal = <ResultList />;
+      modal = <ResultList />;
     }
     return (
       <Grid>
@@ -49,20 +54,67 @@ class Survey extends Component {
             <h1 className="head">Travel Survey</h1>
             <form className="survey">
               <div className="column left">
-                <p>What date range would you like travel?</p>
-                Depart:{" "}
-                <DatePicker
-                  name="startDate"
-                  selected={this.state.startDate}
-                  onChange={e => this.handleStartChange(e)}
-                />{" "}
-                <br /> <br />
-                Return:{" "}
-                <DatePicker
-                  name="endDate"
-                  selected={this.state.endDate}
-                  onChange={e => this.handleEndChange(e)}
-                />{" "}
+                <FormGroup>
+                  <p>
+                    What date range would you like travel (up to three months)?
+                  </p>{" "}
+                  <div className="InputFromTo">
+                    <DayPickerInput
+                      value={from}
+                      placeholder="From"
+                      format="LL"
+                      formatDate={formatDate}
+                      parseDate={parseDate}
+                      dayPickerProps={{
+                        selectedDays: [from, { from, to }],
+                        disabledDays: {
+                          before: today,
+                          after: to
+                        },
+                        toMonth: to,
+                        modifiers,
+                        numberOfMonths: 1
+                        // onDayClick: () => this.to.getInput().focus()
+                      }}
+                      onDayChange={this.handleFromChange}
+                    />{" "}
+                    —{" "}
+                    <span className="InputFromTo-to">
+                      <DayPickerInput
+                        ref={el => (this.to = el)}
+                        value={to}
+                        placeholder="To"
+                        format="LL"
+                        formatDate={formatDate}
+                        parseDate={parseDate}
+                        dayPickerProps={{
+                          selectedDays: [from, { from, to }],
+                          disabledDays: {
+                            before: from,
+                            before: today,
+                            after: moment().add(3, "months")
+                          },
+                          modifiers,
+                          month: from,
+                          fromMonth: from,
+                          numberOfMonths: 1
+                        }}
+                        onDayChange={this.handleToChange}
+                      />
+                    </span>
+                  </div>
+                </FormGroup>
+                <FormGroup>
+                  <div className="slider">
+                    <p>Slider with marks</p>
+                    <Slider
+                      min={0}
+                      marks={marks}
+                      included={false}
+                      defaultValue={50}
+                    />
+                  </div>{" "}
+                </FormGroup>
                 <FormGroup>
                   <p>What distance would you like to travel?</p>
                   <Checkbox inline>1</Checkbox> <Checkbox inline>2</Checkbox>
@@ -156,21 +208,29 @@ class Survey extends Component {
     );
   }
 
+  showFromMonth() {
+    const { from, to } = this.state;
+    if (!from) {
+      return;
+    }
+    if (moment(to).diff(moment(from), "months") < 2) {
+      this.to.getDayPicker().showMonth(from);
+    }
+  }
+  handleFromChange(from) {
+    // Change the from date and focus the "to" input field
+    this.setState({ from });
+  }
+  handleToChange(to) {
+    this.setState({ to }, this.showFromMonth);
+  }
+
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
-  handleStartChange(date) {
-    this.setState({
-      startDate: date
-    });
-  }
-  handleEndChange(date) {
-    this.setState({
-      endDate: date
-    });
-  }
+
   onClickSubmit(e) {
     this.setState({ submit: true });
   }
