@@ -21,6 +21,12 @@ class Result extends React.Component {
       submit: false,
       items: [],
       isLoaded: false
+      /*
+      cost: undefined,
+      temparature:undefined,
+      attractions:undefined
+
+      */
     };
     // this.submit = this.submit.bind(this);
   }
@@ -31,9 +37,12 @@ class Result extends React.Component {
     ) //url of api
       .then(res => res.json()) //convert result into json
       .then(json => {
+        // if(city){
         this.setState({
           isLoaded: true,
           items: json //getting data from api into state items
+          //temperature:data.main.temperature
+          //...
         });
       });
     //.catch(error=>console.log('parsing failed',error))
@@ -47,6 +56,11 @@ class Result extends React.Component {
       return (
         <div className="main">
           <div className="back_button">
+            <form onClickSubmit={this.handleSubmit}>
+              {/*.bind(this) */}
+              <button type="submit">Back</button>
+            </form>
+            {/*
             <input
               className="button"
               type="result"

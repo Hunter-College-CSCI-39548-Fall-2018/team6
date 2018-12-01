@@ -28,8 +28,12 @@ class TravelNav extends Component {
             ResultList
             </NavItem>
            */}
-            <NavItem eventKey={3} href="/Result" />
-            Result
+            <NavItem eventKey={4} href="/ResultList">
+              ResultList
+            </NavItem>
+            <NavItem eventKey={5} href="/Result">
+              Result
+            </NavItem>
           </Nav>
           <Nav pullRight>
             <NavItem

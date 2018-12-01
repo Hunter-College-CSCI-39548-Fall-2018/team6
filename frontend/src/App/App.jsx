@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import TravelNav from "../TravelNav/TravelNav";
 import Survey from "../Survey/Survey";
-// import ResultList from "../ResultList/ResultList";
+import ResultList from "../ResultList/ResultList";
 import ResetPassword from "../ResetPassword/ResetPassword";
 // import History from "../History/History";
 import Result from "../Result/Result";
@@ -21,11 +21,11 @@ class App extends Component {
         <TravelNav />
         <Switch>
           {" "}
-          {<Route path="/Result" component={Result} />}
+          <Route path="/Result" component={Result} />
           {/* <Route path="/History" component={History} /> */}
           <Route path="/Reset" component={ResetPassword} />
           <Route path="/Survey" component={Survey} />
-          {/* <Route path="/ResultList" component={ResultList} /> */}
+          <Route path="/ResultList" component={ResultList} />
         </Switch>{" "}
       </div>
     );
