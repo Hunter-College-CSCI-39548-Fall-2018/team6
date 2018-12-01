@@ -1,0 +1,82 @@
+.SurveyBg {
+  /*background-image: url(https://www.usnews.com/dims4/USNEWS/00c1950/2147483647/thumbnail/1280x600/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F75%2F12%2Fffeae8ba43178a74e182979bf167%2F150305-airplanevacation-stock.jpg);
+  background-position: center;
+  background-color: rgba(243, 100, 43, 0.918);
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  table-layout: auto;*/
+  background-color: rgb(198, 241, 248);
+}
+.survey-body {
+  /* padding-top: 100px; */
+  border: solid black 1px;
+  box-shadow: 0px 0px 5px 5px hsl(240, 1%, 55%);
+  /* margin: auto;
+  margin-top: 2%;
+  height: 550px;
+  width: 1400px;
+  max-height: 1500px;
+  max-width: 1800px; */
+  border-radius: 25px;
+}
+.head {
+  text-align: center;
+}
+.survey {
+  text-align: left;
+  display: flex;
+  padding-left: 50px;
+  /* padding-right: 200px; */
+}
+
+/* input {
+  height: 15px;
+  border-radius: 5px;
+  font-size: 10px;
+  padding-left: 5px;
+} */
+
+.row:after {
+  clear: both;
+  content: "";
+}
+.column {
+  float: left;
+}
+.column.left,
+.column.right {
+  padding: 10px;
+  width: 50%;
+}
+.survey-button {
+  text-align: center;
+  padding-top: 30px;
+}
+/* .button {
+  background-color: rgb(100, 170, 236);
+  color: white;
+  width: 150px;
+  padding: 5x;
+} */
+.radio-inline {
+  padding-left: 0px;
+}
+.pics {
+  text-align: left;
+  display: inline-flex;
+}
+/* .pics:after {
+  clear: both;
+  content: "";
+} */
+.Pikachu {
+  margin-right: 25px !important;
+  width: 60%;
+  height: auto;
+}
+
+.Mod {
+  text-align: center;
+  padding-top: -50px;
+}

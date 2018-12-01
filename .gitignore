@@ -1,0 +1,23 @@
+target/
+.idea/
+*.iml
+mysql.properties
+application.properties
+
+# Front End Packages
+node_modules
+
+# Back End Packages
+*.jar
+*.war
+*.ear
+server/target
+
+# IntelliJ & Webstorm
+.idea
+
+# Mac OS X
+*.DS_Store
+
+# Logs
+*.log

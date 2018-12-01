@@ -1,0 +1,61 @@
+Rank(2017),Airports (large hubs),IATACode,Major city served,State,2017[3],2016[4],2015[5],2014[6]
+1,Hartsfield–Jackson Atlanta International Airport,ATL,Atlanta,GA,50251962,50501858,49340732,46604273
+2,Los Angeles International Airport,LAX,Los Angeles,CA,41232416,39636042,36351226,34314197
+3,O'Hare International Airport,ORD,Chicago,IL,38593028,37589899,36305668,33686811
+4,Dallas/Fort Worth International Airport,DFW,Dallas/Fort Worth,TX,31861933,31283579,31589832,30766940
+5,Denver International Airport,DEN,Denver,CO,29809091,28267394,26280043,26000591
+6,John F. Kennedy International Airport,JFK,New York,NY,29533154,29239151,27782369,26244928
+7,San Francisco International Airport,SFO,San Francisco,CA,26900016,25707101,24190549,22756008
+8,McCarran International Airport,LAS,Las Vegas,NV,23364185,22833267,21824231,20551016
+9,Seattle–Tacoma International Airport,SEA,Seattle/Tacoma,WA,22639120,21887110,21231781,18781489
+10,Charlotte Douglas International Airport,CLT,Charlotte,NC,22011225,21511880,21913166,21542277
+11,Newark Liberty International Airport,EWR,Newark/New Jersey,NJ,21571194,19923009,18684818,17680826
+12,Orlando International Airport,MCO,Orlando,FL,21565444,20283541,18759938,17278608
+13,Phoenix Sky Harbor International Airport,PHX,Phoenix,AZ,21185440,20896265,21351445,20344867
+14,Miami International Airport,MIA,Miami,FL,20709205,20875813,20986341,19468523
+15,George Bush Intercontinental Airport,IAH,Houston,TX,19603729,20062072,20595874,19772054
+16,Logan International Airport,BOS,Boston,MA,19145096,17749202,16290362,15425869
+17,Minneapolis–Saint Paul International Airport,MSP,Minneapolis/St. Paul,MN,19002544,18123844,17634252,16972678
+18,Detroit Metropolitan Airport,DTW,Detroit,MI,17325600,16826287,16255520,15775941
+19,Fort Lauderdale–Hollywood International Airport,FLL,Fort Lauderdale,FL,16216686,14263270,13061607,11987607
+20,Philadelphia International Airport,PHL,Philadelphia,PA,14760585,14564419,15101318,14747112
+21,LaGuardia Airport,LGA,New York,NY,14737834,14706123,14762593,13415797
+22,Baltimore–Washington International Airport,BWI,"Washington D.C.",MD,13214185,12340972,11738828,11022200
+23,Salt Lake City International Airport,SLC,Salt Lake City,UT,12098835,11143738,10634519,10139065
+24,Ronald Reagan Washington National Airport,DCA,"Washington D.C.",VA,11966354,11470854,11242375,10057794
+25,Washington Dulles International Airport,IAD,"Washington D.C.",VA,11407107,10596942,10363918,10415948
+26,San Diego International Airport,SAN,San Diego,CA,11107078,10340164,9985739,9333152
+27,Midway International Airport,MDW,Chicago,IL,10911970,11044353,11044387,10318311
+28,Tampa International Airport,TPA,Tampa,FL,9830583,9194994,9150414,8531561
+29,Daniel K. Inouye International Airport,HNL,Honolulu,HI,9743989,9656340,9656340,9463000
+30,Portland International Airport,PDX,Portland,OR,9538472,9071154,8340234,7878760
+31,Dallas Love Field,DAL,Dallas,TX,7876769,7554596,7040921,4522341
+32,St. Louis Lambert International Airport,STL,St. Louis,MO,7372805,6793076,6239231,6108758
+33,Nashville International Airport,BNA,Nashville,TN,7015119,6338517,5708852,5396958
+34,Austin-Bergstrom International Airport,AUS,Austin,TX,6973115,6095545,5797547,5219982
+35,William P. Hobby Airport,HOU,Houston,TX,6741870,6285181,5937944,5800726
+36,Oakland International Airport,OAK,Oakland,CA,6530308,5934639,5506672,5069257
+37,Norman Y. Mineta San José International Airport,SJC,San Jose,CA,6225148,5321603,4885690,4621003
+38,Louis Armstrong New Orleans International Airport,MSY,New Orleans,LA,6005527,5569705,5329696,4870569
+39,Raleigh-Durham International Airport,RDU,Raleigh/Durham,NC,5851004,5401714,4954717,4673869
+40,Kansas City International Airport,MCI,Kansas City,MO,5744918,5391557,5135127,4982722
+41,Sacramento International Airport,SMF,Sacramento,CA,5460526,4969366,4816440,4384616
+42,John Wayne Airport,SNA,Santa Ana,CA,5195047,5217242,4945175,4584147
+43,Cleveland Hopkins International Airport,CLE,Cleveland,OH,4562740,4205739,4083476,3686315
+44,San Antonio International Airport,SAT,San Antonio,TX,4521611,4179994,4091389,4046856
+45,Southwest Florida International Airport,RSW,Fort Myers,FL,4461304,4277214,4159212,3942387
+46,Indianapolis International Airport,IND,Indianapolis,IN,4376432,4216766,3889567,3605908
+47,Pittsburgh International Airport,PIT,Pittsburgh,PA,4327431,3986114,3890677,3827860
+48,Luis Muñoz Marín International Airport,SJU,San Juan,PR,4163587,4343354,4218785,4150828
+49,Northern Kentucky International Airport,CVG,Covington,KY,3926158,3269979,3036697,2874684
+50,John Glenn Columbus International Airport,CMH,Columbus,OH,3765007,3567864,3312496,3115501
+51,Kahului Airport,OGG,Kahului,HI,3442189,3352813,3220753,3019338
+52,Bradley International Airport,BDL,Hartford,CT,3214976,2982194,2926047,2913380
+53,Palm Beach International Airport,PBI,West Palm Beach,FL,3166532,3100624,3113485,2926242
+54,General Mitchell International Airport,MKE,Milwaukee,WI,3121910,3327536,3229876,3228607
+55,Jacksonville International Airport,JAX,Jacksonville,FL,2759067,2729129,2716465,2589198
+56,Ted Stevens Anchorage International Airport,ANC,Anchorage,AK,2556188,2563524,2525876,2381826
+57,Albuquerque International Sunport,ABQ,Albuquerque,NM,2483861,2341719,2323850,2354184
+58,Hollywood Burbank Airport,BUR,Burbank,CA,2365361,2104625,1972531,1931948
+59,Buffalo Niagara International Airport,BUF,Buffalo,NY,2348463,2313724,2331545,2378469
+60,Eppley Airfield,OMA,Omaha,NE,2303223,2127387,2046155,2020354
