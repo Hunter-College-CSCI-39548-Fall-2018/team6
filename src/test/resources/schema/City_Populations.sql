@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS Top_Cities (
+CREATE TABLE IF NOT EXISTS City_Populations (
     rank int,
     city_name VARCHAR(40),
     state VARCHAR(40),
