@@ -11,23 +11,32 @@ import java.util.List;
 public class LoadSQL {
     public static void main(String... args) {
         // removes tables
-        initializeTables("src/test/resources/clean/");
+        runSqlQueries("src/test/resources/Drop_Tables/");
 
         // creates tables
-        initializeTables("src/test/resources/schema/");
+        runSqlQueries("src/test/resources/tables/");
 
-        loadCSV("DATA/csv/US-Airport_Codes.csv", "Airports");
-        loadCSV("DATA/csv/US-Cities-Cost-Index.csv", "Cost_Indexes");
-        loadCSV("DATA/csv/US-Cities.csv", "Top_Cities");
-        loadCSV("DATA/csv/States.csv", "States");
-        loadCSV("DATA/csv/Climate_Clean.csv", "Climate");
-        loadCSV("DATA/csv/Fares_Clean.csv", "Fares");
+        String csvRoot = "DATA/csv/";
+
+        loadCSV(csvRoot + "Airport_Codes.csv", "Airport_Codes");
+        loadCSV(csvRoot + "Airport_Passengers.csv", "Airport_Passengers");
+        loadCSV(csvRoot + "City_Populations.csv", "City_Populations");
+        loadCSV(csvRoot + "Climate.csv", "Climate");
+        loadCSV(csvRoot + "Cost_Indexes.csv", "Cost_Indexes");
+        loadCSV(csvRoot + "Fares.csv", "Fares");
+        loadCSV(csvRoot + "States.csv", "States");
+
+        // drops indexed_tables
+        runSqlQueries("src/test/resources/Drop_Indexed_Tables/");
+
+        // creates indexed_tables
+        runSqlQueries("src/test/resources/indexed_tables/");
     }
 
-    private static void initializeTables(String schemaPath) {
+    private static void runSqlQueries(String schemaPath) {
         Setup setup = new Setup();
         Connection connection = getSQLConnection(setup);
-        for (String sql : getTableSchemas(schemaPath)) {
+        for (String sql : getSqlFiles(schemaPath)) {
             try {
                 System.out.println("sql = " + sql);
                 connection.setAutoCommit(false);
@@ -43,7 +52,36 @@ public class LoadSQL {
             System.err.println("Closing MySQL connection.");
             connection.close();
         } catch (NullPointerException | SQLException e) {
-            System.err.println("Could not close SQL Connection.");
+            System.err.println("Could not close SQL connection.");
+        }
+    }
+
+
+    private static void runSql(String filePath) {
+        Setup setup = new Setup();
+        Connection connection = getSQLConnection(setup);
+        String sql = "";
+        try {
+            StringBuilder sb = new StringBuilder();
+            BufferedReader br = new BufferedReader(new FileReader(filePath));
+            while (br.ready()) {
+                sb.append(br.readLine());
+            }
+            sql = sb.toString();
+        } catch (IOException e) {
+            System.err.println("Error opening file at " + filePath);
+            e.printStackTrace();
+        }
+
+        try {
+            System.out.println("sql = " + sql);
+            connection.setAutoCommit(false);
+            Statement stmt = connection.createStatement();
+            stmt.execute(sql);
+            connection.commit();
+        } catch (NullPointerException | SQLException e) {
+            System.err.println("Could not execute SQL!");
+            e.printStackTrace();
         }
     }
 
@@ -117,7 +155,7 @@ public class LoadSQL {
         return null;
     }
 
-    private static List<String> getTableSchemas(String schemaPath) {
+    private static List<String> getSqlFiles(String schemaPath) {
         List<String> sqlArray = new ArrayList<>();
         for (final File fileEntry : new File(schemaPath).listFiles()) {
             try {
