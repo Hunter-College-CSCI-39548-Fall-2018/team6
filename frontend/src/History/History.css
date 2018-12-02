@@ -1,0 +1,11 @@
+.History {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.HistoryResult {
+  background-color: rgb(235, 237, 238);
+}
+.HistoryResult:hover {
+  opacity: 0.9;
+}
