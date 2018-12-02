@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -39,12 +40,13 @@ public class User extends DateAudit {
     private Set<Role> roles = new HashSet<>();
 
     public User() {
-
     }
 
     public User(String email, String password) {
         this.email = email;
         this.password = password;
+        this.setUpdatedAt(Instant.now());
+        this.setCreatedAt(Instant.now());
     }
 
     public Long getId() {
