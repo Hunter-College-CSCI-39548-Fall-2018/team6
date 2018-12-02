@@ -12,15 +12,17 @@ class Result extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      state: "NY",
-      city: "Elm",
-      population: "pop 10000",
-      price: "$$",
-      climate: "Warm",
-      attractions: "No attractions",
-      events: "No events",
-      resturants: "No food",
-      bars: "No bars"
+      results: this.props.extResults
+      // id: "1",
+      // state: "NY",
+      // city: "Elm",
+      // population: "pop 10000",
+      // price: "$$",
+      // climate: "Warm",
+      // attractions: "No attractions",
+      // events: "No events",
+      // resturants: "No food",
+      // bars: "No bars"
     };
   }
   render() {
@@ -36,19 +38,20 @@ class Result extends Component {
           <Media.Heading>Pikachu</Media.Heading>
           <Media.Left align="middle">
             <p>
-              State: {this.state.state} <br />
-              City: {this.state.city} <br />
-              Population: {this.state.population} <br />
-              Price: {this.state.price} <br />
-              Climate: {this.state.climate} <br />
+              ID: {this.state.results.id} <br />
+              State: {this.state.results.state} <br />
+              City: {this.state.results.city} <br />
+              Population: {this.state.results.population} <br />
+              Price: {this.state.results.price} <br />
+              Climate: {this.state.results.climate} <br />
             </p>
           </Media.Left>
           <Media.Left align="middle">
             <p>
-              Attractions: {this.state.attractions} <br />
-              Events: {this.state.events} <br />
-              Resturants: {this.state.resturants} <br />
-              Bars: {this.state.bars} <br />
+              Attractions: {this.state.results.attractions} <br />
+              Events: {this.state.results.events} <br />
+              Resturants: {this.state.results.resturants} <br />
+              Bars: {this.state.results.bars} <br />
             </p>
           </Media.Left>
         </Media.Body>

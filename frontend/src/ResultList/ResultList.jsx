@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./ResultList.css";
 import RenderResult from "./RenderResult";
 import { Button, Modal, ListGroup } from "react-bootstrap";
+import axios from "axios";
 // import { Redirect, Link } from "react-router-dom";
 // import { withRouter } from "react-router-dom";
 
@@ -15,9 +16,37 @@ class ResultList extends Component {
     super(props, context);
 
     this.handleShow = this.handleShow.bind(this);
+    this.getResultsFromTimestamp = this.getResultsFromTimestamp.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.state = {
-      show: false
+      show: false,
+      timestamp: this.props.ts,
+      results: [
+        {
+          id: "1",
+          state: "Fallon",
+          city: "Corkish",
+          population: "fcorkish0@uol.com.br",
+          price: "Female",
+          climate: "143.156.211.217"
+        },
+        {
+          id: 2,
+          state: "Stan",
+          city: "Probin",
+          population: "sprobin1@jiathis.com",
+          price: "Male",
+          climate: "115.255.246.218"
+        },
+        {
+          id: 3,
+          state: "NOT PIKACHU",
+          city: "Paeckmeyer",
+          population: "apaeckmeyer2@nature.com",
+          price: "Female",
+          climate: "12.240.105.10"
+        }
+      ]
       // clicked: false
     };
   }
@@ -39,9 +68,9 @@ class ResultList extends Component {
             <Modal.Title>Travel Survey Results</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h3>List of destinations</h3>
+            <h3>List of destinations </h3>
             <ListGroup className="List">
-              <RenderResult />
+              <RenderResult jsonResults={this.state.results} />
             </ListGroup>
           </Modal.Body>
           <Modal.Footer>
@@ -51,7 +80,19 @@ class ResultList extends Component {
       </div>
     );
   }
-
+  getResultsFromTimestamp() {
+    return axios
+      .post("/getHistoryFromTimestamp", {
+        timestamp: this.state.timestamp
+      })
+      .then(function(response) {
+        console.log(response);
+        // this.setState({ results: response.data });
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
   exitFunc() {
     // e.preventDefault();
     console.log("Redirect?");
@@ -65,6 +106,7 @@ class ResultList extends Component {
   }
 
   handleShow() {
+    this.getResultsFromTimestamp();
     this.setState({ show: true });
     // this.setState.clicked = true;
   }
