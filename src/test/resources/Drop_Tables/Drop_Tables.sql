@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS Airport_Codes;
+DROP TABLE IF EXISTS Airport_Passengers;
+DROP TABLE IF EXISTS Airport_Traffic;
+DROP TABLE IF EXISTS City_Populations;
+DROP TABLE IF EXISTS Climate;
+DROP TABLE IF EXISTS Cost_Indexes;
+DROP TABLE IF EXISTS States;

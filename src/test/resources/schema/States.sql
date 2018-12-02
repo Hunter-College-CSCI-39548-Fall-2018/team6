@@ -1,4 +1,0 @@
-CREATE TABLE IF NOT EXISTS States (
-    state VARCHAR(32) NOT NULL,
-    abb VARCHAR(2) NOT NULL
-);

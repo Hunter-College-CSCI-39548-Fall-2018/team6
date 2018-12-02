@@ -79,9 +79,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.svg",
                         "/**/*.html",
                         "/**/*.css",
-                        "/**/*.js"
+                        "/**/*.js",
+                        "/**/*.chunk.css",
+                        "/**/*.chunk.js",
+                        "/**/static/**"
                         )
                         .permitAll()
+                .antMatchers("/login", "/Survey", "/survey", "/History", "history", "/results/**", "/city/**")
+                    .permitAll()
                 .antMatchers("/v1/auth/**")
                     .permitAll()
                 .anyRequest()
