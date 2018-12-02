@@ -21,7 +21,7 @@ class App extends Component {
         <TravelNav />
         <Switch>
           {" "}
-          <Route path="/Result" component={Result} />
+          <Route path="/Result/:id" component={Result} />
           <Route path="/History" component={History} />
           <Route path="/Reset" component={ResetPassword} />
           <Route path="/Survey" component={Survey} />

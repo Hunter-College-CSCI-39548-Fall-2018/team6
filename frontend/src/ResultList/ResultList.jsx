@@ -3,8 +3,6 @@ import "./ResultList.css";
 import RenderResult from "./RenderResult";
 import { Button, Modal, ListGroup } from "react-bootstrap";
 import axios from "axios";
-// import { Redirect, Link } from "react-router-dom";
-// import { withRouter } from "react-router-dom";
 
 /*
 Author: Eunice Hew
@@ -23,6 +21,7 @@ class ResultList extends Component {
       timestamp: this.props.ts,
       results: [
         {
+          imageUrl: "https://picsum.photos/200",
           id: "1",
           state: "Fallon",
           city: "Corkish",
@@ -31,6 +30,7 @@ class ResultList extends Component {
           climate: "143.156.211.217"
         },
         {
+          imageUrl: "https://picsum.photos/200/300/?random",
           id: 2,
           state: "Stan",
           city: "Probin",
@@ -39,6 +39,8 @@ class ResultList extends Component {
           climate: "115.255.246.218"
         },
         {
+          imageUrl:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpRxn30r2ij1733AKJkUKK20YnSiWN-XjZFEeNvR8TQbpRAkjtjw",
           id: 3,
           state: "NOT PIKACHU",
           city: "Paeckmeyer",
@@ -47,13 +49,9 @@ class ResultList extends Component {
           climate: "12.240.105.10"
         }
       ]
-      // clicked: false
     };
   }
   render() {
-    // if (this.state.clicked && !this.state.show) {
-    //   return <Link to="/login" />;
-    // }
     return (
       <div className="Result-list">
         <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
@@ -68,7 +66,6 @@ class ResultList extends Component {
             <Modal.Title>Travel Survey Results</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h3>List of destinations </h3>
             <ListGroup className="List">
               <RenderResult jsonResults={this.state.results} />
             </ListGroup>
@@ -94,7 +91,6 @@ class ResultList extends Component {
       });
   }
   exitFunc() {
-    // e.preventDefault();
     console.log("Redirect?");
     // this.props.history.push("/History");
     // return <Redirect push to="/History" />;
@@ -108,7 +104,6 @@ class ResultList extends Component {
   handleShow() {
     this.getResultsFromTimestamp();
     this.setState({ show: true });
-    // this.setState.clicked = true;
   }
   componentWillMount = () => {
     document.body.classList.add("SurveyBg");

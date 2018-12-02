@@ -33,7 +33,7 @@ class History extends Component {
     const historyList = [];
     for (let i = 0; i < this.state.timestamp.length; i++) {
       historyList.push(
-        <Col xs={8} md={8}>
+        <Col xs={8} md={8} key={this.state.timestamp[i]}>
           <ListGroupItem className="HistoryResult">
             Timestamp: {this.state.timestamp[i]} <br />
             <ResultList ts={this.state.timestamp[i]} />

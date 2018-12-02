@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./ResultList.css";
 import { ListGroupItem, Media } from "react-bootstrap";
 import Result from "../Result/Result";
-// import { Link } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 /*
@@ -15,20 +15,21 @@ class RenderResult extends Component {
     super(props, context);
     this.state = {
       results: this.props.jsonResults,
-      ext: [
-        {
-          id: "1",
-          state: "NY",
-          city: "Elm",
-          population: "pop 10000",
-          price: "$$",
-          climate: "Warm",
-          attractions: "No attractions",
-          events: "No events",
-          resturants: "No food",
-          bars: "No bars"
-        }
-      ]
+      extId: "",
+      ext: {
+        imageUrl: "https://picsum.photos/200/300/?random",
+        id: "1",
+        state: "NY",
+        city: "Elm",
+        population: "pop 10000",
+        price: "$$",
+        climate: "Warm",
+        attractions: "No attractions",
+        events: "No events",
+        resturants: "No food",
+        bars: "No bars"
+      },
+      redirect: false
     };
     this.getExtendedResults = this.getExtendedResults.bind(this);
     this.loadResult = this.loadResult.bind(this);
@@ -37,19 +38,25 @@ class RenderResult extends Component {
     return <div>{this.forLoopResults()}</div>;
   }
   forLoopResults() {
-    const resultList = [];
+    const resultList = [<h3>List of destinations </h3>];
+    if (this.state.redirect) {
+      return <Result extResults={this.state.ext} />;
+    }
     for (let i = 0; i < this.state.results.length; i++) {
       resultList.push(
-        <ListGroupItem className="Result" onClick={this.loadResult}>
+        <ListGroupItem
+          className="Result"
+          key={this.state.results[i].id}
+          onClick={this.loadResult.bind(this, i)}
+        >
           <Media>
             <Media.Left align="middle">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpRxn30r2ij1733AKJkUKK20YnSiWN-XjZFEeNvR8TQbpRAkjtjw"
-                alt="Pikachu"
-              />
+              <img src={this.state.results[i].imageUrl} alt="Pikachu" />
             </Media.Left>
             <Media.Body>
-              <Media.Heading>Pikachu</Media.Heading>
+              <Media.Heading>
+                {this.state.results[i].city}, {this.state.results[i].state}
+              </Media.Heading>
               <p>
                 Result #: {this.state.results[i].id} <br />
                 State: {this.state.results[i].state} <br />
@@ -66,10 +73,11 @@ class RenderResult extends Component {
     return resultList;
   }
 
-  getExtendedResults() {
+  getExtendedResults(id) {
+    console.log("Are we getting this id::: ", id);
     return axios
       .post("/getExtendedResults", {
-        id: this.state.id
+        id
       })
       .then(function(response) {
         console.log(response);
@@ -80,9 +88,20 @@ class RenderResult extends Component {
       });
   }
 
-  loadResult() {
-    this.getExtendedResults();
-    return <Result extResults={this.state.ext} />;
+  loadResult(id) {
+    this.getExtendedResults(id);
+    console.log("We in here babe");
+    this.setState({
+      ext: {
+        ...this.state.ext,
+        id: this.state.results[id].id,
+        state: this.state.results[id].state,
+        city: this.state.results[id].city,
+        population: "pop 10000"
+      },
+      redirect: true
+    });
+    // return <Redirect to="/Result" extResults={this.state.ext} />;
   }
 
   componentWillMount = () => {
