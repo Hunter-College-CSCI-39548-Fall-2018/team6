@@ -12,15 +12,7 @@ class Result extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      state: "NY",
-      city: "Elm",
-      population: "pop 10000",
-      price: "$$",
-      climate: "Warm",
-      attractions: "No attractions",
-      events: "No events",
-      resturants: "No food",
-      bars: "No bars"
+      result: this.props.extResults
     };
   }
   render() {
@@ -28,27 +20,31 @@ class Result extends Component {
       <Media className="Result" style={{ marginLeft: "5%" }}>
         <Media.Left align="middle">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpRxn30r2ij1733AKJkUKK20YnSiWN-XjZFEeNvR8TQbpRAkjtjw"
+            src={this.state.result.imageUrl}
             alt="Pikachu"
+            className="ResultImg"
           />
         </Media.Left>
         <Media.Body>
-          <Media.Heading>Pikachu</Media.Heading>
+          <Media.Heading>
+            {this.state.result.city}, {this.state.result.state}
+          </Media.Heading>
           <Media.Left align="middle">
             <p>
-              State: {this.state.state} <br />
-              City: {this.state.city} <br />
-              Population: {this.state.population} <br />
-              Price: {this.state.price} <br />
-              Climate: {this.state.climate} <br />
+              ID: {this.state.result.id} <br />
+              State: {this.state.result.state} <br />
+              City: {this.state.result.city} <br />
+              Population: {this.state.result.population} <br />
+              Price: {this.state.result.price} <br />
+              Climate: {this.state.result.climate} <br />
             </p>
           </Media.Left>
           <Media.Left align="middle">
             <p>
-              Attractions: {this.state.attractions} <br />
-              Events: {this.state.events} <br />
-              Resturants: {this.state.resturants} <br />
-              Bars: {this.state.bars} <br />
+              Attractions: {this.state.result.attractions} <br />
+              Events: {this.state.result.events} <br />
+              Resturants: {this.state.result.resturants} <br />
+              Bars: {this.state.result.bars} <br />
             </p>
           </Media.Left>
         </Media.Body>
@@ -61,7 +57,7 @@ class Result extends Component {
   };
 
   componentWillUnmount = () => {
-    document.body.classList.remove("SurveyBg");
+    // document.body.classList.remove("SurveyBg");
   };
 }
 export default Result;

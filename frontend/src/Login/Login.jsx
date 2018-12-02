@@ -116,7 +116,7 @@ class Login extends Component {
     e.preventDefault();
     this.Auth.login(this.state.email, this.state.password)
       .then(res => {
-        this.props.history.replace("/Survey");
+        this.props.history.replace("/Home");
       })
       .catch(err => {
         console.log(err);
@@ -126,7 +126,7 @@ class Login extends Component {
 
   componentWillMount = () => {
     if (this.Auth.loggedIn()) {
-      this.props.history.replace("/Survey");
+      this.props.history.replace("/Home");
     }
     document.body.classList.add("LoginBg");
   };
