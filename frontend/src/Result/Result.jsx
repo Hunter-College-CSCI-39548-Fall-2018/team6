@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 //const BrowserHistory = require("react-router/lib/BrowserHistory").default;
 //import { Nav, Navbar, NavItem } from "react-bootstrap";
@@ -20,94 +21,98 @@ class Result extends React.Component {
     this.state = {
       submit: false,
       items: [],
-      isLoaded: false
+      isLoaded: false,
+
+      cityName: "",
+      stateName: "",
+      Weather: [],
+      cost: "",
+      TopBars: [],
+      TopRestaurants: [],
+      NearbyAirports: [],
+      picture: ""
       /*
       cost: undefined,
       temparature:undefined,
       attractions:undefined
-
       */
     };
-    // this.submit = this.submit.bind(this);
+    // this.goBack = this.goBack.bind(this);
   }
   //method runs after render and updates render method
   componentDidMount() {
-    fetch(
-      "https://raw.githubusercontent.com/adrian-stru/travel-filters/master/DATA/json/attractions.json?token=ARfVeQkcPKWc6HCyHfODTXWdxAkqGqebks5cCgdfwA%3D%3D"
-    ) //url of api
-      .then(res => res.json()) //convert result into json
-      .then(json => {
-        // if(city){
-        this.setState({
-          isLoaded: true,
-          items: json //getting data from api into state items
-          //temperature:data.main.temperature
-          //...
+    axios
+      .get(
+        "https://raw.githubusercontent.com/adrian-stru/travel-filters/master/DATA/json/attractions.json?token=ARfVeQkcPKWc6HCyHfODTXWdxAkqGqebks5cCgdfwA%3D%3D"
+      ) //url of api
+      .then(res => {
+        const cityInfo = res.data.map(c => {
+          return {
+            cityName: c.cityName,
+            stateName: c.stateName,
+            Weather: [],
+            cost: c.cost,
+            TopBars: [],
+            TopRestaurants: [],
+            NearbyAirports: [],
+            picture: c.picture
+          };
         });
-      });
-    //.catch(error=>console.log('parsing failed',error))
+        const newState = Object.assign({}, this.state, {
+          cityInf: cityInfo
+        });
+        this.setState(newState);
+      })
+      .catch(error => console.log(error));
   }
   render() {
+    /*
     var { isLoaded, items } = this.state;
 
     if (!isLoaded) {
       return <div>loading..</div>;
     } else {
-      return (
-        <div className="main">
-          <div className="back_button">
-            <form onClickSubmit={this.handleSubmit}>
-              {/*.bind(this) */}
-              <button type="submit">Back</button>
-            </form>
-            {/*
-            <input
-              className="button"
-              type="result"
-              value="Back"
-              onClick={e => this.onClickSubmit(e)}
-            />
-            {/*.bind(this) 
+    */
+    return (
+      <div className="main">
+        <div className="back-button">
+          <button>Back</button>
+        </div>
+        <div className="cityInfo">
+          <h1> Milan Italy </h1>
+          <img
+            src="https://d3dqioy2sca31t.cloudfront.net/Projects/cms/production/000/019/956/large/6f352d7756d5b92c83239c10f9a394e6/italy-milan-galleria-vittorio-emanuel.jpg"
+            alt="new"
+          />
+          <br />
+        </div>
+
+        {/*.bind(this)*} 
              <button onClick={BrowserHistory.goBack}>Go Back</button>
-              <button type="submit"> Back</button> </form> */}
-          </div>
-          <div className="cityInfo">
-            <ol>
-              {/* get the asked city Name */}
+              <button type="submit"> Back</button> </form> *}
+
+            {/* get the asked city Name 
               {items.map(item => (
                 <li key={item.state}>City: {item.city}</li>
-              ))}
-              {/* get city picture */}
-            </ol>
-          </div>
-          <div className="Info" />
-          <h1 className="title-container__title">
-            You searched for a destination that fits this profile:
-          </h1>
-          <h3 className="title-container__subtitle">Historical:</h3>
-          <h3 className="title-container_subtitle">Walkable:</h3>
-          <h3 className="title-container_subtitle">Many attractions:</h3>
+              ))} */}
 
-          <hr />
+        <div className="Info" />
+        <h1 className="title-container__title">
+          You searched for a destination that fits this profile:
+        </h1>
+        <h3 className="title-container__subtitle">Historical:</h3>
+        <h3 className="title-container_subtitle">Walkable:</h3>
+        <h3 className="title-container_subtitle">Many attractions:</h3>
 
-          <h1 className="title-container__title">Info: </h1>
-          <h3 className="title-container__subtitle">Cost:</h3>
-          <h3 className="title-container_subtitle">Weather:</h3>
-          <h3 className="title-container_subtitle">Attractions:</h3>
-        </div>
-      );
-    }
-  }
-  onClickSubmit(e) {
-    this.setState({ submit: true });
+        <hr />
+
+        <h1 className="title-container__title">Info: </h1>
+        <h3 className="title-container__subtitle">Cost:</h3>
+        <h3 className="title-container_subtitle">Weather:</h3>
+        <h3 className="title-container_subtitle">Attractions:</h3>
+      </div>
+    );
   }
 }
 
-/*
-React.render((
-    <Router history={BrowserHistory}>
-        <Route path="/" component={Result} />
-    </Router>
-), document.body);
-*/
 export default Result;
