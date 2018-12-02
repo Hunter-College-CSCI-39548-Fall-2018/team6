@@ -1,7 +1,7 @@
 import React from "react";
 import Axios from "axios";
 
-class Result extends React.Component {
+class ResultList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,4 +64,4 @@ class Result extends React.Component {
     this.setState({ submit: true });
   }
 }
-export default Result;
+export default ResultList;
