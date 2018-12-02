@@ -1,2 +1,0 @@
-CREATE VIEW V_Rankings
-AS

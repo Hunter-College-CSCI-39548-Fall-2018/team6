@@ -5,5 +5,5 @@ CREATE TABLE IF NOT EXISTS Climate (
   avg_q2 float,
   avg_q3 float,
   avg_q4 float,
-  avg_pnnual_precipitation int
+  avg_annual_precipitation int
 );
