@@ -8,18 +8,21 @@
     "i": "^0.3.6",
     "jsonwebtoken": "^8.4.0",
     "jwt-decode": "^2.2.0",
+    "moment": "^2.22.2",
     "npm": "^6.4.1",
+    "rc-slider": "^8.6.3",
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
-    "react-datepicker": "^2.0.0",
+    "react-day-picker": "^7.2.4",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
-    "react-tabs": "^2.3.0"
+    "react-tabs": "^2.3.0",
+    "save": "^2.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && rm -rf ../../src/main/resources/static/ && mv build/ ../src/main/resources/static/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
