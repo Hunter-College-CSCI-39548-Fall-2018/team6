@@ -3,6 +3,7 @@ import "./ResultList.css";
 import RenderResult from "./RenderResult";
 import { Button, Modal, ListGroup } from "react-bootstrap";
 // import { Redirect, Link } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 
 /*
 Author: Eunice Hew
@@ -29,7 +30,11 @@ class ResultList extends Component {
         <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
           Launch survey results
         </Button>
-        <Modal show={this.state.show} onHide={this.handleClose}>
+        <Modal
+          show={this.state.show}
+          onHide={this.handleClose}
+          onExit={this.exitFunc}
+        >
           <Modal.Header closeButton>
             <Modal.Title>Travel Survey Results</Modal.Title>
           </Modal.Header>
@@ -40,18 +45,23 @@ class ResultList extends Component {
             </ListGroup>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.handleClose} href="/History">
-              Close
-            </Button>
+            <Button onClick={this.handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
       </div>
     );
   }
+
+  exitFunc() {
+    // e.preventDefault();
+    console.log("Redirect?");
+    // this.props.history.push("/History");
+    // return <Redirect push to="/History" />;
+  }
   handleClose() {
     this.setState({ show: false });
-    // return <Link to="/login" />;
-    // return <Redirect to="/login" />;
+    // return <Link to="/Survey" />;
+    // return <Redirect push to="/login" />;
   }
 
   handleShow() {

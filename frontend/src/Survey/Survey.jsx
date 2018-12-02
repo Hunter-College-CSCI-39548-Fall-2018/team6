@@ -21,14 +21,15 @@ class Survey extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
+      // show: false,
       submit: false,
       from: undefined,
       to: undefined,
+      until: undefined,
       origin: "",
       distance: ""
     };
 
-    this.handleChange = this.handleChange.bind(this);
     this.submit = this.submit.bind(this);
     this.handleFromChange = this.handleFromChange.bind(this);
     this.handleToChange = this.handleToChange.bind(this);
@@ -36,11 +37,17 @@ class Survey extends Component {
 
   render() {
     const marks = {
-      0: <strong>0</strong>,
+      0: (
+        <img
+          className="Pikachu"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpRxn30r2ij1733AKJkUKK20YnSiWN-XjZFEeNvR8TQbpRAkjtjw"
+          alt="Pikachu"
+        />
+      ),
       100: <strong>100</strong>
     };
     const today = new Date();
-    const { from, to } = this.state;
+    const { from, to, until } = this.state;
     const modifiers = { start: from, end: to };
 
     let modal;
@@ -73,8 +80,8 @@ class Survey extends Component {
                         },
                         toMonth: to,
                         modifiers,
-                        numberOfMonths: 1
-                        // onDayClick: () => this.to.getInput().focus()
+                        numberOfMonths: 1,
+                        onDayClick: () => this.to.getInput().focus()
                       }}
                       onDayChange={this.handleFromChange}
                     />{" "}
@@ -90,9 +97,13 @@ class Survey extends Component {
                         dayPickerProps={{
                           selectedDays: [from, { from, to }],
                           disabledDays: {
-                            before: from,
-                            before: today,
-                            after: moment().add(3, "months")
+                            before: !!from ? from : new Date()
+                            // after: new Date(
+                            //   until.setMonth(until.getMonth() + 3)
+                            // )
+                            // after: !!from
+                            //   ? from.setMonth(from.getMonth() + 3)
+                            //   : new Date()
                           },
                           modifiers,
                           month: from,
@@ -219,20 +230,18 @@ class Survey extends Component {
   }
   handleFromChange(from) {
     // Change the from date and focus the "to" input field
-    this.setState({ from });
+    this.setState({ from, until: from.setMonth(from.getMonth() + 3) });
+    console.log("from :::", from);
+    console.log("until :::", this.state.until);
   }
   handleToChange(to) {
+    console.log(to);
     this.setState({ to }, this.showFromMonth);
-  }
-
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
   }
 
   onClickSubmit(e) {
     this.setState({ submit: true });
+    // this.setState({ show: true });
   }
 
   submit(e) {
