@@ -51,7 +51,11 @@ class RenderResult extends Component {
         >
           <Media>
             <Media.Left align="middle">
-              <img src={this.state.results[i].imageUrl} alt="Pikachu" />
+              <img
+                src={this.state.results[i].imageUrl}
+                alt="Pikachu"
+                className="ResultImg"
+              />
             </Media.Left>
             <Media.Body>
               <Media.Heading>

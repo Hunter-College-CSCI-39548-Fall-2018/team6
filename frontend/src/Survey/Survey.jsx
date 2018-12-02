@@ -25,7 +25,6 @@ class Survey extends Component {
       submit: false,
       from: undefined,
       to: undefined,
-      until: undefined,
       origin: "",
       distance: ""
     };
@@ -47,7 +46,7 @@ class Survey extends Component {
       100: <strong>100</strong>
     };
     const today = new Date();
-    const { from, to, until } = this.state;
+    const { from, to } = this.state;
     const modifiers = { start: from, end: to };
 
     let modal;
@@ -230,9 +229,8 @@ class Survey extends Component {
   }
   handleFromChange(from) {
     // Change the from date and focus the "to" input field
-    this.setState({ from, until: from.setMonth(from.getMonth() + 3) });
+    this.setState({ from });
     console.log("from :::", from);
-    console.log("until :::", this.state.until);
   }
   handleToChange(to) {
     console.log(to);

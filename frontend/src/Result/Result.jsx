@@ -19,7 +19,11 @@ class Result extends Component {
     return (
       <Media className="Result" style={{ marginLeft: "5%" }}>
         <Media.Left align="middle">
-          <img src={this.state.result.imageUrl} alt="Pikachu" />
+          <img
+            src={this.state.result.imageUrl}
+            alt="Pikachu"
+            className="ResultImg"
+          />
         </Media.Left>
         <Media.Body>
           <Media.Heading>

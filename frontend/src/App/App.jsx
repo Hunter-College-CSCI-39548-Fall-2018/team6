@@ -5,7 +5,8 @@ import Survey from "../Survey/Survey";
 import ResultList from "../ResultList/ResultList";
 import ResetPassword from "../ResetPassword/ResetPassword";
 import History from "../History/History";
-import Result from "../Result/Result";
+// import Result from "../Result/Result";
+import Home from "../Home/Home";
 import { Switch, Route } from "react-router-dom";
 // import withAuth from "../AuthService/WithAuth";
 
@@ -21,7 +22,8 @@ class App extends Component {
         <TravelNav />
         <Switch>
           {" "}
-          <Route path="/Result/:id" component={Result} />
+          {/* <Route path="/Result/:id" component={Result} /> */}
+          <Route path="/Home" component={Home} />
           <Route path="/History" component={History} />
           <Route path="/Reset" component={ResetPassword} />
           <Route path="/Survey" component={Survey} />
