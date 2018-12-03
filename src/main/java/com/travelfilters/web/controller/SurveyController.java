@@ -16,7 +16,7 @@ import java.sql.ResultSet;
 @RequestMapping("/v1/survey")
 public class SurveyController {
 
-    @PostMapping("/")
+    @PostMapping("")
     public ResponseEntity<?> submitSurvey(@RequestBody SurveyRequest surveyRequest) {
         MultiValueMap<String, String> responseMap = calculateResults(surveyRequest);
         return ResponseEntity.ok(new ApiResponse(true, "Hit the endpoint successfully"));

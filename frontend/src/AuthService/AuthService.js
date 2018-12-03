@@ -1,4 +1,5 @@
 import decode from "jwt-decode";
+import axios from "axios";
 
 /*
 Author: Eunice Hew
@@ -7,24 +8,34 @@ Authentication for login, registration, forget password
 
 export default class AuthService {
   constructor(domain) {
-    this.domain = domain || "http://localhost:8080"; // API server domain
+    this.baseurl = "http://localhost:9008";
+    this.domain = domain || this.baseurl + "/v1/auth/login"; // API server domain
     this.fetch = this.fetch.bind(this);
     this.login = this.login.bind(this);
     this.getProfile = this.getProfile.bind(this);
   }
 
-  login(email, password) {
+  async login(email, password) {
     // Get a token from api server using the fetch api
-    return this.fetch(`${this.domain}/Login`, {
-      method: "POST",
-      body: JSON.stringify({
-        email,
-        password
-      })
-    }).then(res => {
-      this.setToken(res.token); // Setting the token in localStorage
-      return Promise.resolve(res);
-    });
+      let payload = {
+          email: email,
+          password: password
+      };
+
+      let config = {
+          headers: {
+              "Content-Type": "application/json"
+          }
+      };
+
+      try {
+          let response = await axios.post(this.domain, payload, config);
+          console.log(response.data.token);
+          this.setToken(response.data.token);
+      } catch(err) {
+          console.log(err.response);
+          alert(err.response.data.message);
+      }
   }
 
   forgotPassword(email) {
