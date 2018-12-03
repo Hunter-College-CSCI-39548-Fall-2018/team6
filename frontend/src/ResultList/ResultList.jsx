@@ -47,6 +47,26 @@ class ResultList extends Component {
           population: "apaeckmeyer2@nature.com",
           price: "Female",
           climate: "12.240.105.10"
+        },
+        {
+          imageUrl:
+            "https://cdn.vox-cdn.com/thumbor/MSS2HyDKhL2-VHgbASgNWO-1v7Y=/0x0:2048x1152/920x613/filters:focal(861x413:1187x739):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/58620829/nyc_skyline.0.jpg",
+          id: 4,
+          state: "NY",
+          city: "NYC",
+          population: "nyc@nature.com",
+          price: "Female",
+          climate: "10.240.115.10"
+        },
+        {
+          imageUrl:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Los_Angeles%2C_Winter_2016.jpg/1200px-Los_Angeles%2C_Winter_2016.jpg",
+          id: 5,
+          state: "CA",
+          city: "Los Angles",
+          population: "la@nature.com",
+          price: "Female",
+          climate: "10.250.105.10"
         }
       ]
     };
