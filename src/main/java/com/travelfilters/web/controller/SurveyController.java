@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/survey")
 public class SurveyController {
 
-    @PostMapping("/")
+    @PostMapping("")
     public ResponseEntity<?> submitSurvey(@RequestBody SurveyRequest surveyRequest) {
         return ResponseEntity.ok(new ApiResponse(true, "Hit the endpoint successfully"));
     }
