@@ -5,10 +5,11 @@ import "./index.css";
 import { App } from "./App";
 import { Login } from "./Login";
 import * as serviceWorker from "./serviceWorker";
+import "./styles/main.css"
 
 /*
 Author: Eunice Hew
-Routing for login page and components with the navigation bar 
+Routing for login page and components with the navigation bar
 */
 
 ReactDOM.render(
