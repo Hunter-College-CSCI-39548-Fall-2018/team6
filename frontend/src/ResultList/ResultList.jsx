@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import "./ResultList.css";
 import RenderResult from "./RenderResult";
 import { Button, Modal, ListGroup } from "react-bootstrap";
-// import { Redirect, Link } from "react-router-dom";
-// import { withRouter } from "react-router-dom";
+import axios from "axios";
 
 /*
 Author: Eunice Hew
@@ -15,16 +14,44 @@ class ResultList extends Component {
     super(props, context);
 
     this.handleShow = this.handleShow.bind(this);
+    this.getResultsFromTimestamp = this.getResultsFromTimestamp.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.state = {
-      show: false
-      // clicked: false
+      show: false,
+      timestamp: this.props.ts,
+      results: [
+        {
+          imageUrl: "https://picsum.photos/200",
+          id: "1",
+          state: "Fallon",
+          city: "Corkish",
+          population: "fcorkish0@uol.com.br",
+          price: "Female",
+          climate: "143.156.211.217"
+        },
+        {
+          imageUrl: "https://picsum.photos/200/300/?random",
+          id: 2,
+          state: "Stan",
+          city: "Probin",
+          population: "sprobin1@jiathis.com",
+          price: "Male",
+          climate: "115.255.246.218"
+        },
+        {
+          imageUrl:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpRxn30r2ij1733AKJkUKK20YnSiWN-XjZFEeNvR8TQbpRAkjtjw",
+          id: 3,
+          state: "NOT PIKACHU",
+          city: "Paeckmeyer",
+          population: "apaeckmeyer2@nature.com",
+          price: "Female",
+          climate: "12.240.105.10"
+        }
+      ]
     };
   }
   render() {
-    // if (this.state.clicked && !this.state.show) {
-    //   return <Link to="/login" />;
-    // }
     return (
       <div className="Result-list">
         <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
@@ -39,9 +66,8 @@ class ResultList extends Component {
             <Modal.Title>Travel Survey Results</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h3>List of destinations</h3>
             <ListGroup className="List">
-              <RenderResult />
+              <RenderResult jsonResults={this.state.results} />
             </ListGroup>
           </Modal.Body>
           <Modal.Footer>
@@ -51,9 +77,20 @@ class ResultList extends Component {
       </div>
     );
   }
-
+  getResultsFromTimestamp() {
+    return axios
+      .post("/getHistoryFromTimestamp", {
+        timestamp: this.state.timestamp
+      })
+      .then(function(response) {
+        console.log(response);
+        // this.setState({ results: response.data });
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
   exitFunc() {
-    // e.preventDefault();
     console.log("Redirect?");
     // this.props.history.push("/History");
     // return <Redirect push to="/History" />;
@@ -65,8 +102,8 @@ class ResultList extends Component {
   }
 
   handleShow() {
+    this.getResultsFromTimestamp();
     this.setState({ show: true });
-    // this.setState.clicked = true;
   }
   componentWillMount = () => {
     document.body.classList.add("SurveyBg");
