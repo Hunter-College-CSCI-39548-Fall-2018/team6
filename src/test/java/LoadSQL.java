@@ -57,34 +57,6 @@ public class LoadSQL {
     }
 
 
-    private static void runSql(String filePath) {
-        Setup setup = new Setup();
-        Connection connection = getSQLConnection(setup);
-        String sql = "";
-        try {
-            StringBuilder sb = new StringBuilder();
-            BufferedReader br = new BufferedReader(new FileReader(filePath));
-            while (br.ready()) {
-                sb.append(br.readLine());
-            }
-            sql = sb.toString();
-        } catch (IOException e) {
-            System.err.println("Error opening file at " + filePath);
-            e.printStackTrace();
-        }
-
-        try {
-            System.out.println("sql = " + sql);
-            connection.setAutoCommit(false);
-            Statement stmt = connection.createStatement();
-            stmt.execute(sql);
-            connection.commit();
-        } catch (NullPointerException | SQLException e) {
-            System.err.println("Could not execute SQL!");
-            e.printStackTrace();
-        }
-    }
-
     private static Connection getSQLConnection(Setup setup) {
         try {
             Configuration mysqlConfig = setup.getConfig();
