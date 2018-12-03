@@ -6,6 +6,7 @@ application.properties
 
 # Front End Packages
 node_modules
+yarn.lock
 
 # Back End Packages
 *.jar
