@@ -4,30 +4,30 @@ import { Nav, Navbar, NavItem } from "react-bootstrap";
 import AuthService from "../AuthService/AuthService";
 const Auth = new AuthService();
 
-/*
-Author: Eunice Hew
-Navigation bar containing links to survey, history, and logout
-*/
-
 class TravelNav extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      // isLoggedIn: this.props.isAuthed
-      isLoggedIn: true
+      isLoggedIn: this.props.loggedIn
+      // isLoggedIn: true
     };
   }
   render() {
-    console.log(this.state.isLoggedIn);
+    console.log("Travel auth: " + this.state.isLoggedIn);
     let logstate;
     if (this.state.isLoggedIn) {
       logstate = (
         <div>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="/home">Travel App</a>
+            </Navbar.Brand>
+          </Navbar.Header>
           <Nav>
-            <NavItem eventKey={1} href="/Survey">
+            <NavItem eventKey={1} href="/survey">
               Survey
             </NavItem>
-            <NavItem eventKey={2} href="/History">
+            <NavItem eventKey={2} href="/history">
               History
             </NavItem>
           </Nav>
@@ -44,23 +44,23 @@ class TravelNav extends Component {
       );
     } else {
       logstate = (
-        <Nav pullRight>
-          <NavItem eventKey={3} href="/Login">
-            Login
-          </NavItem>
-        </Nav>
-      );
-    }
-    return (
-      <div className="TravelNav">
-        <Navbar>
+        <div>
           <Navbar.Header>
             <Navbar.Brand>
               <a href="/">Travel App</a>
             </Navbar.Brand>
           </Navbar.Header>
-          {logstate}
-        </Navbar>
+          <Nav pullRight>
+            <NavItem eventKey={3} href="/login">
+              Login
+            </NavItem>
+          </Nav>{" "}
+        </div>
+      );
+    }
+    return (
+      <div className="TravelNav">
+        <Navbar>{logstate}</Navbar>
       </div>
     );
   }
@@ -68,7 +68,7 @@ class TravelNav extends Component {
   handleLogout() {
     Auth.logout();
     this.setState({ isLoggedIn: false });
-    this.props.history.replace("/Login");
+    this.props.history.replace("/");
   }
 }
 export default TravelNav;

@@ -6,11 +6,6 @@ import "./Login.css";
 import AuthService from "../AuthService/AuthService";
 import { Button, Glyphicon } from "react-bootstrap";
 
-/*
-Author: Eunice Hew
-Login screen, contains links to registration and forgot password
-*/
-
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -85,7 +80,7 @@ class Login extends Component {
           <Button
             style={{
               position: "absolute",
-              marginLeft: "-130px",
+              marginLeft: "100px",
               background: "none",
               border: "0px"
             }}
@@ -128,7 +123,7 @@ class Login extends Component {
     e.preventDefault();
     this.Auth.login(this.state.email, this.state.password)
       .then(res => {
-        this.props.history.replace("/");
+        this.props.history.replace("/home");
       })
       .catch(err => {
         console.log(err);
@@ -138,7 +133,7 @@ class Login extends Component {
 
   componentWillMount = () => {
     if (this.Auth.loggedIn()) {
-      this.props.history.replace("/");
+      this.props.history.replace("/home");
     }
     document.body.classList.add("LoginBg");
   };

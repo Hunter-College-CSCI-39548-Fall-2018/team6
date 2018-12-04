@@ -19,14 +19,7 @@ import {
   RailStyle
 } from "./_slider/slider-components";
 
-/*
-Author: Eunice Hew
-Survey to generate travel results list
-*/
-
 class Survey extends Component {
-  //Climate, start/end dates, price, food,  flightprice, tripcost, population, bars, events, attractions, distance
-
   static defaultProps = {
     numberOfMonths: 2
   };
@@ -522,7 +515,7 @@ class Survey extends Component {
     e.preventDefault();
     this.Auth.login(this.state.email, this.state.password)
       .then(res => {
-        this.props.history.replace("/ResultList");
+        this.props.history.replace("/history");
       })
       .catch(err => {
         console.log(err);

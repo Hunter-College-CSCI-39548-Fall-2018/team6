@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Carousel } from "react-bootstrap";
 import TravelNav from "../TravelNav/TravelNav";
-import homeAuth from "../AuthService/HomeAuth";
+// import homeAuth from "../AuthService/HomeAuth";
 
 class Home extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      isAuthed: this.props.isAuthed
+      // isAuthed: this.props.isAuthed
       // isAuthed: false
     };
   }
@@ -15,11 +15,7 @@ class Home extends Component {
     console.log("Auth: " + this.state.isAuthed);
     return (
       <div>
-        {this.state.isAuthed ? (
-          <TravelNav loggedIn={true} />
-        ) : (
-          <TravelNav loggedIn={false} />
-        )}
+        <TravelNav loggedIn={false} />
         <Carousel>
           <Carousel.Item>
             <center>
@@ -137,5 +133,5 @@ class Home extends Component {
     document.body.classList.remove("SurveyBg");
   };
 }
-// export default Home;
-export default homeAuth(Home);
+export default Home;
+// export default homeAuth(Home);

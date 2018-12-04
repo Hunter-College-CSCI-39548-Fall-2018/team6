@@ -1,12 +1,6 @@
 import React, { Component } from "react";
-// import "./Result.css";
 import "../ResultList/ResultList.css";
 import { Media, ListGroupItem, Tabs, Tab } from "react-bootstrap";
-
-/*
-Author: Eunice Hew
-Results modul generated from survey
-*/
 
 class Result extends Component {
   constructor(props, context) {
@@ -21,7 +15,8 @@ class Result extends Component {
         <Media className="Result">
           <Media.Left align="middle">
             <img
-              src={this.state.result.city_img}
+              src="https://picsum.photos/200"
+              // src={this.state.result.city_img}
               // src=v1/city_img/{this.state.result.city_name}
               alt="Pikachu"
               className="ResultImg"
@@ -61,7 +56,7 @@ class Result extends Component {
         <h4 style={{ textAlign: "center" }}>
           <strong>Most popular via Yelp</strong>
         </h4>
-        <Tabs>
+        <Tabs id="tabs">
           <Tab eventKey={1} title="Restaurants">
             {this.forLoopYelp(this.state.result.yelp_restaurants)}
           </Tab>
@@ -86,10 +81,10 @@ class Result extends Component {
     const resultAirports = [];
     for (let i = 0; i < this.state.result.nearby_airports.length; i++) {
       resultAirports.push(
-        <p style={{ display: "inline" }}>
+        <span style={{ display: "inline" }} key={i}>
           {this.state.result.nearby_airports[i].airport_name},{" "}
           {this.state.result.nearby_airports[i].airport_code}
-        </p>
+        </span>
       );
     }
     return resultAirports;
@@ -98,17 +93,17 @@ class Result extends Component {
     const resultYelp = [];
     for (let i = 0; i < type.length; i++) {
       resultYelp.push(
-        <ListGroupItem href={type[i].page_url}>
+        <ListGroupItem href={type[i].page_url} key={i}>
           <Media>
             <Media.Left>
               <img src={type[i].image_url} alt="pic" className="YelpImg" />
             </Media.Left>
             <Media.Body>
-              <p>
+              <span>
                 <ul>Name: {type[i].name}</ul>
                 <ul>Review Count: {type[i].review_count}</ul>
                 <ul>Review Score: {type[i].review_score}</ul>
-              </p>
+              </span>
             </Media.Body>
           </Media>
         </ListGroupItem>

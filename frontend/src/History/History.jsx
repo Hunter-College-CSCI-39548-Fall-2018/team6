@@ -67,7 +67,7 @@ class History extends Component {
     for (let i = 0; i < this.state.surveys.length; i++) {
       historyList.push(
         // <Col xs={8} md={8} key={this.state.surveys[i]}>
-        <ListGroupItem className="HistoryResult">
+        <ListGroupItem className="HistoryResult" key={i}>
           <Media>
             <Media.Body>
               <Media.Heading>

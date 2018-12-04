@@ -5,11 +5,6 @@ import Result from "../Result/Result";
 // import { Redirect } from "react-router-dom";
 import axios from "axios";
 
-/*
-Author: Eunice Hew
-Results modul generated from survey
-*/
-
 class RenderResult extends Component {
   constructor(props, context) {
     super(props, context);
@@ -25,7 +20,7 @@ class RenderResult extends Component {
             airport_code: "EWR"
           }
         ],
-        city_img: "city_pic.url",
+        // city_img: "city_pic.url",
         population: 1000000,
         cost_index: 3,
         high: 90,
@@ -47,6 +42,15 @@ class RenderResult extends Component {
             review_count: 10225,
             review_score: 4,
             name: "Katzs Delicatessen"
+          },
+          {
+            image_url:
+              "https://s3-media4.fl.yelpcdn.com/bphoto/qr7eSU6CFwRGZ7Rc-QEoTQ/o.jpg",
+            page_url:
+              "https://www.yelp.com/biz/katzs-delicatessen-new-york?adjust_creative=BpXhmQxwiLhi-ASFk8Yztw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=BpXhmQxwiLhi-ASFk8Yztw",
+            review_count: 11,
+            review_score: 3,
+            name: "#2Katzs Delicatessen"
           }
         ],
         yelp_tours: [
@@ -103,7 +107,7 @@ class RenderResult extends Component {
     return <div>{this.forLoopResults()}</div>;
   }
   forLoopResults() {
-    const resultList = [<h3>List of destinations </h3>];
+    const resultList = [<h3 key="h">List of destinations </h3>];
     if (this.state.redirect) {
       return <Result extResults={this.state.ext} />;
     }
@@ -111,13 +115,14 @@ class RenderResult extends Component {
       resultList.push(
         <ListGroupItem
           className="Result"
-          // key={this.state.results[i].id}
+          key={i}
           onClick={this.loadResult.bind(this, i)}
         >
           <Media>
             <Media.Left align="middle">
               <img
-                src={this.state.results[i].city_img}
+                src="https://picsum.photos/200"
+                // src={this.state.results[i].city_img}
                 // src=v1/city_img/{this.state.results[i].city_name}
                 alt="Pikachu"
                 className="ResultImg"
@@ -129,7 +134,7 @@ class RenderResult extends Component {
                 {this.state.results[i].state_name}
               </Media.Heading>
               <p>
-                Rank: {this.state.results[i].rank} <br />
+                Score: {this.state.results[i].score} <br />
                 State: {this.state.results[i].state_name} <br />
                 City: {this.state.results[i].city_name} <br />
                 Population: {this.state.results[i].population} <br />
@@ -146,11 +151,11 @@ class RenderResult extends Component {
   }
 
   // Link by city name not id
-  getExtendedResults(id) {
-    console.log("Are we getting this id::: ", id);
+  getExtendedResults() {
+    // console.log("Are we getting this id::: ", city_name);
     return axios
       .post("/getExtendedResults", {
-        id
+        ext: this.state.city_name
       })
       .then(function(response) {
         console.log(response);
@@ -165,98 +170,9 @@ class RenderResult extends Component {
     this.getExtendedResults(id);
     console.log("Loading result");
     this.setState({
-      ext: {
-        // ...this.state.ext,
-        flight_cost: 500,
-        city_name: "Jersey City",
-        state_name: "New Jersey",
-        nearby_airports: [
-          {
-            airport_name: "Newark Liberty International Airport",
-            airport_code: "EWR"
-          }
-        ],
-        city_img: "https://picsum.photos/200",
-        population: 1000000,
-        cost_index: 3,
-        high: 90,
-        low: 50,
-        // out of 4
-        busy: 3,
-        density: 5,
-        rank: 1,
-        // in inches
-        annual_precipitation: 14,
-        // annual passengers
-        annual_passengers: 6000000,
-        yelp_restaurants: [
-          {
-            image_url:
-              "https://s3-media4.fl.yelpcdn.com/bphoto/qr7eSU6CFwRGZ7Rc-QEoTQ/o.jpg",
-            page_url:
-              "https://www.yelp.com/biz/katzs-delicatessen-new-york?adjust_creative=BpXhmQxwiLhi-ASFk8Yztw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=BpXhmQxwiLhi-ASFk8Yztw",
-            review_count: 10225,
-            review_score: 4,
-            name: "Katzs Delicatessen"
-          },
-          {
-            image_url:
-              "https://s3-media4.fl.yelpcdn.com/bphoto/qr7eSU6CFwRGZ7Rc-QEoTQ/o.jpg",
-            page_url:
-              "https://www.yelp.com/biz/katzs-delicatessen-new-york?adjust_creative=BpXhmQxwiLhi-ASFk8Yztw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=BpXhmQxwiLhi-ASFk8Yztw",
-            review_count: 10225,
-            review_score: 4,
-            name: "Katzs Delicatessen"
-          }
-        ],
-        yelp_tours: [
-          {
-            image_url:
-              "https://s3-media4.fl.yelpcdn.com/bphoto/qr7eSU6CFwRGZ7Rc-QEoTQ/o.jpg",
-            page_url:
-              "https://www.yelp.com/biz/katzs-delicatessen-new-york?adjust_creative=BpXhmQxwiLhi-ASFk8Yztw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=BpXhmQxwiLhi-ASFk8Yztw",
-            review_count: 10225,
-            review_score: 4,
-            name: "Katzs Delicatessen"
-          }
-        ],
-        yelp_bars: [
-          {
-            image_url:
-              "https://s3-media4.fl.yelpcdn.com/bphoto/qr7eSU6CFwRGZ7Rc-QEoTQ/o.jpg",
-            page_url:
-              "https://www.yelp.com/biz/katzs-delicatessen-new-york?adjust_creative=BpXhmQxwiLhi-ASFk8Yztw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=BpXhmQxwiLhi-ASFk8Yztw",
-            review_count: 10225,
-            review_score: 4,
-            name: "Katzs Delicatessen"
-          }
-        ],
-        yelp_landmarks: [
-          {
-            image_url:
-              "https://s3-media4.fl.yelpcdn.com/bphoto/qr7eSU6CFwRGZ7Rc-QEoTQ/o.jpg",
-            page_url:
-              "https://www.yelp.com/biz/katzs-delicatessen-new-york?adjust_creative=BpXhmQxwiLhi-ASFk8Yztw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=BpXhmQxwiLhi-ASFk8Yztw",
-            review_count: 10225,
-            review_score: 4,
-            name: "Katzs Delicatessen"
-          }
-        ],
-        yelp_hotels: [
-          {
-            image_url:
-              "https://s3-media4.fl.yelpcdn.com/bphoto/qr7eSU6CFwRGZ7Rc-QEoTQ/o.jpg",
-            page_url:
-              "https://www.yelp.com/biz/katzs-delicatessen-new-york?adjust_creative=BpXhmQxwiLhi-ASFk8Yztw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=BpXhmQxwiLhi-ASFk8Yztw",
-            review_count: 10225,
-            review_score: 4,
-            name: "Katzs Delicatessen"
-          }
-        ]
-      },
       redirect: true
     });
-    // return <Redirect to="/Result" extResults={this.state.ext} />;
+    // return <Redirect to="/result" extResults={this.state.ext} />;
   }
 
   componentWillMount = () => {

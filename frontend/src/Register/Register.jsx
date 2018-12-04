@@ -3,11 +3,6 @@ import "../Login/Login.css";
 import AuthService from "../AuthService/AuthService";
 import axios from "axios";
 
-/*
-Author: Eunice Hew
-Registration on login screen
-*/
-
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -99,7 +94,7 @@ class Register extends Component {
   async submit(e) {
     e.preventDefault();
 
-    let url = "http://localhost:9008/v1/auth/register";
+    let url = "http://localhost:5000/v1/auth/register";
 
     let payload = {
       email: this.state.email,
