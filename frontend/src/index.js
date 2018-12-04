@@ -8,10 +8,11 @@ import * as serviceWorker from "./serviceWorker";
 import Home from "./Home/Home";
 // import HomeLoggedOut from "./HomeLoggedOut/HomeLoggedOut";
 // import AuthService from "./AuthService/AuthService";
+import "./styles/main.css";
 
 /*
 Author: Eunice Hew
-Routing for login page and components with the navigation bar 
+Routing for login page and components with the navigation bar
 */
 
 // const isLoggedIn = AuthService.loggedIn();

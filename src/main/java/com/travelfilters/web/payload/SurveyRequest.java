@@ -4,31 +4,22 @@ import javax.validation.constraints.*;
 
 public class SurveyRequest {
     @NotBlank
-    private String climate;
+    private String airport;
 
     @NotBlank
-    private String popular;
+    private Integer climate;
 
     @NotBlank
-    private String population;
+    private Integer population;
 
     @NotBlank
-    private String precipatation;
+    private Integer precipitation;
 
     @NotBlank
-    private String density;
+    private Integer density;
 
     @NotBlank
-    private String expensive;
-
-    @NotBlank
-    private String restaurants;
-
-    @NotBlank
-    private String landmarks;
-
-    @NotBlank
-    private String tours;
+    private Integer expensive;
 
     @NotBlank
     private String startDate;
@@ -36,41 +27,29 @@ public class SurveyRequest {
     @NotBlank
     private String endDate;
 
-    public String getClimate() { return climate; }
+    public String getAirport() { return airport; }
 
-    public void setClimate(String climate) { this.climate = climate; }
+    public void setAirport(String airport) { this.airport = airport; }
 
-    public String getPopular() { return popular; }
+    public Integer getClimate() { return climate; }
 
-    public void setPopular(String popular) { this.popular = popular; }
+    public void setClimate(Integer climate) { this.climate = climate; }
 
-    public String getPopulation() { return population; }
+    public Integer getPopulation() { return population; }
 
-    public void setPopulation(String population) { this.population = population; }
+    public void setPopulation(Integer population) { this.population = population; }
 
-    public String getPrecipatation() { return precipatation; }
+    public Integer getPrecipitation() { return precipitation; }
 
-    public void setPrecipatation(String precipation) { this.precipatation = precipatation; }
+    public void setPrecipitation(Integer precipitation) { this.precipitation = precipitation; }
 
-    public String getDensity() { return density; }
+    public Integer getDensity() { return density; }
 
-    public void setDensity(String density) { this.density = density; }
+    public void setDensity(Integer density) { this.density = density; }
 
-    public String getExpensive() { return expensive; }
+    public Integer getExpensive() { return expensive; }
 
-    public void setExpensive(String expensive) { this.expensive = expensive; }
-
-    public String getRestaurants() { return restaurants; }
-
-    public void setRestaurants(String restaurants) { this.restaurants = restaurants; }
-
-    public String getLandmarks() { return landmarks; }
-
-    public void setLandmarks(String landmarks) { this.landmarks = landmarks; }
-
-    public String getTours() { return tours; }
-
-    public void setTours(String tours) { this.tours = tours; }
+    public void setExpensive(Integer expensive) { this.expensive = expensive; }
 
     public String getStartDate() { return startDate; }
 
