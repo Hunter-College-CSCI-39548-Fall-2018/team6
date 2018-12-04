@@ -1,4 +1,3 @@
-State,City,FAA,Airport
 ARIZONA,Peach Springs,1G4,Grand Canyon West Airport
 PENNSYLVANIA,Allentown,ABE,Lehigh Valley International Airport
 TEXAS,Abilene,ABI,Abilene Regional Airport
@@ -22,7 +21,7 @@ ALASKA,Aniak,ANI,Aniak Airport
 MICHIGAN,Alpena,APN,Alpena County Regional Airport
 NEW YORK,Watertown,ART,Watertown International Airport
 COLORADO,Aspen,ASE,Aspen-Pitkin County Airport
-GEORGIA,Atlanta,ATL,Hartsfield“Jackson Atlanta International Airport
+GEORGIA,Atlanta,ATL,Hartsfield Jackson Atlanta International Airport
 WISCONSIN,Appleton,ATW,Appleton International Airport
 TEXAS,Austin,AUS,Austin-Bergstrom International Airport
 NORTH CAROLINA,Asheville,AVL,Asheville Regional Airport
@@ -34,7 +33,7 @@ WASHINGTON,Seattle,BFI,King County International Airport
 CALIFORNIA,Bakersfield,BFL,Meadows Field
 NEW YORK,Binghamton,BGM,Greater Binghamton Airport
 MAINE,Bangor,BGR,Bangor International Airport
-ALABAMA,Birmingham,BHM,Birmingham“Shuttlesworth International Airport
+ALABAMA,Birmingham,BHM,Birmingham Shuttlesworth International Airport
 RHODE ISLAND,Block Island / New Shoreham,BID,Block Island State Airport
 MONTANA,Billings,BIL,Billings Logan International Airport
 NORTH DAKOTA,Bismarck,BIS,Bismarck Municipal Airport
@@ -50,7 +49,7 @@ GEORGIA,Brunswick,BQK,Brunswick Golden Isles Airport
 PUERTO RICO,Aguadilla,BQN,Rafael HernÃ¡ndez International Airport
 MINNESOTA,Brainerd,BRD,Brainerd Lakes Regional Airport
 TEXAS,Brownsville,BRO,Brownsville/South Padre Island International Airport
-ALASKA,Barrow,BRW,Wiley Post“Will Rogers Memorial Airport
+ALASKA,Barrow,BRW,Wiley Post Will Rogers Memorial Airport
 MONTANA,Butte,BTM,Bert Mooney Airport
 LOUISIANA,Baton Rouge,BTR,Baton Rouge Metropolitan Airport
 VERMONT,Burlington,BTV,Burlington International Airport
@@ -65,7 +64,7 @@ UTAH,Cedar City,CDC,Cedar City Regional Airport
 ALASKA,Cordova,CDV,Merle K. Smith Airport
 CALIFORNIA,Crescent City,CEC,Del Norte County Airport
 TENNESSEE,Chattanooga,CHA,Chattanooga Metropolitan Airport
-VIRGINIA,Charlottesville,CHO,Charlottesville“Albemarle Airport
+VIRGINIA,Charlottesville,CHO,Charlottesville Albemarle Airport
 SOUTH CAROLINA,Charleston,CHS,Charleston International Airport / Charleston AFB
 CALIFORNIA,Chico,CIC,Chico Municipal Airport
 IOWA,Cedar Rapids,CID,The Eastern Iowa Airport
@@ -83,7 +82,7 @@ MISSOURI,Columbia,COU,Columbia Regional Airport
 WYOMING,Casper,CPR,Casper/Natrona County International Airport
 PUERTO RICO,Culebra,CPX,BenjamÃ­n Rivera Noriega Airport
 TEXAS,Corpus Christi / Kingsville,CRP,Corpus Christi International Airport
-CALIFORNIA,Carlsbad,CRQ,McClellan“Palomar Airport
+CALIFORNIA,Carlsbad,CRQ,McClellan Palomar Airport
 WEST VIRGINIA,Charleston,CRW,Yeager Airport
 GEORGIA,Columbus,CSG,Columbus Metropolitan Airport
 KENTUCKY,Cincinnati/Covington,CVG,Cincinnati/Northern Kentucky International Airport
@@ -124,7 +123,7 @@ CALIFORNIA,Fresno,FAT,Fresno Yosemite International Airport
 NORTH CAROLINA,Fayetteville,FAY,Fayetteville Regional Airport
 WASHINGTON,Friday Harbor,FHR,Friday Harbor Airport
 ARIZONA,Flagstaff,FLG,Flagstaff Pulliam Airport
-FLORIDA,Fort Lauderdale,FLL,Fort Lauderdale“Hollywood International Airport
+FLORIDA,Fort Lauderdale,FLL,Fort Lauderdale Hollywood International Airport
 SOUTH CAROLINA,Florence,FLO,Florence Regional Airport
 MICHIGAN,Flint,FNT,Bishop International Airport
 KANSAS,Topeka,FOE,Topeka Regional Airport
@@ -142,8 +141,8 @@ TEXAS,Longview,GGG,East Texas Regional Airport
 COLORADO,Grand Junction,GJT,Grand Junction Regional Airport
 FLORIDA,Gainesville,GNV,Gainesville Regional Airport
 MONTANA,Kalispell,GPI,Glacier Park International Airport
-MISSISSIPPI,Gulfport / Biloxi,GPT,Gulfport“Biloxi International Airport
-WISCONSIN,Green Bay,GRB,Green Bay“Austin Straubel International Airport
+MISSISSIPPI,Gulfport / Biloxi,GPT,Gulfport Biloxi International Airport
+WISCONSIN,Green Bay,GRB,Green Bay Austin Straubel International Airport
 NEBRASKA,Grand Island,GRI,Central Nebraska Regional Airport
 TEXAS,Fort Hood / Killeen / Temple,GRK,Killeen-Fort Hood Regional Airport / Robert Gray Army Airfield
 NORTHERN MARIANAS,Rota Island,GRO,Rota International Airport
@@ -200,7 +199,7 @@ ALASKA,Ketchikan,KTN,Ketchikan International Airport
 MICHIGAN,Lansing,LAN,Capital Region International Airport
 WYOMING,Laramie,LAR,Laramie Regional Airport
 NEVADA,Las Vegas,LAS,McCarran International Airport
-OKLAHOMA,Lawton,LAW,Lawton“Fort Sill Regional Airport
+OKLAHOMA,Lawton,LAW,Lawton/Fort Sill Regional Airport
 CALIFORNIA,Los Angeles,LAX,Los Angeles International Airport
 TEXAS,Lubbock,LBB,Lubbock Preston Smith International Airport
 PENNSYLVANIA,Latrobe,LBE,Arnold Palmer Regional Airport
@@ -233,7 +232,7 @@ OREGON,Medford,MFR,Rogue Valley International-Medford Airport
 ALABAMA,Montgomery,MGM,Montgomery Regional Airport
 WEST VIRGINIA,Morgantown,MGW,Morgantown Municipal Airport
 KANSAS,Manhattan,MHK,Manhattan Regional Airport
-NEW HAMPSHIRE,Manchester,MHT,Manchester“Boston Regional Airport
+NEW HAMPSHIRE,Manchester,MHT,Manchester Boston Regional Airport
 FLORIDA,Miami,MIA,Miami International Airport
 WISCONSIN,Milwaukee,MKE,General Mitchell International Airport
 MICHIGAN,Muskegon,MKG,Muskegon County Airport
@@ -248,7 +247,7 @@ ALASKA,Anchorage,MRI,Merrill Field
 CALIFORNIA,Monterey,MRY,Monterey Regional Airport
 WISCONSIN,Madison,MSN,Dane County Regional Airport
 MONTANA,Missoula,MSO,Missoula International Airport
-MINNESOTA,Minneapolis,MSP,Minneapolis“St. Paul International Airport
+MINNESOTA,Minneapolis,MSP,Minneapolis St. Paul International Airport
 LOUISIANA,New Orleans,MSY,Louis Armstrong New Orleans International Airport
 COLORADO,Montrose,MTJ,Montrose Regional Airport
 MASSACHUSETTS,Vineyard Haven,MVY,Martha's Vineyard Airport
@@ -280,7 +279,7 @@ VIRGINIA,Newport News,PHF,Newport News/Williamsburg International Airport
 PENNSYLVANIA,Philadelphia,PHL,Philadelphia International Airport
 ARIZONA,Phoenix,PHX,Phoenix Sky Harbor International Airport
 ILLINOIS,Peoria,PIA,General Wayne A. Downing Peoria International Airport
-FLORIDA,St. Petersburg/Clearwater,PIE,St. Pete“Clearwater International Airport
+FLORIDA,St. Petersburg/Clearwater,PIE,St. Pete Clearwater International Airport
 IDAHO,Pocatello / Arbon Valley,PIH,Pocatello Regional Airport
 PENNSYLVANIA,Pittsburgh,PIT,Pittsburgh International Airport
 MICHIGAN,Pellston,PLN,Pellston Regional Airport of Emmet County
@@ -302,7 +301,7 @@ CALIFORNIA,Redding,RDD,Redding Municipal Airport
 OREGON,Redmond,RDM,Redmond Municipal Airport
 NORTH CAROLINA,Raleigh,RDU,Raleigh-Durham International Airport
 ILLINOIS,Rockford,RFD,Chicago Rockford International Airport
-WISCONSIN,Rhinelander,RHI,Rhinelander“Oneida County Airport
+WISCONSIN,Rhinelander,RHI,Rhinelander Oneida County Airport
 VIRGINIA,Richmond,RIC,Richmond International Airport
 MAINE,Rockland,RKD,Knox County Regional Airport
 WYOMING,Rock Springs,RKS,Southwest Wyoming Regional Airport
@@ -325,8 +324,8 @@ MARYLAND,Salisbury,SBY,Salisbury-Ocean City Wicomico Regional Airport
 ALASKA,Deadhorse / Prudhoe Bay,SCC,Deadhorse Airport
 CALIFORNIA,Stockton,SCK,Stockton Metropolitan Airport
 KENTUCKY,Louisville,SDF,Louisville International Airport
-MONTANA,Sidney,SDY,Sidney“Richland Municipal Airport
-WASHINGTON,Seattle / Tacoma,SEA,Seattle“Tacoma International Airport
+MONTANA,Sidney,SDY,Sidney Richland Municipal Airport
+WASHINGTON,Seattle / Tacoma,SEA,Seattle Tacoma International Airport
 FLORIDA,Orlando/Sanford,SFB,Orlando Sanford International Airport
 CALIFORNIA,San Francisco,SFO,San Francisco International Airport
 MISSOURI,Springfield,SGF,Springfield-Branson National Airport
@@ -344,10 +343,10 @@ CALIFORNIA,Santa Maria,SMX,Santa Maria Public Airport
 CALIFORNIA,Santa Ana,SNA,John Wayne Airport
 ILLINOIS,Springfield,SPI,Abraham Lincoln Capital Airport
 TEXAS,Wichita Falls,SPS,Wichita Falls Municipal Airport / Sheppard Air Force Base
-FLORIDA,Sarasota / Bradenton,SRQ,Sarasota“Bradenton International Airport
+FLORIDA,Sarasota / Bradenton,SRQ,Sarasota Bradenton International Airport
 MINNESOTA,St. Cloud,STC,St. Cloud Regional Airport
 MISSOURI,St. Louis,STL,St. Louis Lambert International Airport
-CALIFORNIA,Santa Rosa,STS,Charles M. Schulz“Sonoma County Airport
+CALIFORNIA,Santa Rosa,STS,Charles M. Schulz Sonoma County Airport
 U.S. VIRGIN ISLANDS,Charlotte Amalie,STT,Cyril E. King Airport
 U.S. VIRGIN ISLANDS,Christiansted,STX,Henry E. Rohlsen Airport
 IDAHO,Hailey,SUN,Friedman Memorial Airport
@@ -373,7 +372,7 @@ PENNSYLVANIA,State College,UNV,University Park Airport
 ALASKA,Valdez,VDZ,Valdez Airport
 NEVADA,Las Vegas / North Las Vegas,VGT,North Las Vegas Airport
 GEORGIA,Valdosta,VLD,Valdosta Regional Airport
-FLORIDA,Valparaiso,VPS,Destin“Fort Walton Beach Airport / Eglin Air Force Base
+FLORIDA,Valparaiso,VPS,Destin Fort Walton Beach Airport / Eglin Air Force Base
 PUERTO RICO,Vieques,VQS,Antonio Rivera RodrÃ­guez Airport
 ALASKA,Wrangell,WRG,Wrangell Airport
 RHODE ISLAND,Westerly,WST,Westerly State Airport

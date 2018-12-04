@@ -1,4 +1,3 @@
-Name,State,Cost Index
 New York,New York,234
 Los Angeles,California,198
 Chicago,Illinois,188
@@ -86,7 +85,6 @@ Chandler,Arizona,158
 Reno,Nevada,151
 Buffalo,New York,140
 Glendale,Arizona,140
-Las Vegas,Nevada,152
 Gilbert,Arizona,149
 Winston-Salem,North Carolina,138
 Norfolk,Virginia,148

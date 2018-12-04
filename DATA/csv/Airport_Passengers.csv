@@ -1,4 +1,3 @@
-City,State,Airport Code,Passengers
 Atlanta,GA,ATL,50881764
 Los Angeles,CA,LAX,40178194
 Chicago,IL,ORD,37754813
@@ -21,10 +20,10 @@ New York,NY,LGA,14777137
 Philadelphia,PA,PHL,14644264
 Fort Lauderdale,FL,FLL,14364191
 Baltimore,MD,BWI,12619720
-Washington,DC,DCA,11498474
+Washington DC,DC,DCA,11498474
 Chicago,IL,MDW,11305840
 Salt Lake City,UT,SLC,11186985
-Washington,DC,IAD,10640267
+Washington DC,DC,IAD,10640267
 San Diego,CA,SAN,10512833
 Honolulu,HI,HNL,9732859
 Tampa,FL,TPA,9320099

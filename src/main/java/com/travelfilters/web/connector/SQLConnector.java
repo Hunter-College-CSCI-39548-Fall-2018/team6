@@ -26,7 +26,7 @@ public class SQLConnector {
         return config;
     }
 
-    public ResultSet executeSql(String sql) {
+    public Connection getConnection() {
         try {
             String url = config.getString("mysql.url");
             String username = config.getString("mysql.username");
@@ -34,11 +34,7 @@ public class SQLConnector {
 
             Connection connection = DriverManager.getConnection(url, username, password);
             connection.setAutoCommit(false);
-            Statement stmt = connection.createStatement();
-            ResultSet resultSet = stmt.executeQuery(sql);
-            connection.commit();
-            connection.close();
-            return resultSet;
+            return connection;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;

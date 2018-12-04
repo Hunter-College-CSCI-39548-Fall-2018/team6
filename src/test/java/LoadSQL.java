@@ -23,7 +23,7 @@ public class LoadSQL {
         loadCSV(csvRoot + "City_Populations.csv", "City_Populations");
         loadCSV(csvRoot + "Climate.csv", "Climate");
         loadCSV(csvRoot + "Cost_Indexes.csv", "Cost_Indexes");
-        loadCSV(csvRoot + "Fares.csv", "Fares");
+//        loadCSV(csvRoot + "Fares.csv", "Fares");
         loadCSV(csvRoot + "States.csv", "States");
 
         // drops indexed_tables
@@ -81,7 +81,7 @@ public class LoadSQL {
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             // skip header line
-            headers = br.readLine().replace("\n", "");
+//            headers = br.readLine().replace("\n", "");
             ArrayList<String> dataList = new ArrayList<>();
             while (br.ready()) {
                 String line = br.readLine();
