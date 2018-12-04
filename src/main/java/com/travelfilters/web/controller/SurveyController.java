@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
+
+import static java.util.stream.Collectors.*;
+import static java.util.Map.Entry.*;
+
 
 @RestController
 @RequestMapping("/v1/survey")
@@ -24,34 +27,70 @@ public class SurveyController {
 
     @PostMapping("")
     public ResponseEntity<?> submitSurvey(@CurrentUser UserPrincipal currentUser, @RequestBody SurveyRequest surveyRequest) {
-        MultiValueMap<String, String> responseMap = calculateResults(surveyRequest);
+        HashMap<String, Integer> resultMap = calculateResults(surveyRequest);
+
 //        currentUser.getId()
-        return ResponseEntity.ok(new ApiResponse(true, "Hit the endpoint successfully"));
+        ResponseEntity<String> resp = ResponseEntity.ok()
+                .body(buildResponse(resultMap))
+                .build();
     }
 
-    public static MultiValueMap<String, String> calculateResults(SurveyRequest surveyRequest) {
-        SQLConnector sqlConnector = new SQLConnector();
+    public static HashMap<String, Integer> calculateResults(SurveyRequest surveyRequest) {
+        // for testing purposes
+
+//        surveyRequest = new SurveyRequest();
+//        surveyRequest.setClimate(0);
+//        surveyRequest.setExpensive(0);
+//        surveyRequest.setPopulation(0);
+//        surveyRequest.setPrecipitation(0);
+//        surveyRequest.setDensity(0);
+//        surveyRequest.setBusy(0);
 
         HashMap<String, Integer> Airport_Passengers = getRanks("I_Airport_Passengers");
         HashMap<String, Integer> City_Populations = getRanks("I_City_Populations");
         HashMap<String, Integer> Climate_Precipitation = getRanks("I_Climate_Precipitation");
-        HashMap<String, Integer> Climate_Q1 = getRanks("I_Climate_Q1");
-        HashMap<String, Integer> Climate_Q2 = getRanks("I_Climate_Q2");
-        HashMap<String, Integer> Climate_Q3 = getRanks("I_Climate_Q3");
-        HashMap<String, Integer> Climate_Q4 = getRanks("I_Climate_Q4");
+        HashMap<String, Integer> Climate_High = getRanks("I_Climate_High");
+//        HashMap<String, Integer> Climate_Low = getRanks("I_Climate_Low");
         HashMap<String, Integer> Cost_Indexes = getRanks("I_Cost_Indexes");
         HashMap<String, Integer> Density = getRanks("I_Density");
 
         HashMap<String, Integer> diffMap = new HashMap<>();
-        for (String city : getCities()){
-//            Integer diff =
-//                    Math.abs(Airport_Passengers.get(city) -
-//            diffMap.put(city, );
+        Map<String, Integer> sorted = new LinkedHashMap<>();
+
+        for (String city : getCities()) {
+//            System.out.println("city = " + city);
+            Integer diff =
+                        Math.abs(Airport_Passengers.get(city) - surveyRequest.getBusy()) +
+                        Math.abs(City_Populations.get(city) - surveyRequest.getPopulation()) +
+                        Math.abs(Climate_Precipitation.get(city) - surveyRequest.getPrecipitation()) +
+                        Math.abs(Climate_High.get(city) - surveyRequest.getClimate()) +
+                        Math.abs(Cost_Indexes.get(city) - surveyRequest.getExpensive()) +
+                        Math.abs(Density.get(city) - surveyRequest.getDensity());
+                    diffMap.put(city, diff);
+            // sort
+                    sorted = diffMap
+                    .entrySet()
+                    .stream()
+                    .sorted(comparingByValue())
+                    .collect(
+                            toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
+                                    LinkedHashMap::new));
+
         }
-        return null;
+//        System.out.println("diffMap = " + diffMap);
+//        System.out.println("sorted = " + sorted);
+        Object[] results = sorted.entrySet().toArray();
+
+        HashMap<String, Integer> resultMap = new HashMap<>();
+
+        for (int i = 0; i < 5; i++) {
+            String[] result = results[i].toString().split("=");
+            resultMap.put(result[0], Integer.valueOf(result[1]));
+        }
+        return resultMap;
     }
 
-    public static HashMap<String, Integer> getRanks(String tableName){
+    static HashMap<String, Integer> getRanks(String tableName) {
         SQLConnector sqlConnector = new SQLConnector();
 
         HashMap<String, Integer> rankMap = new HashMap<>();
@@ -65,13 +104,13 @@ public class SurveyController {
             }
             System.out.println(rankMap.toString());
             return rankMap;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public static ArrayList<String> getCities(){
+    static ArrayList<String> getCities() {
         SQLConnector sqlConnector = new SQLConnector();
 
         ArrayList<String> cityList = new ArrayList<>();
@@ -85,9 +124,13 @@ public class SurveyController {
             }
             System.out.println(cityList.toString());
             return cityList;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    static buildResponse(HashMap<String, Integer> results){
+        
     }
 }
