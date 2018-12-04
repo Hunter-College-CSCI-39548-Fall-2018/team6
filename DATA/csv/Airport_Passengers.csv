@@ -1,101 +1,100 @@
-City,State,Airport Code,Passengers
-Atlanta,GA,ATL,50881764
-Los Angeles,CA,LAX,40178194
-Chicago,IL,ORD,37754813
-Dallas/Fort Worth,TX,DFW,31442158
-New York,NY,JFK,29335915
-Denver,CO,DEN,28642444
-San Francisco,CA,SFO,25868423
-Las Vegas,NV,LAS,23051083
-Seattle,WA,SEA,21977739
-Charlotte,NC,CLT,21790063
-Phoenix,AZ,PHX,21388856
-Miami,FL,MIA,20917084
-Orlando,FL,MCO,20406714
-Houston,TX,IAH,20161779
-Newark,NJ,EWR,19975525
-Minneapolis,MN,MSP,18248360
-Boston,MA,BOS,17810721
-Detroit,MI,DTW,16926948
-New York,NY,LGA,14777137
-Philadelphia,PA,PHL,14644264
-Fort Lauderdale,FL,FLL,14364191
-Baltimore,MD,BWI,12619720
-Washington,DC,DCA,11498474
-Chicago,IL,MDW,11305840
-Salt Lake City,UT,SLC,11186985
-Washington,DC,IAD,10640267
-San Diego,CA,SAN,10512833
-Honolulu,HI,HNL,9732859
-Tampa,FL,TPA,9320099
-Portland,OR,PDX,9109172
-Dallas,TX,DAL,7882413
-St. Louis,MO,STL,7009639
-Nashville,TN,BNA,6540789
-Houston,TX,HOU,6511142
-Austin,TX,AUS,6238942
-Oakland,CA,OAK,6094732
-New Orleans,LA,MSY,5691532
-Kansas City,MO,MCI,5545500
-Raleigh/Durham,NC,RDU,5454245
-San Jose,CA,SJC,5406284
-Santa Ana,CA,SNA,5275888
-Sacramento,CA,SMF,5062654
-San Juan,PR,SJU,4395635
-Indianapolis,IN,IND,4287756
-Fort Myers,FL,RSW,4277214
-San Antonio,TX,SAT,4275296
-Cleveland,OH,CLE,4120014
-Pittsburgh,PA,PIT,4030996
-Columbus,OH,CMH,3620419
-Milwaukee,WI,MKE,3401595
-Kahului,HI,OGG,3347342
-Cincinnati,OH,CVG,3288669
-West Palm Beach,FL,PBI,3119984
-Hartford,CT,BDL,2996861
-Jacksonville,FL,JAX,2750431
-Anchorage,AK,ANC,2555353
-Albuquerque,NM,ABQ,2405823
-Buffalo,NY,BUF,2324599
-Omaha,NE,OMA,2153136
-Burbank,CA,BUR,2151151
-Ontario,CA,ONT,2138787
-Memphis,TN,MEM,2039350
-Oklahoma City,OK,OKC,1850871
-Charleston,SC,CHS,1826822
-Providence,RI,PVD,1807292
-Richmond,VA,RIC,1796843
-Reno,NV,RNO,1781791
-Boise,ID,BOI,1674319
-Guam,TT,GUM,1658382
-Louisville,KY,SDF,1653222
-Norfolk,VA,ORF,1618175
-Tucson,AZ,TUS,1617290
-Spokane,WA,GEG,1576550
-Kona,HI,KOA,1570084
-El Paso,TX,ELP,1446332
-Lihue,HI,LIH,1428153
-Albany,NY,ALB,1396391
-Long Beach,CA,LGB,1388975
-Tulsa,OK,TUL,1371176
-Birmingham,AL,BHM,1347473
-Grand Rapids,MI,GRR,1343965
-Sanford,FL,SFB,1336313
-Des Moines,IA,DSM,1224835
-Rochester,NY,ROC,1188636
-Savannah,GA,SAV,1065248
-Dayton,OH,DAY,1022603
-Greer,SC,GSP,1006965
-Palm Springs,CA,PSP,1005467
-Manchester,NH,MHT,"997120"
-Syracuse,NY,SYR,"992151"
-Myrtle Beach,SC,MYR,"979033"
-Little Rock,AR,LIT,"974126"
-St. Petersburg,FL,PIE,"919439"
-Madison,WI,MSN,"90529"
-Knoxville,TN,TYS,"895014"
-Portland,ME,PWM,"887125"
-Greensboro/High Point,NC,GSO,"855022"
-Pensacola,FL,PNS,"800921"
-Wichita,KS,ICT,"796691"
-White Plains,NY,HPN,"764324"
+Albuquerque,2405823
+Anaheim,35460
+Anchorage,2555353
+Arlington,40120
+Atlanta,50881764
+Aurora,36850
+Austin,6238942
+Bakersfield,38420
+Baltimore,12619720
+Baton Rouge,22650
+Boise City,22890
+Boston,17810721
+Buffalo,2324599
+Chandler,25480
+Charlotte,21790063
+Chesapeake,24300
+Chicago,37754813
+Chula Vista,27140
+Cincinnati,3288669
+Cleveland,4120014
+Colorado Springs,48420
+Columbus,3620419
+Corpus Christi,32820
+Dallas,7882413
+Denver,28642444
+Detroit,16926948
+Durham,27400
+El Paso,1446332
+Fort Wayne,26790
+Fort Worth,89400
+Fremont,23660
+Fresno,52920
+Garland,23240
+Gilbert,24660
+Glendale,25130
+Greensboro,29050
+Henderson,30920
+Hialeah,23510
+Honolulu,9732859
+Houston,20161779
+Indianapolis,4287756
+Irvine,28670
+Irving,24290
+Jacksonville,2750431
+Jersey City,26470
+Kansas City,5545500
+Laredo,26200
+Las Vegas,23051083
+Lexington-Fayette,32580
+Lincoln,28790
+Long Beach,1388975
+Los Angeles,40178194
+Louisville,1653222
+Lubbock,26020
+Madison,90529
+Memphis,2039350
+Mesa,49730
+Miami,20917084
+Milwaukee,3401595
+Minneapolis,18248360
+Nashville,6540789
+New Orleans,5691532
+New York,29335915
+Newark,19975525
+Norfolk,1618175
+North Las Vegas,24770
+Oakland,6094732
+Oklahoma City,1850871
+Omaha,2153136
+Orlando,20406714
+Philadelphia,14644264
+Phoenix,21388856
+Pittsburgh,4030996
+Plano,29170
+Portland,9109172
+Raleigh,47670
+Reno,1781791
+Richmond,1796843
+Riverside,33160
+Sacramento,5062654
+San Antonio,4275296
+San Diego,10512833
+San Francisco,25868423
+San Jose,5406284
+Santa Ana,5275888
+Scottsdale,26020
+Seattle,21977739
+Spokane,1576550
+St. Louis,7009639
+St. Paul,30810
+St. Petersburg,919439
+Stockton,31210
+Tampa,9320099
+Toledo,27620
+Tucson,1617290
+Tulsa,1371176
+Virginia Beach,45410
+Washington DC,114984744
+Wichita,796691
+Winston-Salem,24550
