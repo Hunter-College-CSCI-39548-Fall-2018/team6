@@ -14,39 +14,50 @@ class ResultList extends Component {
     super(props, context);
 
     this.handleShow = this.handleShow.bind(this);
-    this.getResultsFromTimestamp = this.getResultsFromTimestamp.bind(this);
+    this.getResultsFromSurveyChoices = this.getResultsFromSurveyChoices.bind(
+      this
+    );
     this.handleClose = this.handleClose.bind(this);
     this.state = {
       show: false,
-      timestamp: this.props.ts,
-      results: [
+      survey: this.props.ts,
+      cities: [
         {
-          imageUrl: "https://picsum.photos/200",
-          id: "1",
-          state: "Fallon",
-          city: "Corkish",
-          population: "fcorkish0@uol.com.br",
-          price: "Female",
-          climate: "143.156.211.217"
+          city_name: "Corkish",
+          state_name: "Fallon",
+          city_img: "https://picsum.photos/200",
+          population: 50000,
+          cost_index: 3,
+          high: 90,
+          low: 50,
+          busy: 3,
+          density: 5,
+          rank: 1
         },
         {
-          imageUrl: "https://picsum.photos/200/300/?random",
-          id: 2,
-          state: "Stan",
-          city: "Probin",
-          population: "sprobin1@jiathis.com",
-          price: "Male",
-          climate: "115.255.246.218"
+          city_name: "Probin",
+          state_name: "Stan",
+          city_img: "https://picsum.photos/200/300/?random",
+          population: 20000,
+          cost_index: 2,
+          high: 80,
+          low: 40,
+          busy: 2,
+          density: 4,
+          rank: 3
         },
         {
-          imageUrl:
+          city_name: "Paeckmeyer",
+          state_name: "NOT PIKACHU",
+          city_img:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpRxn30r2ij1733AKJkUKK20YnSiWN-XjZFEeNvR8TQbpRAkjtjw",
-          id: 3,
-          state: "NOT PIKACHU",
-          city: "Paeckmeyer",
-          population: "apaeckmeyer2@nature.com",
-          price: "Female",
-          climate: "12.240.105.10"
+          population: 12345678,
+          cost_index: 3,
+          high: 50,
+          low: 30,
+          busy: 9,
+          density: 4,
+          rank: 9
         }
       ]
     };
@@ -67,7 +78,7 @@ class ResultList extends Component {
           </Modal.Header>
           <Modal.Body>
             <ListGroup className="List">
-              <RenderResult jsonResults={this.state.results} />
+              <RenderResult jsonResults={this.state.cities} />
             </ListGroup>
           </Modal.Body>
           <Modal.Footer>
@@ -77,14 +88,14 @@ class ResultList extends Component {
       </div>
     );
   }
-  getResultsFromTimestamp() {
+  getResultsFromSurveyChoices() {
     return axios
-      .post("/getHistoryFromTimestamp", {
-        timestamp: this.state.timestamp
+      .post("/getHistoryFromSurveyChoices", {
+        cities: this.state.survey
       })
       .then(function(response) {
         console.log(response);
-        // this.setState({ results: response.data });
+        // this.setState({ cities: response.data });
       })
       .catch(function(error) {
         console.log(error);
@@ -102,7 +113,7 @@ class ResultList extends Component {
   }
 
   handleShow() {
-    this.getResultsFromTimestamp();
+    this.getResultsFromSurveyChoices();
     this.setState({ show: true });
   }
   componentWillMount = () => {

@@ -4,6 +4,7 @@ import { ForgotPassword } from "../ForgotPassword";
 import { Register } from "../Register";
 import "./Login.css";
 import AuthService from "../AuthService/AuthService";
+import { Modal } from "react-bootstrap";
 
 /*
 Author: Eunice Hew
@@ -79,22 +80,24 @@ class Login extends Component {
     }
 
     return (
-      <div className="Login">
-        <div className="Header">
-          <h1>Travel App </h1>
+      <Modal>
+        <div className="Login">
+          <div className="Header">
+            <h1>Travel App </h1>
+          </div>
+          <Tabs className="react-tabs">
+            <TabList>
+              <Tab onClick={e => this.OnClickShowLogin(e)}> Login</Tab>
+              <Tab> Register</Tab>
+            </TabList>
+            <TabPanel>{login}</TabPanel>
+            <TabPanel>
+              <Register />
+            </TabPanel>
+          </Tabs>
+          {/* <div className="jwt-icon" /> */}
         </div>
-        <Tabs className="react-tabs">
-          <TabList>
-            <Tab onClick={e => this.OnClickShowLogin(e)}> Login</Tab>
-            <Tab> Register</Tab>
-          </TabList>
-          <TabPanel>{login}</TabPanel>
-          <TabPanel>
-            <Register />
-          </TabPanel>
-        </Tabs>
-        {/* <div className="jwt-icon" /> */}
-      </div>
+      </Modal>
     );
   }
 
@@ -116,7 +119,7 @@ class Login extends Component {
     e.preventDefault();
     this.Auth.login(this.state.email, this.state.password)
       .then(res => {
-        this.props.history.replace("/Home");
+        this.props.history.replace("/");
       })
       .catch(err => {
         console.log(err);
@@ -126,7 +129,7 @@ class Login extends Component {
 
   componentWillMount = () => {
     if (this.Auth.loggedIn()) {
-      this.props.history.replace("/Home");
+      this.props.history.replace("/");
     }
     document.body.classList.add("LoginBg");
   };

@@ -1,28 +1,24 @@
 import React, { Component } from "react";
 // import "./Home.css";
-import { Carousel } from "react-bootstrap";
 import TravelNav from "../TravelNav/TravelNav";
-// import homeAuth from "../AuthService/HomeAuth";
+import { Carousel } from "react-bootstrap";
 
 /*
 Author: Eunice Hew
 Home page with caroussl
 */
 
-class Home extends Component {
+class HomeLoggedOut extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      result: this.props.extResults,
-      isAuthed: this.props.isAuthed
+      result: this.props.extResults
     };
   }
   render() {
-    let nav = <TravelNav loggedIn={this.state.isAuthed} />;
-
     return (
       <div>
-        {nav}
+        <TravelNav loggedIn={false} />
         <Carousel>
           <Carousel.Item>
             <center>
@@ -140,5 +136,4 @@ class Home extends Component {
     document.body.classList.remove("SurveyBg");
   };
 }
-export default Home;
-// export default homeAuth(Home);
+export default HomeLoggedOut;
