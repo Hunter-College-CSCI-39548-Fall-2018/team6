@@ -68,12 +68,8 @@ class ResultList extends Component {
         <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
           Launch survey results
         </Button>
-        <Modal
-          show={this.state.show}
-          onHide={this.handleClose}
-          onExit={this.exitFunc}
-        >
-          <Modal.Header closeButton>
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton={false}>
             <Modal.Title>Travel Survey Results</Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -101,11 +97,7 @@ class ResultList extends Component {
         console.log(error);
       });
   }
-  exitFunc() {
-    console.log("Redirect?");
-    // this.props.history.push("/History");
-    // return <Redirect push to="/History" />;
-  }
+
   handleClose() {
     this.setState({ show: false });
     // return <Link to="/Survey" />;

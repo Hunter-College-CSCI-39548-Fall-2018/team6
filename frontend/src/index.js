@@ -6,7 +6,6 @@ import { App } from "./App";
 import { Login } from "./Login";
 import * as serviceWorker from "./serviceWorker";
 import Home from "./Home/Home";
-// import HomeLoggedOut from "./HomeLoggedOut/HomeLoggedOut";
 // import AuthService from "./AuthService/AuthService";
 import "./styles/main.css";
 

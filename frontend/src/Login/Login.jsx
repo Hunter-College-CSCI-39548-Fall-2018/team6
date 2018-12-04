@@ -4,7 +4,7 @@ import { ForgotPassword } from "../ForgotPassword";
 import { Register } from "../Register";
 import "./Login.css";
 import AuthService from "../AuthService/AuthService";
-import { Modal } from "react-bootstrap";
+import { Button, Glyphicon } from "react-bootstrap";
 
 /*
 Author: Eunice Hew
@@ -80,24 +80,33 @@ class Login extends Component {
     }
 
     return (
-      <Modal>
-        <div className="Login">
-          <div className="Header">
-            <h1>Travel App </h1>
-          </div>
-          <Tabs className="react-tabs">
-            <TabList>
-              <Tab onClick={e => this.OnClickShowLogin(e)}> Login</Tab>
-              <Tab> Register</Tab>
-            </TabList>
-            <TabPanel>{login}</TabPanel>
-            <TabPanel>
-              <Register />
-            </TabPanel>
-          </Tabs>
-          {/* <div className="jwt-icon" /> */}
+      <div className="Login">
+        <div className="Header">
+          <Button
+            style={{
+              position: "absolute",
+              marginLeft: "-130px",
+              background: "none",
+              border: "0px"
+            }}
+            href="/"
+          >
+            <Glyphicon glyph="glyphicon glyphicon-remove" />
+          </Button>
+          <h1>Travel App </h1>
         </div>
-      </Modal>
+        <Tabs className="react-tabs">
+          <TabList>
+            <Tab onClick={e => this.OnClickShowLogin(e)}> Login</Tab>
+            <Tab> Register</Tab>
+          </TabList>
+          <TabPanel>{login}</TabPanel>
+          <TabPanel>
+            <Register />
+          </TabPanel>
+        </Tabs>
+        {/* <div className="jwt-icon" /> */}
+      </div>
     );
   }
 

@@ -118,6 +118,7 @@ class RenderResult extends Component {
             <Media.Left align="middle">
               <img
                 src={this.state.results[i].city_img}
+                // src=v1/city_img/{this.state.results[i].city_name}
                 alt="Pikachu"
                 className="ResultImg"
               />
@@ -132,9 +133,9 @@ class RenderResult extends Component {
                 State: {this.state.results[i].state_name} <br />
                 City: {this.state.results[i].city_name} <br />
                 Population: {this.state.results[i].population} <br />
-                High temperature: {this.state.results[i].high} <br />
-                Low temperature: {this.state.results[i].low} <br />
                 How busy it is: {this.state.results[i].busy} <br />
+                High temperature (F): {this.state.results[i].high} <br />
+                Low temperature (F): {this.state.results[i].low} <br />
               </p>
             </Media.Body>
           </Media>

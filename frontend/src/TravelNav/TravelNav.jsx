@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./TravelNav.css";
 import { Nav, Navbar, NavItem } from "react-bootstrap";
 import AuthService from "../AuthService/AuthService";
-import Login from "../Login/Login";
 const Auth = new AuthService();
 
 /*
@@ -14,10 +13,12 @@ class TravelNav extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      isLoggedIn: this.props.isAuthed
+      // isLoggedIn: this.props.isAuthed
+      isLoggedIn: true
     };
   }
   render() {
+    console.log(this.state.isLoggedIn);
     let logstate;
     if (this.state.isLoggedIn) {
       logstate = (
@@ -44,8 +45,7 @@ class TravelNav extends Component {
     } else {
       logstate = (
         <Nav pullRight>
-          {/* <NavItem eventKey={3} href="/Login"> */}
-          <NavItem eventKey={3} onClick={Login}>
+          <NavItem eventKey={3} href="/Login">
             Login
           </NavItem>
         </Nav>
@@ -64,6 +64,7 @@ class TravelNav extends Component {
       </div>
     );
   }
+
   handleLogout() {
     Auth.logout();
     this.setState({ isLoggedIn: false });

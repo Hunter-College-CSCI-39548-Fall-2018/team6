@@ -22,6 +22,7 @@ class Result extends Component {
           <Media.Left align="middle">
             <img
               src={this.state.result.city_img}
+              // src=v1/city_img/{this.state.result.city_name}
               alt="Pikachu"
               className="ResultImg"
             />
@@ -35,11 +36,10 @@ class Result extends Component {
                 Rank: {this.state.result.rank} <br />
                 State: {this.state.result.state_name} <br />
                 City: {this.state.result.city_name} <br />
-                Price Point: {this.state.result.cost_index}/4 <br />
+                Population: {this.state.result.population} <br />
+                How busy it is: {this.state.result.busy} <br />
                 High temperature (F): {this.state.result.high} <br />
                 Low temperature (F): {this.state.result.low} <br />
-                Annual Precipitation (in):
-                {this.state.result.annual_precipitation} <br />
               </p>
             </Media.Left>
           </Media.Body>
@@ -47,13 +47,14 @@ class Result extends Component {
         <Media>
           <Media.Body>
             <p>
+              Annual Precipitation (in):
+              {this.state.result.annual_precipitation} <br />
+              How pricy: {this.state.result.cost_index}/4 <br />
               Average Flight Cost: {this.state.result.flight_cost} <br />
               Nearby Airports: {this.forLoopAirports()} <br />
-              Annual Passengers: {this.state.result.passengers} <br />
-              Population: {this.state.result.population} <br />
-              Density of population: {this.state.result.density}
+              Annual Passengers: {this.state.result.annual_passengers} <br />
+              Small or big city: {this.state.result.density}
               <br />
-              How busy the airport is: {this.state.result.busy} <br />
             </p>
           </Media.Body>
         </Media>{" "}
@@ -61,7 +62,7 @@ class Result extends Component {
           <strong>Most popular via Yelp</strong>
         </h4>
         <Tabs>
-          <Tab eventKey={1} title="Resturants">
+          <Tab eventKey={1} title="Restaurants">
             {this.forLoopYelp(this.state.result.yelp_restaurants)}
           </Tab>
           <Tab eventKey={2} title="Tours">

@@ -76,19 +76,20 @@ class History extends Component {
               <Col xs={4}>
                 Start Date: {this.state.surveys[i].startDate} <br />
                 End Date: {this.state.surveys[i].endDate} <br />
-                Climate: {this.state.surveys[i].climate} <br />
-                Precipitation: {this.state.surveys[i].precipitation} <br />
+                Closest airport: {this.state.surveys[i].startAirport} <br />
+                Budget: {this.state.surveys[i].expensive} <br />
               </Col>
               <Col xs={4}>
-                Origin airport: {this.state.surveys[i].startAirport} <br />
                 Population: {this.state.surveys[i].population} <br />
-                Density of population: {this.state.surveys[i].density} <br />
-                Price Point: {this.state.surveys[i].expensive} <br />
-                How busy the auiport is: {this.state.surveys[i].busy} <br />
+                Small or big city: {this.state.surveys[i].density} <br />
+                How quiet or busy: {this.state.surveys[i].busy} <br />
+                Preferred Temperature: {this.state.surveys[i].climate} <br />
+                Preferred Amount of Precipitation:{" "}
+                {this.state.surveys[i].precipitation} <br />
               </Col>
               <Col xs={4}>
                 <br />
-                <ResultList ts={this.state.surveys[i].climate} />
+                <ResultList ts={this.state.surveys[i]} />
               </Col>
             </Media.Body>
           </Media>

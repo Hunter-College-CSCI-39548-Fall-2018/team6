@@ -27,6 +27,7 @@ class ForgotPassword extends Component {
     return (
       <form onSubmit={e => this.submit(e)}>
         <h3>Password Reset</h3>
+        <br />
         <div className="input-box">
           <input
             type="email"
