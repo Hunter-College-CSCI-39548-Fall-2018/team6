@@ -23,7 +23,7 @@ public class LoadSQL {
         loadCSV(csvRoot + "City_Populations.csv", "City_Populations");
         loadCSV(csvRoot + "Climate.csv", "Climate");
         loadCSV(csvRoot + "Cost_Indexes.csv", "Cost_Indexes");
-//        loadCSV(csvRoot + "Fares.csv", "Fares");
+        loadCSV(csvRoot + "Fares.csv", "Fares");
         loadCSV(csvRoot + "States.csv", "States");
 
         // drops indexed_tables
