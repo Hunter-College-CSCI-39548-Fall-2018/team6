@@ -22,6 +22,9 @@ public class SurveyRequest {
     private Integer expensive;
 
     @NotBlank
+    private Integer busy;
+
+    @NotBlank
     private String startDate;
 
     @NotBlank
@@ -58,4 +61,8 @@ public class SurveyRequest {
     public String getEndDate() { return endDate; }
 
     public void setEndDate(String endDate) { this.endDate = endDate; }
+
+    public Integer getBusy() { return busy; }
+
+    public void setBusy(Integer busy) { this.busy = busy; }
 }
