@@ -18,7 +18,8 @@ class History extends Component {
           expensive: 3,
           airport: "",
           startDate: "mm-dd-yyyy",
-          endDate: "mm-dd-yyyy"
+          endDate: "mm-dd-yyyy",
+          searchDate: "2018-12-04 06:12:12"
         },
         {
           climate: 2,
@@ -29,7 +30,8 @@ class History extends Component {
           expensive: 1,
           airport: "",
           startDate: "mm-dd-yyyy",
-          endDate: "mm-dd-yyyy"
+          endDate: "mm-dd-yyyy",
+          searchDate: "2018-1-23 06:12:12"
         },
         {
           climate: 3,
@@ -40,7 +42,8 @@ class History extends Component {
           expensive: 1,
           airport: "",
           startDate: "mm-dd-yyyy",
-          endDate: "mm-dd-yyyy"
+          endDate: "mm-dd-yyyy",
+          searchDate: "2018-2-04 03:12:12"
         }
       ]
     };
@@ -74,6 +77,7 @@ class History extends Component {
                 <strong>Survey choices: </strong>{" "}
               </Media.Heading>
               <Col xs={4}>
+                Survey Search Date: {this.state.surveys[i].searchDate} <br />
                 Start Date: {this.state.surveys[i].startDate} <br />
                 End Date: {this.state.surveys[i].endDate} <br />
                 Closest airport: {this.state.surveys[i].airport} <br />
