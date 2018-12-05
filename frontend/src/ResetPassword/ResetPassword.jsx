@@ -2,11 +2,6 @@ import React, { Component } from "react";
 import "../Login/Login.css";
 import AuthService from "../AuthService/AuthService";
 
-/*
-Author: Eunice Hew
-Reset password on login screen
-*/
-
 class ResetPassword extends Component {
   constructor(props) {
     super(props);
@@ -99,7 +94,7 @@ class ResetPassword extends Component {
     e.preventDefault();
     this.Auth.login(this.state.email, this.state.password) // change?
       .then(res => {
-        this.props.history.replace("/Login");
+        this.props.history.replace("/login");
       })
       .catch(err => {
         console.log(err);
@@ -108,7 +103,7 @@ class ResetPassword extends Component {
   }
   componentWillMount = () => {
     if (this.Auth.loggedIn()) {
-      this.props.history.replace("/Survey");
+      this.props.history.replace("/survey");
     }
     document.body.classList.add("LoginBg");
   };
