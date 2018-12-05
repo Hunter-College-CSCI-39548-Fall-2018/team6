@@ -5,17 +5,20 @@ import "./index.css";
 import { App } from "./App";
 import { Login } from "./Login";
 import * as serviceWorker from "./serviceWorker";
-import "./styles/main.css"
-
-/*
-Author: Eunice Hew
-Routing for login page and components with the navigation bar
-*/
+import Home2 from "./Home/Home.2";
+import "./styles/main.css";
 
 ReactDOM.render(
   <BrowserRouter>
+    {/* Home routing- default auth false? */}
     <Switch>
-      <Route exact path="/Login" component={Login} />
+      {/* <Route
+        exact
+        path="/"
+        render={props => <Home2 {...props} isAuthed={false} />}
+      /> */}
+      <Route exact path="/" component={Home2} />
+      <Route exact path="/login" component={Login} />
       <Route component={App} />
     </Switch>
   </BrowserRouter>,

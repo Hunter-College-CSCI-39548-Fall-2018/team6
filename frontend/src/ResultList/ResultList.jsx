@@ -4,49 +4,51 @@ import RenderResult from "./RenderResult";
 import { Button, Modal, ListGroup } from "react-bootstrap";
 import axios from "axios";
 
-/*
-Author: Eunice Hew
-Results modul generated from survey
-*/
-
 class ResultList extends Component {
   constructor(props, context) {
     super(props, context);
 
     this.handleShow = this.handleShow.bind(this);
-    this.getResultsFromTimestamp = this.getResultsFromTimestamp.bind(this);
+    this.getResultsFromSurveyChoices = this.getResultsFromSurveyChoices.bind(
+      this
+    );
     this.handleClose = this.handleClose.bind(this);
     this.state = {
       show: false,
-      timestamp: this.props.ts,
-      results: [
+      survey: this.props.ts,
+      cities: [
         {
-          imageUrl: "https://picsum.photos/200",
-          id: "1",
-          state: "Fallon",
-          city: "Corkish",
-          population: "fcorkish0@uol.com.br",
-          price: "Female",
-          climate: "143.156.211.217"
+          city_name: "Baton Rouge",
+          state_name: "Louisiana",
+          population: 226505,
+          cost_index: 2,
+          high: 81.7,
+          low: 50.1,
+          busy: 5,
+          density: 1017.8673,
+          score: 205
         },
         {
-          imageUrl: "https://picsum.photos/200/300/?random",
-          id: 2,
-          state: "Stan",
-          city: "Probin",
-          population: "sprobin1@jiathis.com",
-          price: "Male",
-          climate: "115.255.246.218"
+          city_name: "Atlanta",
+          state_name: "Georgia",
+          population: 491626,
+          cost_index: 2,
+          high: 80.0,
+          low: 42.7,
+          busy: 1,
+          density: 1422.5653,
+          score: 204
         },
         {
-          imageUrl:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpRxn30r2ij1733AKJkUKK20YnSiWN-XjZFEeNvR8TQbpRAkjtjw",
-          id: 3,
-          state: "NOT PIKACHU",
-          city: "Paeckmeyer",
-          population: "apaeckmeyer2@nature.com",
-          price: "Female",
-          climate: "12.240.105.10"
+          city_name: "Miami",
+          state_name: "Florida",
+          population: 479009,
+          cost_index: 1,
+          high: 83.7,
+          low: 68.1,
+          busy: 1,
+          density: 5139.2676,
+          score: 187
         }
       ]
     };
@@ -57,17 +59,13 @@ class ResultList extends Component {
         <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
           Launch survey results
         </Button>
-        <Modal
-          show={this.state.show}
-          onHide={this.handleClose}
-          onExit={this.exitFunc}
-        >
-          <Modal.Header closeButton>
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton={false}>
             <Modal.Title>Travel Survey Results</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <ListGroup className="List">
-              <RenderResult jsonResults={this.state.results} />
+              <RenderResult jsonResults={this.state.cities} />
             </ListGroup>
           </Modal.Body>
           <Modal.Footer>
@@ -77,32 +75,28 @@ class ResultList extends Component {
       </div>
     );
   }
-  getResultsFromTimestamp() {
+  getResultsFromSurveyChoices() {
     return axios
-      .post("/getHistoryFromTimestamp", {
-        timestamp: this.state.timestamp
+      .post("/getHistoryFromSurveyChoices", {
+        cities: this.state.survey
       })
       .then(function(response) {
         console.log(response);
-        // this.setState({ results: response.data });
+        // this.setState({ cities: response.data });
       })
       .catch(function(error) {
         console.log(error);
       });
   }
-  exitFunc() {
-    console.log("Redirect?");
-    // this.props.history.push("/History");
-    // return <Redirect push to="/History" />;
-  }
+
   handleClose() {
     this.setState({ show: false });
-    // return <Link to="/Survey" />;
+    // return <Link to="/survey" />;
     // return <Redirect push to="/login" />;
   }
 
   handleShow() {
-    this.getResultsFromTimestamp();
+    this.getResultsFromSurveyChoices();
     this.setState({ show: true });
   }
   componentWillMount = () => {
