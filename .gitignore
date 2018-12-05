@@ -3,8 +3,10 @@ target/
 *.iml
 mysql.properties
 application.properties
+SpringMail.xml
 
 # Front End Packages
+frontend/node_modules/**
 node_modules
 yarn.lock
 

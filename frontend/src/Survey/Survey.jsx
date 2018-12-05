@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "react-day-picker/lib/style.css";
 import "rc-slider/assets/index.css";
-
 import AuthService from '../AuthService/AuthService';
 import ResultList from "../ResultList/ResultList";
 import DayPicker, { DateUtils } from 'react-day-picker';
@@ -24,7 +23,6 @@ class Survey extends Component {
     static defaultProps = {
         numberOfMonths: 2,
     };
-  }
 
     constructor(props, context) {
         super(props, context);
@@ -45,40 +43,40 @@ class Survey extends Component {
             busy: 20,
             bgImages: {
                 temperature: {
-                    "first": "url(https://previews.123rf.com/images/freeprod/freeprod1802/freeprod180200119/95725229-cold-winter-day-in-a-city-paris-france.jpg)",
-                    "second": "url(https://www.rd.com/wp-content/uploads/2017/07/00_hike_Best-Hikes-Across-America—and-the-Best-Times-to-Go_421563208_aaronj9_FT.jpg)",
-                    "third": "url(https://www.treebo.com/blog/wp-content/uploads/2017/12/Beaches-in-India_1.jpg)",
-                    "fourth": "url(https://www.treebo.com/blog/wp-content/uploads/2017/12/Beaches-in-India_1.jpg)"
+                    "first": "url(https://i.ibb.co/60Dj2dh/temp-1-cropped.jpg)",
+                    "second": "url(https://i.ibb.co/9qjpKCw/temp-2-cropped.jpg)",
+                    "third": "url(https://i.ibb.co/q7zYFDR/temp-3-cropped.jpg)",
+                    "fourth": "url(https://i.ibb.co/gw2KCVT/temp-4-cropped.jpg)"
                 },
                 density: {
-                    "first": "url(https://www.onlinevisatravel.com/wp-content/uploads/2018/02/8-of-the-worlds-most-beautiful-remote-travel-destinations-on-earth.jpg)",
-                    "second": "url(https://www.rd.com/wp-content/uploads/2017/07/00_hike_Best-Hikes-Across-America—and-the-Best-Times-to-Go_421563208_aaronj9_FT.jpg)",
-                    "third": "url(https://www.treebo.com/blog/wp-content/uploads/2017/12/Beaches-in-India_1.jpg)",
-                    "fourth": "url(https://www.treebo.com/blog/wp-content/uploads/2017/12/Beaches-in-India_1.jpg)"
+                    "first": "url(https://i.ibb.co/LdYSwPn/density-1-cropped.jpg)",
+                    "second": "url(https://i.ibb.co/YNwKZJW/density-2-cropped.jpg)",
+                    "third": "url(https://i.ibb.co/jk7002d/density-3-cropped.jpg)",
+                    "fourth": "url(https://i.ibb.co/LrVF0v8/density-4-cropped.jpg)"
                 },
                 budget: {
-                    "first": "url(https://www.onlinevisatravel.com/wp-content/uploads/2018/02/8-of-the-worlds-most-beautiful-remote-travel-destinations-on-earth.jpg)",
-                    "second": "url(https://www.rd.com/wp-content/uploads/2017/07/00_hike_Best-Hikes-Across-America—and-the-Best-Times-to-Go_421563208_aaronj9_FT.jpg)",
-                    "third": "url(https://www.treebo.com/blog/wp-content/uploads/2017/12/Beaches-in-India_1.jpg)",
-                    "fourth": "url(https://www.treebo.com/blog/wp-content/uploads/2017/12/Beaches-in-India_1.jpg)"
+                    "first": "url(https://i.ibb.co/pw4V53Q/budget-1-cropped.jpg)",
+                    "second": "url(https://i.ibb.co/DLqHVj4/budget-2-cropped.jpg)",
+                    "third": "url(https://i.ibb.co/QnYSD73/buget-3-cropped.jpg)",
+                    "fourth": "url(https://i.ibb.co/C2LRGq5/budget-4-cropped.jpg)"
                 },
                 precipitation: {
-                    "first": "url(https://www.onlinevisatravel.com/wp-content/uploads/2018/02/8-of-the-worlds-most-beautiful-remote-travel-destinations-on-earth.jpg)",
-                    "second": "url(https://www.rd.com/wp-content/uploads/2017/07/00_hike_Best-Hikes-Across-America—and-the-Best-Times-to-Go_421563208_aaronj9_FT.jpg)",
-                    "third": "url(https://www.treebo.com/blog/wp-content/uploads/2017/12/Beaches-in-India_1.jpg)",
-                    "fourth": "url(https://www.treebo.com/blog/wp-content/uploads/2017/12/Beaches-in-India_1.jpg)"
+                    "first": "url(https://i.ibb.co/801XDJT/rain-1-cropped.jpg)",
+                    "second": "url(https://i.ibb.co/BKzvwNP/rain-2-cropped.jpg)",
+                    "third": "url(https://i.ibb.co/hDH6Jfz/rain-3-cropped.jpg)",
+                    "fourth": "url(https://i.ibb.co/F7JG5m7/rain-4-cropped.jpg)"
                 },
                 population: {
-                    "first": "url(https://www.onlinevisatravel.com/wp-content/uploads/2018/02/8-of-the-worlds-most-beautiful-remote-travel-destinations-on-earth.jpg)",
-                    "second": "url(https://www.rd.com/wp-content/uploads/2017/07/00_hike_Best-Hikes-Across-America—and-the-Best-Times-to-Go_421563208_aaronj9_FT.jpg)",
-                    "third": "url(https://www.treebo.com/blog/wp-content/uploads/2017/12/Beaches-in-India_1.jpg)",
-                    "fourth": "url(https://www.treebo.com/blog/wp-content/uploads/2017/12/Beaches-in-India_1.jpg)"
+                    "first": "url(https://i.ibb.co/2c1hgrr/population-1-cropped.jpg)",
+                    "second": "url(https://i.ibb.co/7ynN6gp/population-2-cropped.jpg)",
+                    "third": "url(https://i.ibb.co/Y0n8ndf/population-3-cropped.jpg)",
+                    "fourth": "url(https://i.ibb.co/1bGQcwh/population-4-cropped.jpg)"
                 },
                 busy: {
-                    "first": "url(https://www.onlinevisatravel.com/wp-content/uploads/2018/02/8-of-the-worlds-most-beautiful-remote-travel-destinations-on-earth.jpg)",
-                    "second": "url(https://www.rd.com/wp-content/uploads/2017/07/00_hike_Best-Hikes-Across-America—and-the-Best-Times-to-Go_421563208_aaronj9_FT.jpg)",
-                    "third": "url(https://www.treebo.com/blog/wp-content/uploads/2017/12/Beaches-in-India_1.jpg)",
-                    "fourth": "url(https://www.treebo.com/blog/wp-content/uploads/2017/12/Beaches-in-India_1.jpg)"
+                    "first": "url(https://i.ibb.co/N3w0fGW/popular-1-cropped.jpg)",
+                    "second": "url(https://i.ibb.co/k1hn88G/popular-2-cropped.jpg)",
+                    "third": "url(https://i.ibb.co/CHKf8Z7/popular-3-cropped.jpg)",
+                    "fourth": "url(https://i.ibb.co/HTjHD3X/popular-4-cropped.jpg)"
                 }
             }
         };
@@ -102,7 +100,7 @@ class Survey extends Component {
         }
 
         return (
-            <div className="w-full sm:w-3/4 lg:w-1/2 px-12 mx-auto mb-32">
+            <div className="w-full px-12 sm:w-600x sm:px-0  mx-auto mb-32">
                 <div className="bg-white pt-8 pb-2 text-center font-bold text-2xl">
                     Your Dream Vacation Awaits
                 </div>
@@ -119,7 +117,6 @@ class Survey extends Component {
                         onChange={this.handleAirportChange}
                         options={AirportData}
                     />
-                  ))}
                 </div>
 
 
@@ -156,7 +153,7 @@ class Survey extends Component {
 
 
                 <div className="w-full mx-auto mb-10">
-                    <div className="w-full h-48 text-white text-center slider flex flex-col font-bold" style={ {backgroundImage: this.mapBg('temperature')}}>
+                    <div className="w-full h-150px text-white text-center slider flex flex-col font-bold" style={ {backgroundImage: this.mapBg('temperature')}}>
                         <div className="slider-inside">
                             <h4 className="w-full">What temperature do you prefer?</h4>
                             <h5 className="w-full">(cold to hot)</h5>
@@ -212,7 +209,7 @@ class Survey extends Component {
                 </div>
 
                 <div className="mx-auto mb-10">
-                    <div className="w-full h-48 text-white text-center slider flex flex-col font-bold" style={ {backgroundImage: this.mapBg('budget')}}>
+                    <div className="w-full h-150px text-white text-center slider flex flex-col font-bold" style={ {backgroundImage: this.mapBg('budget')}}>
                         <div className="slider-inside">
                             <h4 className="w-full">How's your budget?</h4>
                             <h5 className="w-full">(low to high)</h5>
@@ -268,7 +265,7 @@ class Survey extends Component {
 
 
                 <div className="mx-auto mb-10">
-                    <div className="w-full h-48 text-white text-center slider flex flex-col font-bold" style={ {backgroundImage: this.mapBg('density')}}>
+                    <div className="w-full h-150px text-white text-center slider flex flex-col font-bold" style={ {backgroundImage: this.mapBg('density')}}>
                         <div className="slider-inside">
                             <h4 className="w-full">Somewhere remote or bustling?</h4>
                         </div>
@@ -323,7 +320,7 @@ class Survey extends Component {
 
 
                 <div className="mx-auto mb-10">
-                    <div className="w-full h-48 text-white text-center slider flex flex-col font-bold" style={ {backgroundImage: this.mapBg('population')}}>
+                    <div className="w-full h-150px text-white text-center slider flex flex-col font-bold" style={ {backgroundImage: this.mapBg('population')}}>
                         <div className="slider-inside">
                             <h4 className="text-2xl sm:text-3xl w-full">Would you like to visit a small city or large city?</h4>
                             <h5 className="w-full">(low to high)</h5>
@@ -378,7 +375,7 @@ class Survey extends Component {
                 </div>
 
                 <div className="mx-auto mb-8">
-                    <div className="w-full h-48 text-white text-center slider flex flex-col font-bold" style={ {backgroundImage: this.mapBg('precipitation')}}>
+                    <div className="w-full h-150px text-white text-center slider flex flex-col font-bold" style={ {backgroundImage: this.mapBg('precipitation')}}>
                         <div className="slider-inside">
                             <h4 className="w-full">How much do you dislike the rain?</h4>
                             <h5 className="w-full">(enjoy rain to avoid rain at all costs)</h5>
@@ -434,7 +431,7 @@ class Survey extends Component {
 
 
                 <div className="mx-auto mb-12">
-                    <div className="w-full h-48 text-white text-center slider flex flex-col font-bold" style={ {backgroundImage: this.mapBg('busy')}}>
+                    <div className="w-full h-150px text-white text-center slider flex flex-col font-bold" style={ {backgroundImage: this.mapBg('busy')}}>
                         <div className="slider-inside">
                             <h4 className="w-full">City that is less familiar or popular?</h4>
                             <h5 className="w-full">(less familiar to popular)</h5>
@@ -507,6 +504,7 @@ class Survey extends Component {
     }
 
     handleDayClick(day) {
+        if (DateUtils.isPastDay(day)) return;
         const range = DateUtils.addDayToRange(day, this.state);
         this.setState(range);
     }
@@ -622,7 +620,6 @@ class Survey extends Component {
 
       return null;
     };
-
 
 }
 export default Survey;
