@@ -23,9 +23,6 @@ function Handle({ // your handle component
             }}
             {...getHandleProps(id)}
         >
-            <div style={{ fontFamily: 'Roboto', fontSize: 11, marginTop: -35 }}>
-                {value}
-            </div>
         </div>
     )
 }

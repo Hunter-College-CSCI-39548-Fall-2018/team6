@@ -4,11 +4,7 @@ import { ForgotPassword } from "../ForgotPassword";
 import { Register } from "../Register";
 import "./Login.css";
 import AuthService from "../AuthService/AuthService";
-
-/*
-Author: Eunice Hew
-Login screen, contains links to registration and forgot password
-*/
+import { Button, Glyphicon } from "react-bootstrap";
 
 class Login extends Component {
   constructor(props) {
@@ -19,6 +15,8 @@ class Login extends Component {
       reenterPass: "",
       isForgotPassword: false,
       hasError: false
+      //emailError: not in database
+      //pwError: does not match email in db
     };
     this.handleChange = this.handleChange.bind(this);
     this.submit = this.submit.bind(this);
@@ -27,14 +25,14 @@ class Login extends Component {
 
   render() {
     let login;
-    let errorMessage;
-    if (this.state.hasError) {
-      errorMessage = (
-        <p style={{ color: "red", fontSize: "15px" }}>
-          Error in login. Try again.
-        </p>
-      );
-    }
+    // let errorMessage;
+    // if (this.state.hasError) {
+    //   errorMessage = (
+    //     <p style={{ color: "red", fontSize: "15px" }}>
+    //       Error in login. Try again.
+    //     </p>
+    //   );
+    // }
     if (this.state.isForgotPassword) {
       login = <ForgotPassword />;
     } else {
@@ -73,7 +71,7 @@ class Login extends Component {
               Forgot Password?
             </p>
           </form>
-          {errorMessage}
+          {/* {errorMessage} */}
         </div>
       );
     }
@@ -81,6 +79,17 @@ class Login extends Component {
     return (
       <div className="Login">
         <div className="Header">
+          <Button
+            style={{
+              position: "absolute",
+              marginLeft: "100px",
+              background: "none",
+              border: "0px"
+            }}
+            href="/"
+          >
+            <Glyphicon glyph="glyphicon glyphicon-remove" />
+          </Button>
           <h1>Travel App </h1>
         </div>
         <Tabs className="react-tabs">
@@ -116,7 +125,7 @@ class Login extends Component {
     e.preventDefault();
     this.Auth.login(this.state.email, this.state.password)
       .then(res => {
-        this.props.history.replace("/Home");
+        this.props.history.replace("/home");
       })
       .catch(err => {
         console.log(err);
@@ -126,7 +135,7 @@ class Login extends Component {
 
   componentWillMount = () => {
     if (this.Auth.loggedIn()) {
-      this.props.history.replace("/Home");
+      this.props.history.replace("/home");
     }
     document.body.classList.add("LoginBg");
   };
