@@ -62,7 +62,7 @@ Core workflow:
 			/survey
 	3. Result List
 	3a. Cities
-		Back-end: /city/city_name
+		Back-end: /surveyResult/city_name
 	* History
 		Table with username / foreign_key survey (5)
 		/history/username

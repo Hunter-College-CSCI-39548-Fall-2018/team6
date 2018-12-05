@@ -1,6 +1,6 @@
 package com.travelfilters.web.payload;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotBlank;
 
 public class SurveyRequest {
     @NotBlank
@@ -30,39 +30,85 @@ public class SurveyRequest {
     @NotBlank
     private String endDate;
 
-    public String getAirport() { return airport; }
+    private boolean save = true;
 
-    public void setAirport(String airport) { this.airport = airport; }
+    public boolean getSave() {
+        return save;
+    }
 
-    public Integer getClimate() { return climate; }
+    public void setSave(boolean save) {
+        this.save = save;
+    }
 
-    public void setClimate(Integer climate) { this.climate = climate; }
+    public String getAirport() {
+        return airport;
+    }
 
-    public Integer getPopulation() { return population; }
+    public void setAirport(String airport) {
+        this.airport = airport;
+    }
 
-    public void setPopulation(Integer population) { this.population = population; }
+    public Integer getClimate() {
+        return climate;
+    }
 
-    public Integer getPrecipitation() { return precipitation; }
+    public void setClimate(Integer climate) {
+        this.climate = climate;
+    }
 
-    public void setPrecipitation(Integer precipitation) { this.precipitation = precipitation; }
+    public Integer getPopulation() {
+        return population;
+    }
 
-    public Integer getDensity() { return density; }
+    public void setPopulation(Integer population) {
+        this.population = population;
+    }
 
-    public void setDensity(Integer density) { this.density = density; }
+    public Integer getPrecipitation() {
+        return precipitation;
+    }
 
-    public Integer getExpensive() { return expensive; }
+    public void setPrecipitation(Integer precipitation) {
+        this.precipitation = precipitation;
+    }
 
-    public void setExpensive(Integer expensive) { this.expensive = expensive; }
+    public Integer getDensity() {
+        return density;
+    }
 
-    public String getStartDate() { return startDate; }
+    public void setDensity(Integer density) {
+        this.density = density;
+    }
 
-    public void setStartDate(String startDate) { this.startDate = startDate; }
+    public Integer getExpensive() {
+        return expensive;
+    }
 
-    public String getEndDate() { return endDate; }
+    public void setExpensive(Integer expensive) {
+        this.expensive = expensive;
+    }
 
-    public void setEndDate(String endDate) { this.endDate = endDate; }
+    public String getStartDate() {
+        return startDate;
+    }
 
-    public Integer getBusy() { return busy; }
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
 
-    public void setBusy(Integer busy) { this.busy = busy; }
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    public Integer getBusy() {
+        return busy;
+    }
+
+    public void setBusy(Integer busy) {
+        this.busy = busy;
+    }
 }
