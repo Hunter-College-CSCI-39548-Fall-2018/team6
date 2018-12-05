@@ -3,10 +3,12 @@ import "./History.css";
 import ResultList from "../ResultList/ResultList";
 import { ListGroupItem, Grid, Row, Col, Media } from "react-bootstrap";
 import axios from "axios";
+import AuthService from "../AuthService/AuthService";
 
 class History extends Component {
   constructor(props, context) {
     super(props, context);
+    this.Auth = new AuthService();
     this.state = {
       surveys: [
         {
@@ -105,8 +107,14 @@ class History extends Component {
   }
 
   getSurveys() {
+    let config = {
+      headers: {
+        Authorization: this.Auth.getToken(),
+        "Content-Type": "application/json"
+      }
+    };
     return axios
-      .get("/getSurveys")
+      .get("http://localhost:5000/v1/survey/history", config)
       .then(function(response) {
         console.log(response.data);
         this.setState({ surveys: response.data });
@@ -118,11 +126,11 @@ class History extends Component {
 
   componentWillMount = () => {
     this.getSurveys();
-    // document.body.classList.add("SurveyBg");
+    document.body.classList.add("HistoryBg");
   };
 
   componentWillUnmount = () => {
-    // document.body.classList.remove("SurveyBg");
+    document.body.classList.remove("HistoryBg");
   };
 }
 export default History;

@@ -77,7 +77,7 @@ class ResultList extends Component {
   }
   getResultsFromSurveyChoices() {
     return axios
-      .post("/getHistoryFromSurveyChoices", {
+      .post("http://localhost:5000/v1/survey/", {
         cities: this.state.survey
       })
       .then(function(response) {

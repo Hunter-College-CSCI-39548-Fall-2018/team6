@@ -147,11 +147,11 @@ class RenderResult extends Component {
   }
 
   // Link by city name not id
-  getExtendedResults() {
+  getExtendedResults(city_name) {
     // console.log("Are we getting this id::: ", city_name);
     return axios
-      .post("/getExtendedResults", {
-        ext: this.state.city_name
+      .get("http://localhost:5000/v1/survey/" + city_name, {
+        // ext: this.state.city_name
       })
       .then(function(response) {
         console.log(response);
@@ -163,7 +163,7 @@ class RenderResult extends Component {
   }
 
   loadResult(id) {
-    this.getExtendedResults(id);
+    this.getExtendedResults(this.state.results[id].city_name);
     console.log("Loading result");
     this.setState({
       redirect: true
