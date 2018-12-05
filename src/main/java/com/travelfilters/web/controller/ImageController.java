@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Base64;
 
-@RequestMapping("v1/city_picture")
+@RequestMapping("/v1/city_picture")
 public class ImageController {
     @GetMapping(value = "/{city_name}", produces = MediaType.IMAGE_JPEG_VALUE)
     public static @ResponseBody
