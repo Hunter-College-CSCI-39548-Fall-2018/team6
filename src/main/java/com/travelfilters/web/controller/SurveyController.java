@@ -1,7 +1,7 @@
 package com.travelfilters.web.controller;
 
 import com.google.gson.Gson;
-import com.travelfilters.web.beans.City;
+import com.travelfilters.web.beans.Survey_Result;
 import com.travelfilters.web.connector.SQLConnector;
 import com.travelfilters.web.payload.SurveyRequest;
 import com.travelfilters.web.security.CurrentUser;
@@ -128,7 +128,7 @@ public class SurveyController {
         SQLConnector connector = new SQLConnector();
         Gson gson = new Gson();
 
-        ArrayList<City> cityArr = new ArrayList<>();
+        ArrayList<Survey_Result> surveyResultArr = new ArrayList<>();
 
         for (String entry : results.keySet()) {
             try {
@@ -155,26 +155,26 @@ public class SurveyController {
 
 
                 if (rs.next()) {
-                    City city = new City();
+                    Survey_Result surveyResult = new Survey_Result();
                     System.out.println("entry = " + entry);
-                    city.setCity_name(entry);
-                    city.setState_name(capitalize(rs.getString("state_name").toLowerCase()));
-                    city.setBusy(Airport_Passengers.get(entry) / 24 + 1);
-                    city.setDensity(rs.getFloat("density"));
-                    city.setHigh(rs.getFloat("high"));
-                    city.setLow(rs.getFloat("low"));
-                    city.setPopulation(rs.getInt("population"));
-                    city.setCost_index(Cost_Indexes.get(entry) / 24 + 1);
-                    city.setScore(results.get(entry));
-                    cityArr.add(city);
+                    surveyResult.setCity_name(entry);
+                    surveyResult.setState_name(capitalize(rs.getString("state_name").toLowerCase()));
+                    surveyResult.setBusy(Airport_Passengers.get(entry) / 24 + 1);
+                    surveyResult.setDensity(rs.getFloat("density"));
+                    surveyResult.setHigh(rs.getFloat("high"));
+                    surveyResult.setLow(rs.getFloat("low"));
+                    surveyResult.setPopulation(rs.getInt("population"));
+                    surveyResult.setCost_index(Cost_Indexes.get(entry) / 24 + 1);
+                    surveyResult.setScore(results.get(entry));
+                    surveyResultArr.add(surveyResult);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
 
-        System.out.println("cityArr = " + gson.toJson(cityArr));
-        return gson.toJson(cityArr);
+        System.out.println("surveyResultArr = " + gson.toJson(surveyResultArr));
+        return gson.toJson(surveyResultArr);
     }
 
     static String capitalize(String str) {
@@ -211,8 +211,8 @@ public class SurveyController {
                         "\t(?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
                 pstmt = connection.prepareStatement(query);
-                pstmt.setInt(1, -1);
-//            pstmt.setInt(1, Integer.valueOf(currentUser.toString()));
+//                pstmt.setInt(1, -1);
+                pstmt.setLong(1, currentUser.getId());
                 pstmt.setInt(2, surveyRequest.getClimate());
                 pstmt.setInt(3, surveyRequest.getPopulation());
                 pstmt.setInt(4, surveyRequest.getPrecipitation());
@@ -227,6 +227,26 @@ public class SurveyController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+
+        SQLConnector connector = new SQLConnector();
+        try {
+            Connection connection = connector.getConnection();
+            PreparedStatement pstmt = null;
+
+            String query = "REPLACE INTO Session (userid, start_date, end_date, start_airport) VALUES\n" +
+                    "\t(?, ?, ?, ?);";
+
+            pstmt = connection.prepareStatement(query);
+            pstmt.setLong(1, currentUser.getId());
+            pstmt.setString(2, surveyRequest.getStartDate());
+            pstmt.setString(3, surveyRequest.getEndDate());
+            pstmt.setString(4, surveyRequest.getAirport());
+
+            pstmt.executeUpdate();
+            connection.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

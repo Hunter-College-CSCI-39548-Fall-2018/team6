@@ -1,6 +1,6 @@
 package com.travelfilters.web.beans;
 
-public class City {
+public class Survey_Result {
     private String city_name;
     private String state_name;
     private String city_img;
