@@ -220,7 +220,7 @@ public class SurveyController {
                 pstmt.setInt(4, surveyRequest.getPrecipitation());
                 pstmt.setInt(5, surveyRequest.getDensity());
                 pstmt.setInt(6, surveyRequest.getExpensive());
-                pstmt.setString(7, surveyRequest.getAirport());
+                pstmt.setString(7, surveyRequest.getStartAirport());
                 pstmt.setString(8, surveyRequest.getStartDate());
                 pstmt.setString(9, surveyRequest.getEndDate());
 
@@ -242,7 +242,7 @@ public class SurveyController {
             pstmt.setLong(1, currentUser.getId());
             pstmt.setString(2, surveyRequest.getStartDate());
             pstmt.setString(3, surveyRequest.getEndDate());
-            pstmt.setString(4, surveyRequest.getAirport());
+            pstmt.setString(4, surveyRequest.getStartAirport());
 
             pstmt.executeUpdate();
             connection.commit();
