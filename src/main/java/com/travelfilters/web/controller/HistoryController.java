@@ -6,6 +6,7 @@ import com.travelfilters.web.connector.SQLConnector;
 import com.travelfilters.web.security.CurrentUser;
 import com.travelfilters.web.security.UserPrincipal;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,8 +20,8 @@ import java.util.LinkedList;
 @RequestMapping("/v1/history")
 public class HistoryController {
 
-    @PostMapping("")
-    public ResponseEntity<?> submitSurvey(@CurrentUser UserPrincipal currentUser) {
+    @GetMapping("")
+    public ResponseEntity<?> getHistory(@CurrentUser UserPrincipal currentUser) {
         String jsonString = buildHistory(currentUser);
 
         System.out.println("jsonString = " + jsonString);
@@ -50,6 +51,7 @@ public class HistoryController {
                 history_result.setPrecipitation(rs.getInt("precipitation"));
                 history_result.setDensity(rs.getInt("density"));
                 history_result.setExpensive(rs.getInt("expensive"));
+                history_result.setBusy(rs.getInt("busy"));
                 history_result.setStartAirport(rs.getString("startAirport"));
                 history_result.setStartDate(rs.getString("startDate"));
                 history_result.setEndDate(rs.getString("endDate"));

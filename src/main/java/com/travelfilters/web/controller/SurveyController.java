@@ -209,8 +209,8 @@ public class SurveyController {
                 Connection connection = connector.getConnection();
                 PreparedStatement pstmt = null;
 
-                String query = "INSERT INTO History (userid, climate, population, precipitation, density, expensive, startAirport, startDate, endDate) VALUES\n" +
-                        "\t(?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                String query = "INSERT INTO History (userid, climate, population, precipitation, density, expensive, busy, startAirport, startDate, endDate) VALUES\n" +
+                        "\t(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
                 pstmt = connection.prepareStatement(query);
 //                pstmt.setInt(1, -1);
@@ -220,9 +220,10 @@ public class SurveyController {
                 pstmt.setInt(4, surveyRequest.getPrecipitation());
                 pstmt.setInt(5, surveyRequest.getDensity());
                 pstmt.setInt(6, surveyRequest.getExpensive());
-                pstmt.setString(7, surveyRequest.getStartAirport());
-                pstmt.setString(8, surveyRequest.getStartDate());
-                pstmt.setString(9, surveyRequest.getEndDate());
+                pstmt.setInt(7, surveyRequest.getBusy());
+                pstmt.setString(8, surveyRequest.getStartAirport());
+                pstmt.setString(9, surveyRequest.getStartDate());
+                pstmt.setString(10, surveyRequest.getEndDate());
 
                 pstmt.executeUpdate();
                 connection.commit();

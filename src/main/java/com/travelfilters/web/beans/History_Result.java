@@ -10,6 +10,15 @@ public class History_Result {
     private String startDate;
     private String endDate;
     private String searchDate;
+    private int busy;
+
+    public int getBusy() {
+        return busy;
+    }
+
+    public void setBusy(int busy) {
+        this.busy = busy;
+    }
 
     public int getClimate() {
         return climate;
@@ -75,9 +84,11 @@ public class History_Result {
         this.endDate = endDate;
     }
 
-    public String getSearchDate() { return searchDate;}
+    public String getSearchDate() {
+        return searchDate;
+    }
 
-    public void setSearchDate(String searchDate){
+    public void setSearchDate(String searchDate) {
         this.searchDate = searchDate;
     }
 }
