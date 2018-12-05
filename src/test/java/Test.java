@@ -28,7 +28,7 @@ public class Test {
         surveyRequest.setEndDate("08-30-2018");
 
         UserPrincipal newUser = new UserPrincipal(-1L, "wjefoij", "WEJFOIJ", null);
-        saveRequest(newUser, surveyRequest);
+        saveRequest(newUser, surveyRequest, true);
         HashMap<String, Integer> results = calculateResults(surveyRequest);
         buildResponse(results);
     }

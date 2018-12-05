@@ -16,10 +16,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
-import static java.util.stream.Collectors.*;
-import static java.util.Map.Entry.*;
+import static java.util.Map.Entry.comparingByValue;
+import static java.util.stream.Collectors.toMap;
 
 
 @RestController
@@ -51,15 +54,15 @@ public class SurveyController {
         for (String city : getCities()) {
 //            System.out.println("city = " + city);
             Integer diff =
-                        Math.abs(Airport_Passengers.get(city) - surveyRequest.getBusy()) +
-                        Math.abs(City_Populations.get(city) - surveyRequest.getPopulation()) +
-                        Math.abs(Climate_Precipitation.get(city) - surveyRequest.getPrecipitation()) +
-                        Math.abs(Climate_High.get(city) - surveyRequest.getClimate()) +
-                        Math.abs(Cost_Indexes.get(city) - surveyRequest.getExpensive()) +
-                        Math.abs(Density.get(city) - surveyRequest.getDensity());
-                    diffMap.put(city, diff);
+                    Math.abs(Airport_Passengers.get(city) - surveyRequest.getBusy()) +
+                            Math.abs(City_Populations.get(city) - surveyRequest.getPopulation()) +
+                            Math.abs(Climate_Precipitation.get(city) - surveyRequest.getPrecipitation()) +
+                            Math.abs(Climate_High.get(city) - surveyRequest.getClimate()) +
+                            Math.abs(Cost_Indexes.get(city) - surveyRequest.getExpensive()) +
+                            Math.abs(Density.get(city) - surveyRequest.getDensity());
+            diffMap.put(city, diff);
             // sort
-                    sorted = diffMap
+            sorted = diffMap
                     .entrySet()
                     .stream()
                     .sorted(comparingByValue())
@@ -72,7 +75,7 @@ public class SurveyController {
 //        System.out.println("sorted = " + sorted);
         Object[] results = sorted.entrySet().toArray();
 
-        HashMap<String, Integer> resultMap = new HashMap<>();
+        LinkedHashMap<String, Integer> resultMap = new LinkedHashMap<>();
 
         for (int i = 0; i < 5; i++) {
             String[] result = results[i].toString().split("=");
@@ -121,13 +124,13 @@ public class SurveyController {
         return null;
     }
 
-    public static String buildResponse(HashMap<String, Integer> results){
+    public static String buildResponse(HashMap<String, Integer> results) {
         SQLConnector connector = new SQLConnector();
         Gson gson = new Gson();
 
         ArrayList<City> cityArr = new ArrayList<>();
 
-        for (String entry : results.keySet()){
+        for (String entry : results.keySet()) {
             try {
                 Connection connection = connector.getConnection();
                 PreparedStatement pstmt = null;
@@ -143,7 +146,7 @@ public class SurveyController {
 
                 pstmt = connection.prepareStatement(query);
 
-                for (int i = 1; i <= 6; i++){
+                for (int i = 1; i <= 6; i++) {
                     pstmt.setString(i, entry);
                 }
 
@@ -155,10 +158,7 @@ public class SurveyController {
                     City city = new City();
                     System.out.println("entry = " + entry);
                     city.setCity_name(entry);
-                    city.setState_name(
-                            capitalize(
-                                    rs.getString(
-                                            "state_name").toLowerCase()));
+                    city.setState_name(capitalize(rs.getString("state_name").toLowerCase()));
                     city.setBusy(Airport_Passengers.get(entry) / 24 + 1);
                     city.setDensity(rs.getFloat("density"));
                     city.setHigh(rs.getFloat("high"));
@@ -168,7 +168,7 @@ public class SurveyController {
                     city.setScore(results.get(entry));
                     cityArr.add(city);
                 }
-            } catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -200,7 +200,7 @@ public class SurveyController {
         return s.toString().trim();
     }
 
-    public static void saveRequest(UserPrincipal currentUser, SurveyRequest surveyRequest, boolean save){
+    public static void saveRequest(UserPrincipal currentUser, SurveyRequest surveyRequest, boolean save) {
         if (save) {
             SQLConnector connector = new SQLConnector();
             try {
