@@ -5,12 +5,12 @@ SELECT t.city_name as top, c.city_name as climate FROM Climate c RIGHT JOIN City
 SELECT t.city_name as top, c.city_name as cost_indexes FROM Cost_Indexes c RIGHT JOIN City_Populations t on c.city_name = t.city_name ORDER BY cost_indexes, top;
 
 -- top_cities vs airports
-SELECT t.city_name as top, a.city as airports FROM City_Populations t LEFT JOIN Airports a on t.city_name = a.city ORDER BY airports, top;
+SELECT t.city_name as top, a.surveyResult as airports FROM City_Populations t LEFT JOIN Airports a on t.city_name = a.surveyResult ORDER BY airports, top;
 
 -- check to make sure there are airports for every state
 SELECT DISTINCT(s.state_name) FROM Airport_Codes a RIGHT OUTER JOIN States s on a.state_name = s.state_name ORDER BY s.state_name ASC;
 
---- confirming every city has an airport
+--- confirming every surveyResult has an airport
 SELECT a.city_name, a.airport_code, c.city_name FROM Airport_Codes a JOIN City_Populations c on a.city_name = c.city_name ORDER BY c.city_name;
 
 --- to Drop_Tables fare data

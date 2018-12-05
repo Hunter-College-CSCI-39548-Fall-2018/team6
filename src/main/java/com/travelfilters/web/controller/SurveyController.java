@@ -1,7 +1,7 @@
 package com.travelfilters.web.controller;
 
 import com.google.gson.Gson;
-import com.travelfilters.web.beans.City;
+import com.travelfilters.web.beans.Survey_Result;
 import com.travelfilters.web.connector.SQLConnector;
 import com.travelfilters.web.payload.SurveyRequest;
 import com.travelfilters.web.security.CurrentUser;
@@ -16,10 +16,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
-import static java.util.stream.Collectors.*;
-import static java.util.Map.Entry.*;
+import static java.util.Map.Entry.comparingByValue;
+import static java.util.stream.Collectors.toMap;
 
 
 @RestController
@@ -30,7 +33,7 @@ public class SurveyController {
 
     @PostMapping("")
     public ResponseEntity<?> submitSurvey(@CurrentUser UserPrincipal currentUser, @RequestBody SurveyRequest surveyRequest) {
-        saveRequest(currentUser, surveyRequest);
+        saveRequest(currentUser, surveyRequest, surveyRequest.getSave());
         HashMap<String, Integer> resultMap = calculateResults(surveyRequest);
         return ResponseEntity.ok().body(buildResponse(resultMap));
     }
@@ -51,15 +54,15 @@ public class SurveyController {
         for (String city : getCities()) {
 //            System.out.println("city = " + city);
             Integer diff =
-                        Math.abs(Airport_Passengers.get(city) - surveyRequest.getBusy()) +
-                        Math.abs(City_Populations.get(city) - surveyRequest.getPopulation()) +
-                        Math.abs(Climate_Precipitation.get(city) - surveyRequest.getPrecipitation()) +
-                        Math.abs(Climate_High.get(city) - surveyRequest.getClimate()) +
-                        Math.abs(Cost_Indexes.get(city) - surveyRequest.getExpensive()) +
-                        Math.abs(Density.get(city) - surveyRequest.getDensity());
-                    diffMap.put(city, diff);
+                    Math.abs(Airport_Passengers.get(city) - surveyRequest.getBusy()) +
+                            Math.abs(City_Populations.get(city) - surveyRequest.getPopulation()) +
+                            Math.abs(Climate_Precipitation.get(city) - surveyRequest.getPrecipitation()) +
+                            Math.abs(Climate_High.get(city) - surveyRequest.getClimate()) +
+                            Math.abs(Cost_Indexes.get(city) - surveyRequest.getExpensive()) +
+                            Math.abs(Density.get(city) - surveyRequest.getDensity());
+            diffMap.put(city, diff);
             // sort
-                    sorted = diffMap
+            sorted = diffMap
                     .entrySet()
                     .stream()
                     .sorted(comparingByValue())
@@ -72,7 +75,7 @@ public class SurveyController {
 //        System.out.println("sorted = " + sorted);
         Object[] results = sorted.entrySet().toArray();
 
-        HashMap<String, Integer> resultMap = new HashMap<>();
+        LinkedHashMap<String, Integer> resultMap = new LinkedHashMap<>();
 
         for (int i = 0; i < 5; i++) {
             String[] result = results[i].toString().split("=");
@@ -121,13 +124,13 @@ public class SurveyController {
         return null;
     }
 
-    public static String buildResponse(HashMap<String, Integer> results){
+    public static String buildResponse(HashMap<String, Integer> results) {
         SQLConnector connector = new SQLConnector();
         Gson gson = new Gson();
 
-        ArrayList<City> cityArr = new ArrayList<>();
+        ArrayList<Survey_Result> surveyResultArr = new ArrayList<>();
 
-        for (String entry : results.keySet()){
+        for (String entry : results.keySet()) {
             try {
                 Connection connection = connector.getConnection();
                 PreparedStatement pstmt = null;
@@ -143,7 +146,7 @@ public class SurveyController {
 
                 pstmt = connection.prepareStatement(query);
 
-                for (int i = 1; i <= 6; i++){
+                for (int i = 1; i <= 6; i++) {
                     pstmt.setString(i, entry);
                 }
 
@@ -152,29 +155,27 @@ public class SurveyController {
 
 
                 if (rs.next()) {
-                    City city = new City();
+                    Survey_Result surveyResult = new Survey_Result();
                     System.out.println("entry = " + entry);
-                    city.setCity_name(entry);
-                    city.setState_name(
-                            capitalize(
-                                    rs.getString(
-                                            "state_name").toLowerCase()));
-                    city.setBusy(Airport_Passengers.get(entry) / 24 + 1);
-                    city.setDensity(rs.getFloat("density"));
-                    city.setHigh(rs.getFloat("high"));
-                    city.setLow(rs.getFloat("low"));
-                    city.setPopulation(rs.getInt("population"));
-                    city.setCost_index(Cost_Indexes.get(entry) / 24 + 1);
-                    city.setScore(results.get(entry));
-                    cityArr.add(city);
+                    surveyResult.setCity_name(entry);
+                    surveyResult.setState_name(capitalize(rs.getString("state_name").toLowerCase()));
+                    surveyResult.setBusy(Airport_Passengers.get(entry) / 24 + 1);
+                    surveyResult.setDensity(rs.getFloat("density"));
+                    surveyResult.setHigh(rs.getFloat("high"));
+                    surveyResult.setLow(rs.getFloat("low"));
+                    surveyResult.setPopulation(rs.getInt("population"));
+                    surveyResult.setCost_index(Cost_Indexes.get(entry) / 24 + 1);
+                    surveyResult.setScore(results.get(entry));
+                    surveyResult.setCity_img("http://localhost:5000/city_picture/" + entry);
+                    surveyResultArr.add(surveyResult);
                 }
-            } catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
 
-        System.out.println("cityArr = " + gson.toJson(cityArr));
-        return gson.toJson(cityArr);
+        System.out.println("surveyResultArr = " + gson.toJson(surveyResultArr));
+        return gson.toJson(surveyResultArr);
     }
 
     static String capitalize(String str) {
@@ -200,30 +201,52 @@ public class SurveyController {
         return s.toString().trim();
     }
 
-    public static void saveRequest(UserPrincipal currentUser, SurveyRequest surveyRequest){
+    public static void saveRequest(UserPrincipal currentUser, SurveyRequest surveyRequest, boolean save) {
+        if (save) {
+            SQLConnector connector = new SQLConnector();
+            try {
+                Connection connection = connector.getConnection();
+                PreparedStatement pstmt = null;
+
+                String query = "INSERT INTO History (userid, climate, population, precipitation, density, expensive, startAirport, startDate, endDate) VALUES\n" +
+                        "\t(?, ?, ?, ?, ?, ?, ?, ?, ?);";
+
+                pstmt = connection.prepareStatement(query);
+//                pstmt.setInt(1, -1);
+                pstmt.setLong(1, currentUser.getId());
+                pstmt.setInt(2, surveyRequest.getClimate());
+                pstmt.setInt(3, surveyRequest.getPopulation());
+                pstmt.setInt(4, surveyRequest.getPrecipitation());
+                pstmt.setInt(5, surveyRequest.getDensity());
+                pstmt.setInt(6, surveyRequest.getExpensive());
+                pstmt.setString(7, surveyRequest.getAirport());
+                pstmt.setString(8, surveyRequest.getStartDate());
+                pstmt.setString(9, surveyRequest.getEndDate());
+
+                pstmt.executeUpdate();
+                connection.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
         SQLConnector connector = new SQLConnector();
         try {
             Connection connection = connector.getConnection();
             PreparedStatement pstmt = null;
 
-            String query = "INSERT INTO History (userid, climate, population, precipitation, density, expensive, startAirport, startDate, endDate) VALUES\n" +
-                    "\t(?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            String query = "REPLACE INTO Session (userid, start_date, end_date, start_airport) VALUES\n" +
+                    "\t(?, ?, ?, ?);";
 
             pstmt = connection.prepareStatement(query);
-            pstmt.setInt(1, -1);
-//            pstmt.setInt(1, Integer.valueOf(currentUser.toString()));
-            pstmt.setInt(2, surveyRequest.getClimate());
-            pstmt.setInt(3, surveyRequest.getPopulation());
-            pstmt.setInt(4, surveyRequest.getPrecipitation());
-            pstmt.setInt(5, surveyRequest.getDensity());
-            pstmt.setInt(6, surveyRequest.getExpensive());
-            pstmt.setString(7, surveyRequest.getAirport());
-            pstmt.setString(8, surveyRequest.getStartDate());
-            pstmt.setString(9, surveyRequest.getEndDate());
+            pstmt.setLong(1, currentUser.getId());
+            pstmt.setString(2, surveyRequest.getStartDate());
+            pstmt.setString(3, surveyRequest.getEndDate());
+            pstmt.setString(4, surveyRequest.getAirport());
 
             pstmt.executeUpdate();
             connection.commit();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
