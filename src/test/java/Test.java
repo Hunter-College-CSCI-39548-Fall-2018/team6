@@ -13,12 +13,12 @@ public class Test {
         SurveyRequest surveyRequest;
         // for testing purposes
         surveyRequest = new SurveyRequest();
-        surveyRequest.setClimate(0);
-        surveyRequest.setExpensive(0);
-        surveyRequest.setPopulation(0);
-        surveyRequest.setPrecipitation(0);
-        surveyRequest.setDensity(0);
-        surveyRequest.setBusy(0);
+        surveyRequest.setClimate(20);
+        surveyRequest.setExpensive(10);
+        surveyRequest.setPopulation(30);
+        surveyRequest.setPrecipitation(50);
+        surveyRequest.setDensity(60);
+        surveyRequest.setBusy(100);
         surveyRequest.setAirport("JFK");
         surveyRequest.setStartDate("05-21-2018");
         surveyRequest.setEndDate("08-30-2018");

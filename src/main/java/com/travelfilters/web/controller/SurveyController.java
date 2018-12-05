@@ -153,8 +153,12 @@ public class SurveyController {
 
                 if (rs.next()) {
                     City city = new City();
+                    System.out.println("entry = " + entry);
                     city.setCity_name(entry);
-                    city.setState_name(capitailizeWord(rs.getString("state_name").toLowerCase()));
+                    city.setState_name(
+                            capitalize(
+                                    rs.getString(
+                                            "state_name").toLowerCase()));
                     city.setBusy(Airport_Passengers.get(entry) / 24 + 1);
                     city.setDensity(rs.getFloat("density"));
                     city.setHigh(rs.getFloat("high"));
@@ -173,7 +177,7 @@ public class SurveyController {
         return gson.toJson(cityArr);
     }
 
-    static String capitailizeWord(String str) {
+    static String capitalize(String str) {
         StringBuffer s = new StringBuffer();
 
         // Declare a character of space
