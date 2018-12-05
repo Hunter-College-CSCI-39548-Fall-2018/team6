@@ -1,19 +1,48 @@
 import React from "react";
 import axios from "axios";
 
+import "../ResultList";
 //const BrowserHistory = require("react-router/lib/BrowserHistory").default;
-//import { Nav, Navbar, NavItem } from "react-bootstrap";
-//import AuthService from "../AuthService/AuthService";
-//const Auth = new AuthService();
 
 /*
 Topgyal Gurung
-Result 
+Result PAGE 
 
-Status: Just getting city name List using API( can be useful for ResultList)
-        Back Button: need to figure out how to go back to Result List
-        Need to render image
-        Show the info:
+Status: 
+TODO: 
+React component for when we have API
+  1.  GET Request:
+        Sliders: {
+        // out of 10
+        Climate: 7
+        Cost: 5
+    }
+    Response:
+        Results: [{
+        CityName: ,
+        StateName: ,
+        AveragePrice: , 
+    }]
+     Sample JSON response
+        {
+        CityName: "New York City",
+        StateName: "New York",
+        Weather: [
+            high: 80
+            low: 40
+            ],
+        Cost: "$",
+        // Links
+        TopBars: []
+        // Links
+        TopRestaurants: []
+        NearbyAirports: [
+            "JFK", "LGA", "" // NEWARK],
+        Picture: URL // asset link} 
+
+       2.  Back Button: need to figure out how to go back to Result List
+       3. Need to render image 
+      4.Show the info:
 */
 class Result extends React.Component {
   constructor(props) {
@@ -21,24 +50,16 @@ class Result extends React.Component {
     this.state = {
       submit: false,
       items: [],
-      isLoaded: false,
-
-      cityName: "",
-      stateName: "",
-      Weather: [],
-      cost: "",
-      TopBars: [],
-      TopRestaurants: [],
-      NearbyAirports: [],
-      picture: ""
-      /*
-      cost: undefined,
-      temparature:undefined,
-      attractions:undefined
-      */
+      isLoaded: false
     };
-    // this.goBack = this.goBack.bind(this);
+    this.goBack = this.goBack.bind(this);
   }
+  goBack() {
+    this.props.history.goBack();
+  }
+  handleBack = () => {
+    this.props.history.push("/ResultList");
+  };
   //method runs after render and updates render method
   componentDidMount() {
     axios
@@ -48,35 +69,30 @@ class Result extends React.Component {
       .then(res => {
         const cityInfo = res.data.map(c => {
           return {
-            cityName: c.cityName,
-            stateName: c.stateName,
-            Weather: [],
+            city: c.city,
+            state: c.state,
+            Weather: c.weather,
             cost: c.cost,
-            TopBars: [],
-            TopRestaurants: [],
-            NearbyAirports: [],
-            picture: c.picture
+            TopBars: c.TopBars,
+            TopRestaurants: c.TopRestaurants,
+            NearbyAirports: c.NearbyAirports
+            // picture: c.picture
           };
         });
         const newState = Object.assign({}, this.state, {
-          cityInf: cityInfo
+          cityInformation: cityInfo
         });
         this.setState(newState);
       })
       .catch(error => console.log(error));
   }
   render() {
-    /*
-    var { isLoaded, items } = this.state;
-
-    if (!isLoaded) {
-      return <div>loading..</div>;
-    } else {
-    */
     return (
       <div className="main">
         <div className="back-button">
-          <button>Back</button>
+          <button onClick={this.handleBack} bsStyle="success">
+            &lt;Back
+          </button>
         </div>
         <div className="cityInfo">
           <h1> Milan Italy </h1>
@@ -86,33 +102,28 @@ class Result extends React.Component {
           />
           <br />
         </div>
-
-        {/*.bind(this)*} 
-             <button onClick={BrowserHistory.goBack}>Go Back</button>
-              <button type="submit"> Back</button> </form> *}
-
-            {/* get the asked city Name 
-              {items.map(item => (
-                <li key={item.state}>City: {item.city}</li>
-              ))} */}
-
         <div className="Info" />
         <h1 className="title-container__title">
           You searched for a destination that fits this profile:
         </h1>
-        <h3 className="title-container__subtitle">Historical:</h3>
-        <h3 className="title-container_subtitle">Walkable:</h3>
-        <h3 className="title-container_subtitle">Many attractions:</h3>
+        <h3 className="title-container__subtitle">
+          Historical: {this.state.alias}
+        </h3>
+        <h3 className="title-container_subtitle">
+          Walkable:{this.state.distance}
+        </h3>
+        <h3 className="title-container_subtitle">
+          Many attractions:{this.state.name}
+        </h3>
 
         <hr />
 
         <h1 className="title-container__title">Info: </h1>
-        <h3 className="title-container__subtitle">Cost:</h3>
+        <h3 className="title-container__subtitle">Cost: </h3>
         <h3 className="title-container_subtitle">Weather:</h3>
         <h3 className="title-container_subtitle">Attractions:</h3>
       </div>
     );
   }
 }
-
 export default Result;
