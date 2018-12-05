@@ -134,12 +134,12 @@ public class SurveyController {
                 ResultSet rs = null;
 
                 String query = "SELECT\n" +
-                        "  (SELECT state_name FROM Airport_Codes WHERE city_name = ?) as state_name,\n" +
-                        "  (SELECT passengers FROM Airport_Passengers WHERE city_name = ?) as passengers,\n" +
-                        "  (SELECT pop_2018 FROM City_Populations WHERE city_name = ?) as population,\n" +
-                        "  (SELECT density_2018 FROM City_Populations WHERE city_name = ?) as density,\n" +
-                        "  (SELECT high FROM Climate WHERE city_name = ?) as high,\n" +
-                        "  (SELECT low FROM Climate WHERE city_name = ?) as low;";
+                        "  (SELECT state_name FROM Airport_Codes WHERE city_name = ? LIMIT 1) as state_name,\n" +
+                        "  (SELECT passengers FROM Airport_Passengers WHERE city_name = ? LIMIT 1) as passengers,\n" +
+                        "  (SELECT pop_2018 FROM City_Populations WHERE city_name = ? LIMIT 1) as population,\n" +
+                        "  (SELECT density_2018 FROM City_Populations WHERE city_name = ? LIMIT 1) as density,\n" +
+                        "  (SELECT high FROM Climate WHERE city_name = ? LIMIT 1) as high,\n" +
+                        "  (SELECT low FROM Climate WHERE city_name = ? LIMIT 1) as low;";
 
                 pstmt = connection.prepareStatement(query);
 
