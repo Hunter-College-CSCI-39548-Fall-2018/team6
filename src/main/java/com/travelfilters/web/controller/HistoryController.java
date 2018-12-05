@@ -56,6 +56,7 @@ public class HistoryController {
                 history_result.setSearchDate(rs.getString("creation_date"));
                 history_results.add(history_result);
             }
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
