@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../ResultList/ResultList.css";
 import { Media, ListGroupItem, Tabs, Tab } from "react-bootstrap";
+// import withAuth from "../AuthService/WithAuth";
 
 class Result extends Component {
   constructor(props, context) {
@@ -17,7 +18,7 @@ class Result extends Component {
             <img
               src="https://picsum.photos/200"
               // src={this.state.result.city_img}
-              // src=v1/city_img/{this.state.result.city_name}
+              // src="http://localhost:5000/v1/city_img/"+{this.state.result.city_name}
               alt="Pikachu"
               className="ResultImg"
             />
@@ -110,3 +111,4 @@ class Result extends Component {
   };
 }
 export default Result;
+// export default withAuth(Result);

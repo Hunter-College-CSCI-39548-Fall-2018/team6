@@ -4,6 +4,7 @@ import { ListGroupItem, Media } from "react-bootstrap";
 import Result from "../Result/Result";
 // import { Redirect } from "react-router-dom";
 import axios from "axios";
+import AuthService from "../AuthService/AuthService";
 
 class RenderResult extends Component {
   constructor(props, context) {
@@ -98,6 +99,7 @@ class RenderResult extends Component {
     };
     this.getExtendedResults = this.getExtendedResults.bind(this);
     this.loadResult = this.loadResult.bind(this);
+    this.Auth = new AuthService();
   }
   render() {
     return <div>{this.forLoopResults()}</div>;
@@ -119,7 +121,7 @@ class RenderResult extends Component {
               <img
                 src="https://picsum.photos/200"
                 // src={this.state.results[i].city_img}
-                // src=v1/city_img/{this.state.results[i].city_name}
+                // src="http://localhost:5000/v1/city_img/"+{this.state.result.city_name}
                 alt="Pikachu"
                 className="ResultImg"
               />
@@ -149,10 +151,20 @@ class RenderResult extends Component {
   // Link by city name not id
   getExtendedResults(city_name) {
     // console.log("Are we getting this id::: ", city_name);
+    let config = {
+      headers: {
+        Authorization: this.Auth.getToken(),
+        "Content-Type": "application/json"
+      }
+    };
     return axios
-      .get("http://localhost:5000/v1/survey/" + city_name, {
-        // ext: this.state.city_name
-      })
+      .get(
+        "http://localhost:5000/v1/survey/" + city_name,
+        {
+          // ext: this.state.city_name
+        },
+        config
+      )
       .then(function(response) {
         console.log(response);
         // this.setState({ ext: response.data });

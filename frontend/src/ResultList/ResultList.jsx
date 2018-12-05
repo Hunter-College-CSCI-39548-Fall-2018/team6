@@ -3,6 +3,7 @@ import "./ResultList.css";
 import RenderResult from "./RenderResult";
 import { Button, Modal, ListGroup } from "react-bootstrap";
 import axios from "axios";
+import AuthService from "../AuthService/AuthService";
 
 class ResultList extends Component {
   constructor(props, context) {
@@ -13,6 +14,7 @@ class ResultList extends Component {
       this
     );
     this.handleClose = this.handleClose.bind(this);
+    this.Auth = new AuthService();
     this.state = {
       show: false,
       survey: this.props.ts,
@@ -76,10 +78,20 @@ class ResultList extends Component {
     );
   }
   getResultsFromSurveyChoices() {
+    let config = {
+      headers: {
+        Authorization: this.Auth.getToken(),
+        "Content-Type": "application/json"
+      }
+    };
     return axios
-      .post("http://localhost:5000/v1/survey/", {
-        cities: this.state.survey
-      })
+      .post(
+        "http://localhost:5000/v1/survey/",
+        {
+          cities: this.state.survey
+        },
+        config
+      )
       .then(function(response) {
         console.log(response);
         // this.setState({ cities: response.data });
