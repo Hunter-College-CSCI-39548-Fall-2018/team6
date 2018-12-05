@@ -30,7 +30,7 @@ public class SurveyController {
 
     @PostMapping("")
     public ResponseEntity<?> submitSurvey(@CurrentUser UserPrincipal currentUser, @RequestBody SurveyRequest surveyRequest) {
-        saveRequest(currentUser, surveyRequest);
+        saveRequest(currentUser, surveyRequest, surveyRequest.getSave());
         HashMap<String, Integer> resultMap = calculateResults(surveyRequest);
         return ResponseEntity.ok().body(buildResponse(resultMap));
     }
@@ -200,31 +200,33 @@ public class SurveyController {
         return s.toString().trim();
     }
 
-    public static void saveRequest(UserPrincipal currentUser, SurveyRequest surveyRequest){
-        SQLConnector connector = new SQLConnector();
-        try {
-            Connection connection = connector.getConnection();
-            PreparedStatement pstmt = null;
+    public static void saveRequest(UserPrincipal currentUser, SurveyRequest surveyRequest, boolean save){
+        if (save) {
+            SQLConnector connector = new SQLConnector();
+            try {
+                Connection connection = connector.getConnection();
+                PreparedStatement pstmt = null;
 
-            String query = "INSERT INTO History (userid, climate, population, precipitation, density, expensive, startAirport, startDate, endDate) VALUES\n" +
-                    "\t(?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                String query = "INSERT INTO History (userid, climate, population, precipitation, density, expensive, startAirport, startDate, endDate) VALUES\n" +
+                        "\t(?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
-            pstmt = connection.prepareStatement(query);
-            pstmt.setInt(1, -1);
+                pstmt = connection.prepareStatement(query);
+                pstmt.setInt(1, -1);
 //            pstmt.setInt(1, Integer.valueOf(currentUser.toString()));
-            pstmt.setInt(2, surveyRequest.getClimate());
-            pstmt.setInt(3, surveyRequest.getPopulation());
-            pstmt.setInt(4, surveyRequest.getPrecipitation());
-            pstmt.setInt(5, surveyRequest.getDensity());
-            pstmt.setInt(6, surveyRequest.getExpensive());
-            pstmt.setString(7, surveyRequest.getAirport());
-            pstmt.setString(8, surveyRequest.getStartDate());
-            pstmt.setString(9, surveyRequest.getEndDate());
+                pstmt.setInt(2, surveyRequest.getClimate());
+                pstmt.setInt(3, surveyRequest.getPopulation());
+                pstmt.setInt(4, surveyRequest.getPrecipitation());
+                pstmt.setInt(5, surveyRequest.getDensity());
+                pstmt.setInt(6, surveyRequest.getExpensive());
+                pstmt.setString(7, surveyRequest.getAirport());
+                pstmt.setString(8, surveyRequest.getStartDate());
+                pstmt.setString(9, surveyRequest.getEndDate());
 
-            pstmt.executeUpdate();
-            connection.commit();
-        } catch (Exception e){
-            e.printStackTrace();
+                pstmt.executeUpdate();
+                connection.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }
