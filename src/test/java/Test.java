@@ -30,7 +30,7 @@ public class Test {
         surveyRequest.setPrecipitation(80);
         surveyRequest.setDensity(100);
         surveyRequest.setBusy(100);
-        surveyRequest.setAirport("JFK");
+        surveyRequest.setStartAirport("JFK");
         surveyRequest.setStartDate("05-21-2018");
         surveyRequest.setEndDate("08-30-2018");
 
