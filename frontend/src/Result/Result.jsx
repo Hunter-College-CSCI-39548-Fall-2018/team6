@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 
 import "../ResultList";
+import "./Result.css";
 //const BrowserHistory = require("react-router/lib/BrowserHistory").default;
 
 /*
@@ -61,32 +62,48 @@ class Result extends React.Component {
     this.props.history.push("/ResultList");
   };
   //method runs after render and updates render method
+
   componentDidMount() {
+    this.getData();
+  }
+  getData() {
     axios
       .get(
         "https://raw.githubusercontent.com/adrian-stru/travel-filters/master/DATA/json/attractions.json?token=ARfVeQkcPKWc6HCyHfODTXWdxAkqGqebks5cCgdfwA%3D%3D"
       ) //url of api
-      .then(res => {
-        const cityInfo = res.data.map(c => {
-          return {
-            city: c.city,
-            state: c.state,
-            Weather: c.weather,
-            cost: c.cost,
-            TopBars: c.TopBars,
-            TopRestaurants: c.TopRestaurants,
-            NearbyAirports: c.NearbyAirports
-            // picture: c.picture
-          };
+      .then(res =>
+        res.data.results.map(item => ({
+          city: `${item.city}`,
+          state: `${item.state}`
+        }))
+      )
+      .then(items => {
+        this.setState({
+          items,
+          isLoaded: false
         });
-        const newState = Object.assign({}, this.state, {
-          cityInformation: cityInfo
-        });
-        this.setState(newState);
       })
-      .catch(error => console.log(error));
+      .catch(error => this.setState({ error, isLoaded: false }));
   }
+  /*
+  fetchData() {
+    fetch(
+      "https://raw.githubusercontent.com/adrian-stru/travel-filters/master/DATA/json/attractions.json?token=ARfVeQkcPKWc6HCyHfODTXWdxAkqGqebks5cCgdfwA%3D%3D"
+    )
+      .then(response => response.json())
+      .then(data =>
+        this.setState({
+          items: data,
+          isLoaded: false
+        })
+      )
+      .catch(error => this.setState({ error, isLoaded: false }));
+  }
+  componentDidMount() {
+    this.fetchData();
+  }*/
   render() {
+    const { isLoaded, items, error } = this.state;
     return (
       <div className="main">
         <div className="back-button">
@@ -94,6 +111,24 @@ class Result extends React.Component {
             &lt;Back
           </button>
         </div>
+
+        <React.Fragment>
+          {error ? <p>{error.message}</p> : null}
+          {!isLoaded ? (
+            items.map(item => {
+              const { city, state } = item;
+              return (
+                <div key={city}>
+                  <p> city: {state}</p>
+                  <hr />
+                </div>
+              );
+            })
+          ) : (
+            <h3>Loading...</h3>
+          )}
+        </React.Fragment>
+
         <div className="cityInfo">
           <h1> Milan Italy </h1>
           <img

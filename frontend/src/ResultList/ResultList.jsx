@@ -1,4 +1,5 @@
 import React from "react";
+import "./ResultList.css";
 
 class ResultList extends React.Component {
   constructor(props) {
@@ -8,7 +9,14 @@ class ResultList extends React.Component {
       items: [],
       isLoaded: false
     };
+    this.goBack = this.goBack.bind(this);
   }
+  goBack() {
+    this.props.history.goBack();
+  }
+  handleBack = () => {
+    this.props.history.push("/Survey");
+  };
   componentDidMount() {
     fetch(
       "https://raw.githubusercontent.com/adrian-stru/travel-filters/master/DATA/json/attractions.json?token=ARfVeQkcPKWc6HCyHfODTXWdxAkqGqebks5cCgdfwA%3D%3D"
@@ -28,11 +36,10 @@ class ResultList extends React.Component {
     } else {
       return (
         <div className="main">
-          <div className="back_button">
-            <form onClickSubmit={this.handleSubmit}>
-              {/*.bind(this) */}
-              <button type="submit">Back</button>
-            </form>
+          <div className="back-button">
+            <button onClick={this.handleBack} bsStyle="success">
+              &lt;Back
+            </button>
             {/*
             <input
               className="button"

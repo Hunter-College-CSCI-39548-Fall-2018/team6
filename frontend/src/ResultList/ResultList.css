@@ -1,0 +1,6 @@
+button:hover {
+  border: 1px #c6c6c6 solid;
+  box-shadow: 1px 1px 1px #eaeaea;
+  color: #333333;
+  background: #f7f7f7;
+}
