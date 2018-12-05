@@ -21,8 +21,28 @@ class Register extends Component {
     let submit;
     let errorMessage;
 
-    if (this.state.password !== this.state.reenterPass) {
-      submit = (
+    if (
+      (this.state.password.length < 6 ||
+        this.state.reenterPass.length < 6 ||
+        this.state.password.length > 20 ||
+        this.state.reenterPass.length > 20) &&
+      (this.state.password.length > 0 || this.state.reenterPass.length > 0) &&
+      !(this.state.password.length >= 6 && this.state.password.length <= 20) &&
+      !(
+        this.state.reenterPass.length >= 6 &&
+        this.state.reenterPass.length <= 20
+      )
+    ) {
+      errorMessage = (
+        <div>
+          <input className="button" type="submit" value="Register" disabled />
+          <p style={{ color: "red", fontSize: "15px" }}>
+            Password must be between 6-20 characters
+          </p>
+        </div>
+      );
+    } else if (this.state.password !== this.state.reenterPass) {
+      errorMessage = (
         <div>
           <input className="button" type="submit" value="Register" disabled />
           <p style={{ color: "red", fontSize: "15px" }}>
@@ -30,16 +50,27 @@ class Register extends Component {
           </p>
         </div>
       );
-    } else {
+    }
+    // } else if (this.state.hasError) {
+    //   errorMessage = (
+    //     <div>
+    //       <input className="button" type="submit" value="Register" disabled />
+    //       <p style={{ color: "red", fontSize: "15px" }}>
+    //         Error in registration. Try again.
+    //       </p>
+    //     </div>
+    //   );
+    // }
+    else {
       submit = <input className="button" type="submit" value="Register" />;
     }
-    if (this.state.hasError) {
-      errorMessage = (
-        <p style={{ color: "red", fontSize: "15px" }}>
-          Error in registration. Try again.
-        </p>
-      );
-    }
+    // if (this.state.hasError) {
+    //   errorMessage = (
+    //     <p style={{ color: "red", fontSize: "15px" }}>
+    //       Error in registration. Try again.
+    //     </p>
+    //   );
+    // }
     return (
       <div>
         <h3> Register </h3>

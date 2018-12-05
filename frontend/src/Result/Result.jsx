@@ -28,7 +28,7 @@ class Result extends Component {
             </Media.Heading>
             <Media.Left align="middle">
               <p>
-                Rank: {this.state.result.rank} <br />
+                {/* Rank: {this.state.result.rank} <br /> */}
                 State: {this.state.result.state_name} <br />
                 City: {this.state.result.city_name} <br />
                 Population: {this.state.result.population} <br />
@@ -46,7 +46,8 @@ class Result extends Component {
               {this.state.result.annual_precipitation} <br />
               How pricy: {this.state.result.cost_index}/4 <br />
               Average Flight Cost: {this.state.result.flight_cost} <br />
-              Nearby Airports: {this.forLoopAirports()} <br />
+              Nearest Airport: {this.state.result.airport_name},{" "}
+              {this.state.result.airport_code} <br />
               Annual Passengers: {this.state.result.annual_passengers} <br />
               Small or big city: {this.state.result.density}
               <br />
@@ -77,18 +78,6 @@ class Result extends Component {
     );
   }
 
-  forLoopAirports() {
-    const resultAirports = [];
-    for (let i = 0; i < this.state.result.nearby_airports.length; i++) {
-      resultAirports.push(
-        <span style={{ display: "inline" }} key={i}>
-          {this.state.result.nearby_airports[i].airport_name},{" "}
-          {this.state.result.nearby_airports[i].airport_code}
-        </span>
-      );
-    }
-    return resultAirports;
-  }
   forLoopYelp(type) {
     const resultYelp = [];
     for (let i = 0; i < type.length; i++) {

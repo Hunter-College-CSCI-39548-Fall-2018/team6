@@ -10,35 +10,35 @@ class History extends Component {
     this.state = {
       surveys: [
         {
-          climate: "1",
-          busy: "",
-          population: "",
-          precipitation: "",
-          density: "",
-          expensive: "",
-          startAirport: "",
+          climate: 1,
+          busy: 2,
+          population: 20,
+          precipitation: 3,
+          density: 3,
+          expensive: 3,
+          airport: "",
           startDate: "mm-dd-yyyy",
           endDate: "mm-dd-yyyy"
         },
         {
-          climate: "2",
-          busy: "",
-          population: "",
-          precipitation: "",
-          density: "",
-          expensive: "",
-          startAirport: "",
+          climate: 2,
+          busy: 1,
+          population: 8,
+          precipitation: 3,
+          density: 3,
+          expensive: 1,
+          airport: "",
           startDate: "mm-dd-yyyy",
           endDate: "mm-dd-yyyy"
         },
         {
-          climate: "3",
-          busy: "",
-          population: "",
-          precipitation: "",
-          density: "",
-          expensive: "",
-          startAirport: "",
+          climate: 3,
+          busy: 1,
+          population: 1,
+          precipitation: 1,
+          density: 1,
+          expensive: 1,
+          airport: "",
           startDate: "mm-dd-yyyy",
           endDate: "mm-dd-yyyy"
         }
@@ -76,7 +76,7 @@ class History extends Component {
               <Col xs={4}>
                 Start Date: {this.state.surveys[i].startDate} <br />
                 End Date: {this.state.surveys[i].endDate} <br />
-                Closest airport: {this.state.surveys[i].startAirport} <br />
+                Closest airport: {this.state.surveys[i].airport} <br />
                 Budget: {this.state.surveys[i].expensive} <br />
               </Col>
               <Col xs={4}>

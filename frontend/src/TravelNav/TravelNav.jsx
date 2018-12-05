@@ -21,6 +21,16 @@ class TravelNav extends Component {
           <Navbar.Header>
             <Navbar.Brand>
               <a href="/home">Travel App</a>
+              <img
+                src="http://www.crdfglobal.org/sites/default/files/styles/square/public/capabilities/Travel%20Coordination.png?itok=qeIxjq8h"
+                alt="logo"
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  marginLeft: "80px",
+                  marginTop: "-20px"
+                }}
+              />
             </Navbar.Brand>
           </Navbar.Header>
           <Nav>
@@ -48,6 +58,16 @@ class TravelNav extends Component {
           <Navbar.Header>
             <Navbar.Brand>
               <a href="/">Travel App</a>
+              <img
+                src="http://www.crdfglobal.org/sites/default/files/styles/square/public/capabilities/Travel%20Coordination.png?itok=qeIxjq8h"
+                alt="logo"
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  marginLeft: "80px",
+                  marginTop: "-20px"
+                }}
+              />
             </Navbar.Brand>
           </Navbar.Header>
           <Nav pullRight>

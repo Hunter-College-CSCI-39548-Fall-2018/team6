@@ -14,12 +14,8 @@ class RenderResult extends Component {
         flight_cost: 500,
         city_name: "Jersey City",
         state_name: "New Jersey",
-        nearby_airports: [
-          {
-            airport_name: "Newark Liberty International Airport",
-            airport_code: "EWR"
-          }
-        ],
+        airport_name: "Newark Liberty International Airport",
+        airport_code: "EWR",
         // city_img: "city_pic.url",
         population: 1000000,
         cost_index: 3,
@@ -134,7 +130,7 @@ class RenderResult extends Component {
                 {this.state.results[i].state_name}
               </Media.Heading>
               <p>
-                Score: {this.state.results[i].score} <br />
+                {/* Score: {this.state.results[i].score} <br /> */}
                 State: {this.state.results[i].state_name} <br />
                 City: {this.state.results[i].city_name} <br />
                 Population: {this.state.results[i].population} <br />
