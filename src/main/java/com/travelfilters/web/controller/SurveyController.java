@@ -166,6 +166,7 @@ public class SurveyController {
                     surveyResult.setPopulation(rs.getInt("population"));
                     surveyResult.setCost_index(Cost_Indexes.get(entry) / 24 + 1);
                     surveyResult.setScore(results.get(entry));
+                    surveyResult.setCity_img("http://localhost:5000/city_picture/" + entry);
                     surveyResultArr.add(surveyResult);
                 }
             } catch (Exception e) {
