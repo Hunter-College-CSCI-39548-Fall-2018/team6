@@ -1,14 +1,9 @@
 import decode from "jwt-decode";
 import axios from "axios";
 
-/*
-Author: Eunice Hew
-Authentication for login, registration, forget password
-*/
-
 export default class AuthService {
   constructor(domain) {
-    this.baseurl = "http://localhost:9008";
+    this.baseurl = "http://localhost:5000";
     this.domain = domain || this.baseurl + "/v1/auth/login"; // API server domain
     this.fetch = this.fetch.bind(this);
     this.login = this.login.bind(this);
@@ -17,29 +12,29 @@ export default class AuthService {
 
   async login(email, password) {
     // Get a token from api server using the fetch api
-      let payload = {
-          email: email,
-          password: password
-      };
+    let payload = {
+      email: email,
+      password: password
+    };
 
-      let config = {
-          headers: {
-              "Content-Type": "application/json"
-          }
-      };
-
-      try {
-          let response = await axios.post(this.domain, payload, config);
-          console.log(response.data.token);
-          this.setToken(response.data.token);
-      } catch(err) {
-          console.log(err.response);
-          alert(err.response.data.message);
+    let config = {
+      headers: {
+        "Content-Type": "application/json"
       }
+    };
+
+    try {
+      let response = await axios.post(this.domain, payload, config);
+      console.log(response.data.token);
+      this.setToken(response.data.token);
+    } catch (err) {
+      console.log(err.response);
+      alert(err.response.data.message);
+    }
   }
 
   forgotPassword(email) {
-    return this.fetch(`${this.domain}/Login`, {
+    return this.fetch(`${this.domain}/login`, {
       method: "POST",
       body: JSON.stringify({
         email

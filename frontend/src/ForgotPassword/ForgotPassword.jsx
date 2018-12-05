@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import AuthService from "../AuthService/AuthService";
 
-/*
-Author: Eunice Hew
-Forgot password on login screen
-*/
-
 class ForgotPassword extends Component {
   constructor(props) {
     super(props);
@@ -27,6 +22,7 @@ class ForgotPassword extends Component {
     return (
       <form onSubmit={e => this.submit(e)}>
         <h3>Password Reset</h3>
+        <br />
         <div className="input-box">
           <input
             type="email"
@@ -54,7 +50,7 @@ class ForgotPassword extends Component {
     e.preventDefault();
     this.Auth.forgotPassword(this.state.email)
       .then(res => {
-        this.props.history.replace("/Login");
+        this.props.history.replace("/login");
       })
       .catch(err => {
         console.log(err);

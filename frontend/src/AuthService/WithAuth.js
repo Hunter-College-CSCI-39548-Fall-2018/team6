@@ -1,13 +1,8 @@
 import React, { Component } from "react";
 import AuthService from "./AuthService";
 
-/*
-Author: Eunice Hew
-Authorization for components 
-*/
-
 export default function withAuth(AuthComponent) {
-  const Auth = new AuthService("http://localhost:8080");
+  const Auth = new AuthService("http://localhost:5000");
   return class AuthWrapped extends Component {
     constructor() {
       super();
@@ -18,7 +13,7 @@ export default function withAuth(AuthComponent) {
 
     componentWillMount() {
       if (!Auth.loggedIn()) {
-        this.props.history.replace("/Login");
+        this.props.history.replace("/login");
       } else {
         try {
           const profile = Auth.getProfile();
@@ -27,7 +22,7 @@ export default function withAuth(AuthComponent) {
           });
         } catch (err) {
           Auth.logout();
-          this.props.history.replace("/Login");
+          this.props.history.replace("/login");
         }
       }
     }

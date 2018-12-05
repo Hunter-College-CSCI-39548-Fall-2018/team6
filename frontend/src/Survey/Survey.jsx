@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "react-day-picker/lib/style.css";
 import "rc-slider/assets/index.css";
+
 import AuthService from '../AuthService/AuthService';
 import ResultList from "../ResultList/ResultList";
 import DayPicker, { DateUtils } from 'react-day-picker';
@@ -23,6 +24,7 @@ class Survey extends Component {
     static defaultProps = {
         numberOfMonths: 2,
     };
+  }
 
     constructor(props, context) {
         super(props, context);
@@ -117,6 +119,7 @@ class Survey extends Component {
                         onChange={this.handleAirportChange}
                         options={AirportData}
                     />
+                  ))}
                 </div>
 
 
@@ -619,6 +622,7 @@ class Survey extends Component {
 
       return null;
     };
+
 
 }
 export default Survey;
