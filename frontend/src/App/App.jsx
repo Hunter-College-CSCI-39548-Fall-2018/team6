@@ -26,7 +26,7 @@ class App extends Component {
           <Route path="/reset" component={ResetPassword} />
           <Route path="/survey" component={Survey} />
           <Route path="/result-list" component={ResultList} />
-        </Switch>{" "}
+        </Switch>
       </div>
     );
   }
