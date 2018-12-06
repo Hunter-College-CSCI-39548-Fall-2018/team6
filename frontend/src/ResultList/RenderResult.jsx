@@ -50,17 +50,7 @@ class RenderResult extends Component {
             name: "#2Katzs Delicatessen"
           }
         ],
-        yelp_tours: [
-          {
-            image_url:
-              "https://s3-media4.fl.yelpcdn.com/bphoto/qr7eSU6CFwRGZ7Rc-QEoTQ/o.jpg",
-            page_url:
-              "https://www.yelp.com/biz/katzs-delicatessen-new-york?adjust_creative=BpXhmQxwiLhi-ASFk8Yztw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=BpXhmQxwiLhi-ASFk8Yztw",
-            review_count: 10225,
-            review_score: 4,
-            name: "Katzs Delicatessen"
-          }
-        ],
+        yelp_tours: [],
         yelp_bars: [
           {
             image_url:
@@ -69,7 +59,7 @@ class RenderResult extends Component {
               "https://www.yelp.com/biz/katzs-delicatessen-new-york?adjust_creative=BpXhmQxwiLhi-ASFk8Yztw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=BpXhmQxwiLhi-ASFk8Yztw",
             review_count: 10225,
             review_score: 4,
-            name: "Katzs Delicatessen"
+            name: "Katzs Bar"
           }
         ],
         yelp_landmarks: [
@@ -80,7 +70,7 @@ class RenderResult extends Component {
               "https://www.yelp.com/biz/katzs-delicatessen-new-york?adjust_creative=BpXhmQxwiLhi-ASFk8Yztw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=BpXhmQxwiLhi-ASFk8Yztw",
             review_count: 10225,
             review_score: 4,
-            name: "Katzs Delicatessen"
+            name: "Katzs Landmark"
           }
         ],
         yelp_hotels: [
@@ -91,7 +81,7 @@ class RenderResult extends Component {
               "https://www.yelp.com/biz/katzs-delicatessen-new-york?adjust_creative=BpXhmQxwiLhi-ASFk8Yztw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=BpXhmQxwiLhi-ASFk8Yztw",
             review_count: 10225,
             review_score: 4,
-            name: "Katzs Delicatessen"
+            name: "Katzs Hotel"
           }
         ]
       },

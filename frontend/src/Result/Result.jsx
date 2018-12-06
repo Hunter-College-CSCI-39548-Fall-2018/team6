@@ -99,6 +99,14 @@ class Result extends Component {
         </ListGroupItem>
       );
     }
+    if (resultYelp.length === 0) {
+      resultYelp.push(
+        <span key={0}>
+          <br />
+          There are no corresponding results.
+        </span>
+      );
+    }
     return resultYelp;
   }
 

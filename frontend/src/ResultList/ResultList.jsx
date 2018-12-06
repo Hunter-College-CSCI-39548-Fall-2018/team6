@@ -17,6 +17,7 @@ class ResultList extends Component {
     this.Auth = new AuthService();
     this.state = {
       show: false,
+      save: this.props.save,
       survey: this.props.ts,
       cities: [
         {

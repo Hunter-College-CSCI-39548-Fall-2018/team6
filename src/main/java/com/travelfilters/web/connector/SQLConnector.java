@@ -5,20 +5,27 @@ import org.apache.commons.configuration2.builder.fluent.Configurations;
 import org.apache.commons.configuration2.ex.ConfigurationException;
 
 import java.io.File;
-import java.sql.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class SQLConnector {
     private static Configuration config = null;
 
     public SQLConnector() {
-        getConfig();
+        config = getConfig();
     }
 
-    Configuration getConfig() {
+    static Configuration getConfig() {
         if (config == null) {
             Configurations configs = new Configurations();
             try {
-                config = configs.properties(new File("mysql.properties"));
+                Path path = Paths.get("");
+                File mysql_file = new File(path + "src/test/resources/mysql.properties");
+//                System.out.println("config.location = " + mysql_file.getAbsolutePath());
+                config = configs.properties(mysql_file);
             } catch (ConfigurationException cex) {
                 System.err.println("Could not find mysql.properties!");
             }
@@ -26,7 +33,8 @@ public class SQLConnector {
         return config;
     }
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
+        config = getConfig();
         try {
             String url = config.getString("mysql.url");
             String username = config.getString("mysql.username");

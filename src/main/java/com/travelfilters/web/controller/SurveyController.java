@@ -6,6 +6,7 @@ import com.travelfilters.web.connector.SQLConnector;
 import com.travelfilters.web.payload.SurveyRequest;
 import com.travelfilters.web.security.CurrentUser;
 import com.travelfilters.web.security.UserPrincipal;
+import net.bytebuddy.dynamic.scaffold.MethodRegistry;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -112,7 +113,7 @@ public class SurveyController {
         try {
             Connection connection = sqlConnector.getConnection();
             Statement statement = connection.createStatement();
-            ResultSet tableData = statement.executeQuery("SELECT city_name FROM City_Populations ORDER BY city_name");
+            ResultSet tableData = statement.executeQuery("SELECT city_name FROM City_Populations ORDER BY city_name;");
             while (tableData.next()) {
                 cityList.add(tableData.getString(1));
             }
@@ -208,8 +209,8 @@ public class SurveyController {
                 Connection connection = connector.getConnection();
                 PreparedStatement pstmt = null;
 
-                String query = "INSERT INTO History (userid, climate, population, precipitation, density, expensive, startAirport, startDate, endDate) VALUES\n" +
-                        "\t(?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                String query = "INSERT INTO History (userid, climate, population, precipitation, density, expensive, busy, startAirport, startDate, endDate) VALUES\n" +
+                        "\t(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
                 pstmt = connection.prepareStatement(query);
 //                pstmt.setInt(1, -1);
@@ -219,9 +220,10 @@ public class SurveyController {
                 pstmt.setInt(4, surveyRequest.getPrecipitation());
                 pstmt.setInt(5, surveyRequest.getDensity());
                 pstmt.setInt(6, surveyRequest.getExpensive());
-                pstmt.setString(7, surveyRequest.getAirport());
-                pstmt.setString(8, surveyRequest.getStartDate());
-                pstmt.setString(9, surveyRequest.getEndDate());
+                pstmt.setInt(7, surveyRequest.getBusy());
+                pstmt.setString(8, surveyRequest.getStartAirport());
+                pstmt.setString(9, surveyRequest.getStartDate());
+                pstmt.setString(10, surveyRequest.getEndDate());
 
                 pstmt.executeUpdate();
                 connection.commit();
@@ -233,16 +235,15 @@ public class SurveyController {
         SQLConnector connector = new SQLConnector();
         try {
             Connection connection = connector.getConnection();
-            PreparedStatement pstmt = null;
 
             String query = "REPLACE INTO Session (userid, start_date, end_date, start_airport) VALUES\n" +
                     "\t(?, ?, ?, ?);";
 
-            pstmt = connection.prepareStatement(query);
+            PreparedStatement pstmt = connection.prepareStatement(query);
             pstmt.setLong(1, currentUser.getId());
             pstmt.setString(2, surveyRequest.getStartDate());
             pstmt.setString(3, surveyRequest.getEndDate());
-            pstmt.setString(4, surveyRequest.getAirport());
+            pstmt.setString(4, surveyRequest.getStartAirport());
 
             pstmt.executeUpdate();
             connection.commit();

@@ -18,7 +18,7 @@ ReactDOM.render(
         render={props => <Home2 {...props} isAuthed={false} />}
       /> */}
       <Route exact path="/" component={Home2} />
-      <Route path="/reset" component={ResetPassword} />
+      <Route path="/change-password" component={ResetPassword} />
       <Route exact path="/login" component={Login} />
       <Route component={App} />
     </Switch>

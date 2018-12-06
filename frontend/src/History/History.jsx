@@ -17,7 +17,7 @@ class History extends Component {
           precipitation: 3,
           density: 3,
           expensive: 3,
-          airport: "",
+          startAirport: "ABC",
           startDate: "mm-dd-yyyy",
           endDate: "mm-dd-yyyy",
           searchDate: "2018-12-04 06:12:12"
@@ -29,7 +29,7 @@ class History extends Component {
           precipitation: 3,
           density: 3,
           expensive: 1,
-          airport: "",
+          startAirport: "DEF",
           startDate: "mm-dd-yyyy",
           endDate: "mm-dd-yyyy",
           searchDate: "2018-1-23 06:12:12"
@@ -41,13 +41,12 @@ class History extends Component {
           precipitation: 1,
           density: 1,
           expensive: 1,
-          airport: "",
+          startAirport: "GHI",
           startDate: "mm-dd-yyyy",
           endDate: "mm-dd-yyyy",
           searchDate: "2018-2-04 03:12:12"
         }
-      ],
-      save: false
+      ]
     };
   }
   render() {
@@ -81,7 +80,7 @@ class History extends Component {
                 Survey Search Date: {this.state.surveys[i].searchDate} <br />
                 Start Date: {this.state.surveys[i].startDate} <br />
                 End Date: {this.state.surveys[i].endDate} <br />
-                Closest airport: {this.state.surveys[i].airport} <br />
+                Closest airport: {this.state.surveys[i].startAirport} <br />
                 Budget: {this.state.surveys[i].expensive} <br />
               </Col>
               <Col xs={4}>
@@ -94,7 +93,7 @@ class History extends Component {
               </Col>
               <Col xs={4}>
                 <br />
-                <ResultList ts={this.state.surveys[i]} />
+                <ResultList ts={this.state.surveys[i]} save={false} />
               </Col>
             </Media.Body>
           </Media>

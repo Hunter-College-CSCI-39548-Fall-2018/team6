@@ -4,7 +4,7 @@ import javax.validation.constraints.NotBlank;
 
 public class SurveyRequest {
     @NotBlank
-    private String airport;
+    private String startAirport;
 
     @NotBlank
     private Integer climate;
@@ -40,12 +40,12 @@ public class SurveyRequest {
         this.save = save;
     }
 
-    public String getAirport() {
-        return airport;
+    public String getStartAirport() {
+        return startAirport;
     }
 
-    public void setAirport(String airport) {
-        this.airport = airport;
+    public void setStartAirport(String startAirport) {
+        this.startAirport = startAirport;
     }
 
     public Integer getClimate() {

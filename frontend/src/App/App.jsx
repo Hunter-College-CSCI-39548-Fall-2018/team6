@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import TravelNav from "../TravelNav/TravelNav";
 import Survey from "../Survey/Survey";
-import ResultList from "../ResultList/ResultList";
+// import ResultList from "../ResultList/ResultList";
 import RHistory from "../History/History";
 import Home from "../Home/Home.1";
 import { Switch, Route } from "react-router-dom";
@@ -15,9 +15,9 @@ class App extends Component {
         <TravelNav loggedIn={true} />
         <Switch>
           <Route exact path="/home" component={Home} />
-          <Route path="/history" component={RHistory} />
-          <Route path="/survey" component={Survey} />
-          <Route path="/result-list" component={ResultList} />
+          <Route exact path="/history" component={RHistory} />
+          <Route exact path="/survey" component={Survey} />
+          {/* <Route exact path="/result-list" component={ResultList} /> */}
         </Switch>
       </div>
     );

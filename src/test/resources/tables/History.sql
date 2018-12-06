@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS History (
   precipitation int,
   density int,
   expensive int,
+  busy int,
   startAirport varchar(3),
   startDate varchar(10),
   endDate varchar(10),
