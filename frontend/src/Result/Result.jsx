@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import "../ResultList/ResultList.css";
 import { Media, ListGroupItem, Tabs, Tab } from "react-bootstrap";
-// import withAuth from "../AuthService/WithAuth";
 
 class Result extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      result: this.props.extResults
+      result: this.props.extResults,
+      test: false
     };
   }
+
   render() {
     return (
       <div style={{ marginLeft: "5%" }}>

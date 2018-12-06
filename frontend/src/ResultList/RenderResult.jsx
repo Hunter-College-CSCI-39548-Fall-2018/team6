@@ -148,20 +148,19 @@ class RenderResult extends Component {
       }
     };
     return axios
-      .get(
-        "http://localhost:5000/v1/survey/" + city_name,
-        {
-          // ext: this.state.city_name
-        },
-        config
-      )
-      .then(function(response) {
-        console.log(response);
-        // this.setState({ ext: response.data });
+      .get("http://localhost:5000/v1/city/" + city_name, config)
+      .then(response => {
+        console.log("Render Response data: " + response.data);
+        this.successHandler(response.data);
       })
       .catch(function(error) {
         console.log(error);
       });
+  }
+
+  successHandler(data) {
+    this.setState({ ext: data });
+    console.log("+_____+");
   }
 
   loadResult(id) {
