@@ -71,8 +71,8 @@ class ResultList extends Component {
 
     return (
       axios
-        .post("http://localhost:5000/v1/survey", payload, config)
-        // .post("http://104.248.233.14:5000", payload, config)
+        // .post("http://localhost:5000/v1/survey", payload, config)
+        .post("http://104.248.233.14:5000/v1/survey", payload, config)
         .then(response => {
           this.successHandler(response.data);
         })
