@@ -6,7 +6,6 @@ import com.travelfilters.web.connector.SQLConnector;
 import com.travelfilters.web.payload.SurveyRequest;
 import com.travelfilters.web.security.CurrentUser;
 import com.travelfilters.web.security.UserPrincipal;
-import net.bytebuddy.dynamic.scaffold.MethodRegistry;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,10 +29,11 @@ import static java.util.stream.Collectors.toMap;
 @RequestMapping("/v1/survey")
 public class SurveyController {
 
-    static HashMap<String, Integer> Airport_Passengers, City_Populations, Climate_Precipitation, Climate_High, Climate_Low, Cost_Indexes, Density;
+    private static HashMap<String, Integer> Airport_Passengers, City_Populations, Climate_Precipitation, Climate_High, Climate_Low, Cost_Indexes, Density;
 
     @PostMapping("")
     public ResponseEntity<?> submitSurvey(@CurrentUser UserPrincipal currentUser, @RequestBody SurveyRequest surveyRequest) {
+        saveSessionVariables(currentUser, surveyRequest);
         saveRequest(currentUser, surveyRequest, surveyRequest.getSave());
         HashMap<String, Integer> resultMap = calculateResults(surveyRequest);
         return ResponseEntity.ok().body(buildResponse(resultMap));
@@ -45,7 +45,7 @@ public class SurveyController {
         City_Populations = getRanks("I_City_Populations");
         Climate_Precipitation = getRanks("I_Climate_Precipitation");
         Climate_High = getRanks("I_Climate_High");
-        Climate_Low = getRanks("I_Climate_Low");
+//        Climate_Low = getRanks("I_Climate_Low");
         Cost_Indexes = getRanks("I_Cost_Indexes");
         Density = getRanks("I_Density");
 
@@ -98,6 +98,7 @@ public class SurveyController {
                 rankMap.put(tableData.getString(1), tableData.getInt(2));
             }
             System.out.println(rankMap.toString());
+            connection.close();
             return rankMap;
         } catch (Exception e) {
             e.printStackTrace();
@@ -117,6 +118,7 @@ public class SurveyController {
             while (tableData.next()) {
                 cityList.add(tableData.getString(1));
             }
+            connection.close();
             System.out.println(cityList.toString());
             return cityList;
         } catch (Exception e) {
@@ -150,10 +152,7 @@ public class SurveyController {
 
                 pstmt = connection.prepareStatement(query);
 
-
-
                 rs = pstmt.executeQuery();
-
 
                 if (rs.next()) {
                     Survey_Result surveyResult = new Survey_Result();
@@ -170,6 +169,7 @@ public class SurveyController {
                     surveyResult.setCity_img(rs.getString("image_link"));
                     surveyResultArr.add(surveyResult);
                 }
+                connection.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -204,23 +204,6 @@ public class SurveyController {
 
     public static void saveRequest(UserPrincipal currentUser, SurveyRequest surveyRequest, boolean save) {
         SQLConnector connector = new SQLConnector();
-        try {
-            Connection connection = connector.getConnection();
-
-            String query = "REPLACE INTO Session (userid, start_date, end_date, start_airport) VALUES\n" +
-                    "\t(?, ?, ?, ?);";
-
-            PreparedStatement pstmt = connection.prepareStatement(query);
-            pstmt.setLong(1, currentUser.getId());
-            pstmt.setString(2, surveyRequest.getStartDate());
-            pstmt.setString(3, surveyRequest.getEndDate());
-            pstmt.setString(4, surveyRequest.getStartAirport());
-
-            pstmt.executeUpdate();
-            connection.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         if (save) {
             try {
@@ -245,9 +228,32 @@ public class SurveyController {
 
                 pstmt.executeUpdate();
                 connection.commit();
+                connection.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public static void saveSessionVariables(UserPrincipal currentUser, SurveyRequest surveyRequest) {
+        SQLConnector connector = new SQLConnector();
+        try {
+            Connection connection = connector.getConnection();
+
+            String query = "REPLACE INTO Session (userid, start_date, end_date, start_airport) VALUES\n" +
+                    "\t(?, ?, ?, ?);";
+
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setLong(1, currentUser.getId());
+            pstmt.setString(2, surveyRequest.getStartDate());
+            pstmt.setString(3, surveyRequest.getEndDate());
+            pstmt.setString(4, surveyRequest.getStartAirport());
+
+            pstmt.executeUpdate();
+            connection.commit();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

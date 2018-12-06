@@ -26,12 +26,18 @@ public class LoadSQL {
         loadCSV(csvRoot + "Fares.csv", "Fares");
         loadCSV(csvRoot + "States.csv", "States");
         loadCSV(csvRoot + "City_Images.csv", "City_Images");
+        loadCSV(csvRoot + "/Yelp/Yelp_Restaurants.csv", "Yelp_Restaurants");
+        loadCSV(csvRoot + "/Yelp/Yelp_Bars.csv", "Yelp_Bars");
+        loadCSV(csvRoot + "/Yelp/Yelp_Tours.csv", "Yelp_Tours");
+        loadCSV(csvRoot + "/Yelp/Yelp_Hotels.csv", "Yelp_Hotels");
+        loadCSV(csvRoot + "/Yelp/Yelp_Landmarks.csv", "Yelp_Landmarks");
+
 
         // drops indexed_tables
-//        runSqlQueries("src/test/resources/Drop_Indexed_Tables/");
+        runSqlQueries("src/test/resources/Drop_Indexed_Tables/");
 
         // creates indexed_tables
-//        runSqlQueries("src/test/resources/indexed_tables/");
+        runSqlQueries("src/test/resources/indexed_tables/");
     }
 
     private static void runSqlQueries(String schemaPath) {
