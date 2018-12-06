@@ -4,6 +4,7 @@ import axios from "axios";
 export default class AuthService {
   constructor(domain) {
     this.baseurl = "http://localhost:5000";
+    // this.baseurl = "http://104.248.233.14:5000";
     this.domain = domain || this.baseurl + "/v1/auth/login"; // API server domain
     this.forgotpw = this.baseurl + "/v1/auth/forgot";
     this.resetpw = this.baseurl + "/v1/auth/change-password";

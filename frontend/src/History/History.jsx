@@ -116,15 +116,18 @@ class History extends Component {
       }
     };
 
-    return axios
-      .get("http://localhost:5000/v1/history", config)
-      .then(response => {
-        console.log("History Response data: " + response.data);
-        this.successHandler(response.data);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+    return (
+      axios
+        .get("http://localhost:5000/v1/history", config)
+        // .get("http://104.248.233.14:5000/v1/history", config)
+        .then(response => {
+          console.log("History Response data: " + response.data);
+          this.successHandler(response.data);
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+    );
   }
 
   successHandler(data) {

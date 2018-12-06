@@ -69,14 +69,17 @@ class ResultList extends Component {
     let payload = this.state.survey;
     payload["save"] = this.props.save;
 
-    return axios
-      .post("http://localhost:5000/v1/survey", payload, config)
-      .then(response => {
-        this.successHandler(response.data);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+    return (
+      axios
+        .post("http://localhost:5000/v1/survey", payload, config)
+        // .post("http://104.248.233.14:5000", payload, config)
+        .then(response => {
+          this.successHandler(response.data);
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+    );
   }
 
   successHandler(data) {

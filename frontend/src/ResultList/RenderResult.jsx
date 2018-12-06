@@ -109,9 +109,7 @@ class RenderResult extends Component {
           <Media>
             <Media.Left align="middle">
               <img
-                // src="https://picsum.photos/200"
                 src={this.state.results[i].city_img}
-                // src="http://localhost:5000/v1/city_img/"+{this.state.result.city_name}
                 alt="City"
                 className="ResultImg"
               />
@@ -147,15 +145,18 @@ class RenderResult extends Component {
         "Content-Type": "application/json"
       }
     };
-    return axios
-      .get("http://localhost:5000/v1/city/" + city_name, config)
-      .then(response => {
-        console.log("Render Response data: " + response.data);
-        this.successHandler(response.data);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+    return (
+      axios
+        .get("http://localhost:5000/v1/city/" + city_name, config)
+        // .get("http://104.248.233.14:5000/v1/city" + city_name, config)
+        .then(response => {
+          console.log("Render Response data: " + response.data);
+          this.successHandler(response.data);
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+    );
   }
 
   successHandler(data) {

@@ -567,6 +567,7 @@ class Survey extends Component {
 
   async sendRequest() {
     let url = "http://localhost:5000/v1/survey";
+    // let url = "http://104.248.233.14:5000/v1/survey";
 
     let config = {
       headers: {
