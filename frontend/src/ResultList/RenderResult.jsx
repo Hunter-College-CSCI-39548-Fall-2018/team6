@@ -4,6 +4,7 @@ import { ListGroupItem, Media } from "react-bootstrap";
 import Result from "../Result/Result";
 // import { Redirect } from "react-router-dom";
 import axios from "axios";
+import AuthService from "../AuthService/AuthService";
 
 class RenderResult extends Component {
   constructor(props, context) {
@@ -16,7 +17,7 @@ class RenderResult extends Component {
         state_name: "New Jersey",
         airport_name: "Newark Liberty International Airport",
         airport_code: "EWR",
-        // city_img: "city_pic.url",
+        city_img: "https://picsum.photos/200",
         population: 1000000,
         cost_index: 3,
         high: 90,
@@ -49,17 +50,7 @@ class RenderResult extends Component {
             name: "#2Katzs Delicatessen"
           }
         ],
-        yelp_tours: [
-          {
-            image_url:
-              "https://s3-media4.fl.yelpcdn.com/bphoto/qr7eSU6CFwRGZ7Rc-QEoTQ/o.jpg",
-            page_url:
-              "https://www.yelp.com/biz/katzs-delicatessen-new-york?adjust_creative=BpXhmQxwiLhi-ASFk8Yztw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=BpXhmQxwiLhi-ASFk8Yztw",
-            review_count: 10225,
-            review_score: 4,
-            name: "Katzs Delicatessen"
-          }
-        ],
+        yelp_tours: [],
         yelp_bars: [
           {
             image_url:
@@ -68,7 +59,7 @@ class RenderResult extends Component {
               "https://www.yelp.com/biz/katzs-delicatessen-new-york?adjust_creative=BpXhmQxwiLhi-ASFk8Yztw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=BpXhmQxwiLhi-ASFk8Yztw",
             review_count: 10225,
             review_score: 4,
-            name: "Katzs Delicatessen"
+            name: "Katzs Bar"
           }
         ],
         yelp_landmarks: [
@@ -79,7 +70,7 @@ class RenderResult extends Component {
               "https://www.yelp.com/biz/katzs-delicatessen-new-york?adjust_creative=BpXhmQxwiLhi-ASFk8Yztw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=BpXhmQxwiLhi-ASFk8Yztw",
             review_count: 10225,
             review_score: 4,
-            name: "Katzs Delicatessen"
+            name: "Katzs Landmark"
           }
         ],
         yelp_hotels: [
@@ -90,7 +81,7 @@ class RenderResult extends Component {
               "https://www.yelp.com/biz/katzs-delicatessen-new-york?adjust_creative=BpXhmQxwiLhi-ASFk8Yztw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=BpXhmQxwiLhi-ASFk8Yztw",
             review_count: 10225,
             review_score: 4,
-            name: "Katzs Delicatessen"
+            name: "Katzs Hotel"
           }
         ]
       },
@@ -98,6 +89,7 @@ class RenderResult extends Component {
     };
     this.getExtendedResults = this.getExtendedResults.bind(this);
     this.loadResult = this.loadResult.bind(this);
+    this.Auth = new AuthService();
   }
   render() {
     return <div>{this.forLoopResults()}</div>;
@@ -117,10 +109,10 @@ class RenderResult extends Component {
           <Media>
             <Media.Left align="middle">
               <img
-                src="https://picsum.photos/200"
-                // src={this.state.results[i].city_img}
-                // src=v1/city_img/{this.state.results[i].city_name}
-                alt="Pikachu"
+                // src="https://picsum.photos/200"
+                src={this.state.results[i].city_img}
+                // src="http://localhost:5000/v1/city_img/"+{this.state.result.city_name}
+                alt="City"
                 className="ResultImg"
               />
             </Media.Left>
@@ -147,12 +139,22 @@ class RenderResult extends Component {
   }
 
   // Link by city name not id
-  getExtendedResults() {
+  getExtendedResults(city_name) {
     // console.log("Are we getting this id::: ", city_name);
+    let config = {
+      headers: {
+        Authorization: this.Auth.getToken(),
+        "Content-Type": "application/json"
+      }
+    };
     return axios
-      .post("/getExtendedResults", {
-        ext: this.state.city_name
-      })
+      .get(
+        "http://localhost:5000/v1/survey/" + city_name,
+        {
+          // ext: this.state.city_name
+        },
+        config
+      )
       .then(function(response) {
         console.log(response);
         // this.setState({ ext: response.data });
@@ -163,7 +165,7 @@ class RenderResult extends Component {
   }
 
   loadResult(id) {
-    this.getExtendedResults(id);
+    this.getExtendedResults(this.state.results[id].city_name);
     console.log("Loading result");
     this.setState({
       redirect: true

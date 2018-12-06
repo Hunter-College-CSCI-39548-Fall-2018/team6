@@ -3,10 +3,11 @@ import "./History.css";
 import ResultList from "../ResultList/ResultList";
 import { ListGroupItem, Grid, Row, Col, Media } from "react-bootstrap";
 import axios from "axios";
-
+import AuthService from "../AuthService/AuthService";
 class History extends Component {
   constructor(props, context) {
     super(props, context);
+    this.Auth = new AuthService();
     this.state = {
       surveys: [
         {
@@ -16,9 +17,10 @@ class History extends Component {
           precipitation: 3,
           density: 3,
           expensive: 3,
-          airport: "",
+          startAirport: "ABC",
           startDate: "mm-dd-yyyy",
-          endDate: "mm-dd-yyyy"
+          endDate: "mm-dd-yyyy",
+          searchDate: "2018-12-04 06:12:12"
         },
         {
           climate: 2,
@@ -27,9 +29,10 @@ class History extends Component {
           precipitation: 3,
           density: 3,
           expensive: 1,
-          airport: "",
+          startAirport: "DEF",
           startDate: "mm-dd-yyyy",
-          endDate: "mm-dd-yyyy"
+          endDate: "mm-dd-yyyy",
+          searchDate: "2018-1-23 06:12:12"
         },
         {
           climate: 3,
@@ -38,9 +41,10 @@ class History extends Component {
           precipitation: 1,
           density: 1,
           expensive: 1,
-          airport: "",
+          startAirport: "GHI",
           startDate: "mm-dd-yyyy",
-          endDate: "mm-dd-yyyy"
+          endDate: "mm-dd-yyyy",
+          searchDate: "2018-2-04 03:12:12"
         }
       ]
     };
@@ -66,7 +70,6 @@ class History extends Component {
     const historyList = [];
     for (let i = 0; i < this.state.surveys.length; i++) {
       historyList.push(
-        // <Col xs={8} md={8} key={this.state.surveys[i]}>
         <ListGroupItem className="HistoryResult" key={i}>
           <Media>
             <Media.Body>
@@ -74,9 +77,10 @@ class History extends Component {
                 <strong>Survey choices: </strong>{" "}
               </Media.Heading>
               <Col xs={4}>
+                Survey Search Date: {this.state.surveys[i].searchDate} <br />
                 Start Date: {this.state.surveys[i].startDate} <br />
                 End Date: {this.state.surveys[i].endDate} <br />
-                Closest airport: {this.state.surveys[i].airport} <br />
+                Closest airport: {this.state.surveys[i].startAirport} <br />
                 Budget: {this.state.surveys[i].expensive} <br />
               </Col>
               <Col xs={4}>
@@ -89,20 +93,25 @@ class History extends Component {
               </Col>
               <Col xs={4}>
                 <br />
-                <ResultList ts={this.state.surveys[i]} />
+                <ResultList ts={this.state.surveys[i]} save={false} />
               </Col>
             </Media.Body>
           </Media>
         </ListGroupItem>
-        // </Col>
       );
     }
     return historyList;
   }
 
   getSurveys() {
+    let config = {
+      headers: {
+        Authorization: this.Auth.getToken(),
+        "Content-Type": "application/json"
+      }
+    };
     return axios
-      .get("/getSurveys")
+      .get("http://localhost:5000/v1/survey/history", config)
       .then(function(response) {
         console.log(response.data);
         this.setState({ surveys: response.data });
@@ -114,11 +123,11 @@ class History extends Component {
 
   componentWillMount = () => {
     this.getSurveys();
-    // document.body.classList.add("SurveyBg");
+    document.body.classList.add("HistoryBg");
   };
 
   componentWillUnmount = () => {
-    // document.body.classList.remove("SurveyBg");
+    document.body.classList.remove("HistoryBg");
   };
 }
 export default History;

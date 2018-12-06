@@ -3,6 +3,7 @@ import "./ResultList.css";
 import RenderResult from "./RenderResult";
 import { Button, Modal, ListGroup } from "react-bootstrap";
 import axios from "axios";
+import AuthService from "../AuthService/AuthService";
 
 class ResultList extends Component {
   constructor(props, context) {
@@ -13,13 +14,16 @@ class ResultList extends Component {
       this
     );
     this.handleClose = this.handleClose.bind(this);
+    this.Auth = new AuthService();
     this.state = {
       show: false,
+      save: this.props.save,
       survey: this.props.ts,
       cities: [
         {
           city_name: "Baton Rouge",
           state_name: "Louisiana",
+          city_img: "https://picsum.photos/200",
           population: 226505,
           cost_index: 2,
           high: 81.7,
@@ -31,6 +35,7 @@ class ResultList extends Component {
         {
           city_name: "Atlanta",
           state_name: "Georgia",
+          city_img: "https://picsum.photos/200",
           population: 491626,
           cost_index: 2,
           high: 80.0,
@@ -42,6 +47,7 @@ class ResultList extends Component {
         {
           city_name: "Miami",
           state_name: "Florida",
+          city_img: "https://picsum.photos/200",
           population: 479009,
           cost_index: 1,
           high: 83.7,
@@ -76,10 +82,20 @@ class ResultList extends Component {
     );
   }
   getResultsFromSurveyChoices() {
+    let config = {
+      headers: {
+        Authorization: this.Auth.getToken(),
+        "Content-Type": "application/json"
+      }
+    };
     return axios
-      .post("/getHistoryFromSurveyChoices", {
-        cities: this.state.survey
-      })
+      .post(
+        "http://localhost:5000/v1/survey/",
+        {
+          cities: this.state.survey
+        },
+        config
+      )
       .then(function(response) {
         console.log(response);
         // this.setState({ cities: response.data });
