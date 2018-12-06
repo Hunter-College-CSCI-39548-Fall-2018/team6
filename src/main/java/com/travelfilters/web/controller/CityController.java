@@ -153,8 +153,6 @@ public class CityController {
                 city_result.setCost_index(rs.getInt("cost_index") / 24 + 1);
                 city_result.setBusy(rs.getInt("busy") / 24 + 1);
                 city_result.setCity_img(rs.getString("city_image"));
-                city_result.setPopulation(rs.getInt("population"));
-                city_result.setCity_name(city_name);
             }
             connection.close();
         } catch (Exception e) {
