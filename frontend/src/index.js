@@ -6,11 +6,11 @@ import { App } from "./App";
 import { Login } from "./Login";
 import * as serviceWorker from "./serviceWorker";
 import Home2 from "./Home/Home.2";
+import ResetPassword from "./ResetPassword/ResetPassword";
 import "./styles/main.css";
 
 ReactDOM.render(
   <BrowserRouter>
-    {/* Home routing- default auth false? */}
     <Switch>
       {/* <Route
         exact
@@ -18,6 +18,7 @@ ReactDOM.render(
         render={props => <Home2 {...props} isAuthed={false} />}
       /> */}
       <Route exact path="/" component={Home2} />
+      <Route path="/reset" component={ResetPassword} />
       <Route exact path="/login" component={Login} />
       <Route component={App} />
     </Switch>

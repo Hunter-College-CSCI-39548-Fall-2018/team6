@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "react-day-picker/lib/style.css";
 import "rc-slider/assets/index.css";
-
 import AuthService from "../AuthService/AuthService";
 import ResultList from "../ResultList/ResultList";
 import DayPicker, { DateUtils } from "react-day-picker";
@@ -44,63 +43,40 @@ class Survey extends Component {
       busy: 20,
       bgImages: {
         temperature: {
-          first:
-            "url(https://previews.123rf.com/images/freeprod/freeprod1802/freeprod180200119/95725229-cold-winter-day-in-a-city-paris-france.jpg)",
-          second:
-            "url(https://www.rd.com/wp-content/uploads/2017/07/00_hike_Best-Hikes-Across-America—and-the-Best-Times-to-Go_421563208_aaronj9_FT.jpg)",
-          third:
-            "url(https://s25088.pcdn.co/wp-content/uploads/2014/07/Spring-banner-1.jpg)",
-          fourth:
-            "url(https://www.treebo.com/blog/wp-content/uploads/2017/12/Beaches-in-India_1.jpg)"
+          first: "url(https://i.ibb.co/60Dj2dh/temp-1-cropped.jpg)",
+          second: "url(https://i.ibb.co/9qjpKCw/temp-2-cropped.jpg)",
+          third: "url(https://i.ibb.co/q7zYFDR/temp-3-cropped.jpg)",
+          fourth: "url(https://i.ibb.co/gw2KCVT/temp-4-cropped.jpg)"
         },
         density: {
-          first:
-            "url(https://www.vistaprint.com/Sales/Utility/Img.caspx?s=%2Fvp%2Fimages%2Fvp-site%2Fconfigure-page%2Fbanners%2Fl-h%2F016-blank-001-2x.png&w=620&h=620&langid=1&q=85&c=0&hc=0042a76d&ie6=0)",
-          second:
-            "url(http://www.illuminera.com/Public/Home/img/joinUs_banner.jpg)",
-          third:
-            "url(http://www.peregrine.com.au/wp-content/uploads/sites/4/2017/05/Corporate-Careers-Banner-v3.1-e1496297812294.jpg)",
-          fourth:
-            "url(https://c8.alamy.com/comp/G1A0ED/crowd-of-people-banner-men-women-and-children-different-ethnic-groups-G1A0ED.jpg)"
+          first: "url(https://i.ibb.co/LdYSwPn/density-1-cropped.jpg)",
+          second: "url(https://i.ibb.co/YNwKZJW/density-2-cropped.jpg)",
+          third: "url(https://i.ibb.co/jk7002d/density-3-cropped.jpg)",
+          fourth: "url(https://i.ibb.co/LrVF0v8/density-4-cropped.jpg)"
         },
         budget: {
-          first:
-            "url(https://blog.edgenuity.com/wp-content/uploads/2016/01/piggy-bank-banner.png)",
-          second: "url(http://sergalex.eu/uploads/banner4.jpg)",
-          third:
-            "url(http://tribecabeautyspa.com/wp-content/uploads/2016/04/main_banner_1.jpg)",
-          fourth:
-            "url(http://www.dulleslimoservice.us/images/All-%20Event_Limo_Service.png)"
+          first: "url(https://i.ibb.co/pw4V53Q/budget-1-cropped.jpg)",
+          second: "url(https://i.ibb.co/DLqHVj4/budget-2-cropped.jpg)",
+          third: "url(https://i.ibb.co/QnYSD73/buget-3-cropped.jpg)",
+          fourth: "url(https://i.ibb.co/C2LRGq5/budget-4-cropped.jpg)"
         },
         precipitation: {
-          first:
-            "url(https://png.pngtree.com/thumb_back/fw800/back_pic/03/78/32/1757c1362c471f7.jpg)",
-          second:
-            "url(https://aboutforterie.com/wp-content/uploads/2018/09/rain-umbrella.jpg)",
-          third:
-            "url(http://www.f-covers.com/cover/abstract-rain-facebook-cover-timeline-banner-for-fb.jpg)",
-          fourth:
-            "url(https://thumbs.dreamstime.com/t/sunny-field-trees-sun-banner-4737982.jpg)"
+          first: "url(https://i.ibb.co/801XDJT/rain-1-cropped.jpg)",
+          second: "url(https://i.ibb.co/BKzvwNP/rain-2-cropped.jpg)",
+          third: "url(https://i.ibb.co/hDH6Jfz/rain-3-cropped.jpg)",
+          fourth: "url(https://i.ibb.co/F7JG5m7/rain-4-cropped.jpg)"
         },
         population: {
-          first:
-            "url(https://static1.squarespace.com/static/58747545bf629a02f8a99a04/t/589e038bf7e0ab9817f02116/1486750604894/house-banner.jpg?format=2500w)",
-          second:
-            "url(https://image.shutterstock.com/image-vector/set-stock-vector-illustration-buildings-260nw-487356691.jpg)",
-          third:
-            "url(http://www.bu.edu/summer/common/images/st-home/home-banner.jpg)",
-          fourth:
-            "url(https://upload.wikimedia.org/wikipedia/commons/6/67/NYC_Top_of_the_Rock_Pano_banner.jpg)"
+          first: "url(https://i.ibb.co/2c1hgrr/population-1-cropped.jpg)",
+          second: "url(https://i.ibb.co/7ynN6gp/population-2-cropped.jpg)",
+          third: "url(https://i.ibb.co/Y0n8ndf/population-3-cropped.jpg)",
+          fourth: "url(https://i.ibb.co/1bGQcwh/population-4-cropped.jpg)"
         },
         busy: {
-          first:
-            "url(http://www.enterpriseonline.sg/wp-content/uploads/2017/05/1408395530850.jpg)",
-          second:
-            "url(http://vnexpressnews.net/wp-content/uploads/2014/12/uWY7RMaQ.jpg)",
-          third:
-            "url(http://chinesetouristagency.com/wp-content/uploads/2013/05/chinese-tourists.jpg)",
-          fourth:
-            "url(https://cdn.shopify.com/s/files/1/0322/6285/articles/London-Heathrow-08L-airportraits_1400x.progressive.jpg?v=1478281632)"
+          first: "url(https://i.ibb.co/N3w0fGW/popular-1-cropped.jpg)",
+          second: "url(https://i.ibb.co/k1hn88G/popular-2-cropped.jpg)",
+          third: "url(https://i.ibb.co/CHKf8Z7/popular-3-cropped.jpg)",
+          fourth: "url(https://i.ibb.co/HTjHD3X/popular-4-cropped.jpg)"
         }
       }
     };
@@ -125,7 +101,7 @@ class Survey extends Component {
     }
 
     return (
-      <div className="w-full sm:w-3/4 lg:w-1/2 px-12 mx-auto mb-32">
+      <div className="w-full px-12 sm:w-600x sm:px-0  mx-auto mb-32">
         <div className="bg-white pt-8 pb-2 text-center font-bold text-2xl">
           Your Dream Vacation Awaits
         </div>
@@ -175,11 +151,11 @@ class Survey extends Component {
 
         <div className="w-full mx-auto mb-10">
           <div
-            className="w-full h-48 text-white text-center slider flex flex-col font-bold"
+            className="w-full h-150px text-white text-center slider flex flex-col font-bold"
             style={{ backgroundImage: this.mapBg("temperature") }}
           >
             <div className="slider-inside">
-              <h4 className="w-full">What temperature (F) do you prefer?</h4>
+              <h4 className="w-full">What temperature do you prefer?</h4>
               <h5 className="w-full">(cold to hot)</h5>
             </div>
           </div>
@@ -235,7 +211,7 @@ class Survey extends Component {
 
         <div className="mx-auto mb-10">
           <div
-            className="w-full h-48 text-white text-center slider flex flex-col font-bold"
+            className="w-full h-150px text-white text-center slider flex flex-col font-bold"
             style={{ backgroundImage: this.mapBg("budget") }}
           >
             <div className="slider-inside">
@@ -293,12 +269,11 @@ class Survey extends Component {
 
         <div className="mx-auto mb-10">
           <div
-            className="w-full h-48 text-white text-center slider flex flex-col font-bold"
+            className="w-full h-150px text-white text-center slider flex flex-col font-bold"
             style={{ backgroundImage: this.mapBg("density") }}
           >
             <div className="slider-inside">
-              <h4 className="w-full">How bustling would you like it to be?</h4>
-              <h5 className="w-full">(not crowded to bustling)</h5>
+              <h4 className="w-full">Somewhere remote or bustling?</h4>
             </div>
           </div>
           <Slider
@@ -351,14 +326,14 @@ class Survey extends Component {
 
         <div className="mx-auto mb-10">
           <div
-            className="w-full h-48 text-white text-center slider flex flex-col font-bold"
+            className="w-full h-150px text-white text-center slider flex flex-col font-bold"
             style={{ backgroundImage: this.mapBg("population") }}
           >
             <div className="slider-inside">
               <h4 className="text-2xl sm:text-3xl w-full">
-                Would you like to visit a small town or large city?
+                Would you like to visit a small city or large city?
               </h4>
-              <h5 className="w-full">(small to large)</h5>
+              <h5 className="w-full">(low to high)</h5>
             </div>
           </div>
           <Slider
@@ -413,7 +388,7 @@ class Survey extends Component {
 
         <div className="mx-auto mb-8">
           <div
-            className="w-full h-48 text-white text-center slider flex flex-col font-bold"
+            className="w-full h-150px text-white text-center slider flex flex-col font-bold"
             style={{ backgroundImage: this.mapBg("precipitation") }}
           >
             <div className="slider-inside">
@@ -475,12 +450,12 @@ class Survey extends Component {
 
         <div className="mx-auto mb-12">
           <div
-            className="w-full h-48 text-white text-center slider flex flex-col font-bold"
+            className="w-full h-150px text-white text-center slider flex flex-col font-bold"
             style={{ backgroundImage: this.mapBg("busy") }}
           >
             <div className="slider-inside">
-              <h4 className="w-full">City that is less traveled or popular?</h4>
-              <h5 className="w-full">(less traveled to popular)</h5>
+              <h4 className="w-full">City that is less familiar or popular?</h4>
+              <h5 className="w-full">(less familiar to popular)</h5>
             </div>
           </div>
           <Slider
@@ -549,6 +524,7 @@ class Survey extends Component {
   }
 
   handleDayClick(day) {
+    if (DateUtils.isPastDay(day)) return;
     const range = DateUtils.addDayToRange(day, this.state);
     this.setState(range);
   }

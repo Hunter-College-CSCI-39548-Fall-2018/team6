@@ -4,7 +4,6 @@ import ResultList from "../ResultList/ResultList";
 import { ListGroupItem, Grid, Row, Col, Media } from "react-bootstrap";
 import axios from "axios";
 import AuthService from "../AuthService/AuthService";
-
 class History extends Component {
   constructor(props, context) {
     super(props, context);
@@ -47,7 +46,8 @@ class History extends Component {
           endDate: "mm-dd-yyyy",
           searchDate: "2018-2-04 03:12:12"
         }
-      ]
+      ],
+      save: false
     };
   }
   render() {
@@ -71,7 +71,6 @@ class History extends Component {
     const historyList = [];
     for (let i = 0; i < this.state.surveys.length; i++) {
       historyList.push(
-        // <Col xs={8} md={8} key={this.state.surveys[i]}>
         <ListGroupItem className="HistoryResult" key={i}>
           <Media>
             <Media.Body>
@@ -100,7 +99,6 @@ class History extends Component {
             </Media.Body>
           </Media>
         </ListGroupItem>
-        // </Col>
       );
     }
     return historyList;

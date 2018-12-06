@@ -17,7 +17,7 @@ class RenderResult extends Component {
         state_name: "New Jersey",
         airport_name: "Newark Liberty International Airport",
         airport_code: "EWR",
-        // city_img: "city_pic.url",
+        city_img: "https://picsum.photos/200",
         population: 1000000,
         cost_index: 3,
         high: 90,
@@ -119,10 +119,10 @@ class RenderResult extends Component {
           <Media>
             <Media.Left align="middle">
               <img
-                src="https://picsum.photos/200"
-                // src={this.state.results[i].city_img}
+                // src="https://picsum.photos/200"
+                src={this.state.results[i].city_img}
                 // src="http://localhost:5000/v1/city_img/"+{this.state.result.city_name}
-                alt="Pikachu"
+                alt="City"
                 className="ResultImg"
               />
             </Media.Left>

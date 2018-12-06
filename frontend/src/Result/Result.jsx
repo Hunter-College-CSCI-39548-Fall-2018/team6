@@ -16,10 +16,10 @@ class Result extends Component {
         <Media className="Result">
           <Media.Left align="middle">
             <img
-              src="https://picsum.photos/200"
-              // src={this.state.result.city_img}
+              // src="https://picsum.photos/200"
+              src={this.state.result.city_img}
               // src="http://localhost:5000/v1/city_img/"+{this.state.result.city_name}
-              alt="Pikachu"
+              alt="City"
               className="ResultImg"
             />
           </Media.Left>
