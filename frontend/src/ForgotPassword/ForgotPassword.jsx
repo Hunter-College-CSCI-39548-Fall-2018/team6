@@ -12,19 +12,16 @@ class ForgotPassword extends Component {
     this.Auth = new AuthService();
   }
   render() {
-    let errorMessage;
-    let emailSent;
+    let message;
     if (this.state.hasError) {
-      errorMessage = (
+      message = (
         <p style={{ color: "red", fontSize: "15px" }}>
           Email not found. Try again.
         </p>
       );
     }
     if (this.state.sent) {
-      emailSent = (
-        <p style={{ fontSize: "15px" }}>An email will be sent soon.</p>
-      );
+      message = <p style={{ fontSize: "15px" }}>An email will be sent soon.</p>;
     }
     return (
       <form onSubmit={e => this.submit(e)}>
@@ -43,8 +40,7 @@ class ForgotPassword extends Component {
         </div>
         <input className="button" type="submit" value="Submit" />
         <br />
-        {errorMessage}
-        {emailSent}
+        {message}
       </form>
     );
   }

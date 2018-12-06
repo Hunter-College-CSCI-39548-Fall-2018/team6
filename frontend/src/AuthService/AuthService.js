@@ -65,7 +65,7 @@ export default class AuthService {
       }
     };
     try {
-      let response = await axios.get(this.resetpw, payload, config);
+      let response = await axios.post(this.resetpw, payload, config);
       console.log(response.data);
     } catch (err) {
       console.log(err.response);

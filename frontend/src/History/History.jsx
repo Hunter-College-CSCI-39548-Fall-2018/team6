@@ -8,6 +8,7 @@ class History extends Component {
   constructor(props, context) {
     super(props, context);
     this.Auth = new AuthService();
+    this.successHandler = this.successHandler.bind(this);
     this.state = {
       surveys: [
         {
@@ -110,15 +111,21 @@ class History extends Component {
         "Content-Type": "application/json"
       }
     };
+
     return axios
-      .get("http://localhost:5000/v1/survey/history", config)
-      .then(function(response) {
-        console.log(response.data);
-        this.setState({ surveys: response.data });
+      .get("http://localhost:5000/v1/history", config)
+      .then(response => {
+        console.log("History Response data: " + response.data);
+        this.successHandler(response.data);
       })
       .catch(function(error) {
         console.log(error);
       });
+  }
+
+  successHandler(data) {
+    // this.setState({ surveys: data });
+    console.log("+_____+");
   }
 
   componentWillMount = () => {
