@@ -109,9 +109,7 @@ class RenderResult extends Component {
           <Media>
             <Media.Left align="middle">
               <img
-                // src="https://picsum.photos/200"
                 src={this.state.results[i].city_img}
-                // src="http://localhost:5000/v1/city_img/"+{this.state.result.city_name}
                 alt="City"
                 className="ResultImg"
               />
@@ -126,7 +124,7 @@ class RenderResult extends Component {
                 State: {this.state.results[i].state_name} <br />
                 City: {this.state.results[i].city_name} <br />
                 Population: {this.state.results[i].population} <br />
-                How busy it is: {this.state.results[i].busy} <br />
+                How busy it is: {this.state.results[i].busy}/4 <br />
                 High temperature (F): {this.state.results[i].high} <br />
                 Low temperature (F): {this.state.results[i].low} <br />
               </p>
@@ -139,7 +137,7 @@ class RenderResult extends Component {
   }
 
   // Link by city name not id
-  getExtendedResults(city_name) {
+  async getExtendedResults(city_name) {
     // console.log("Are we getting this id::: ", city_name);
     let config = {
       headers: {
@@ -147,15 +145,18 @@ class RenderResult extends Component {
         "Content-Type": "application/json"
       }
     };
-    return axios
-      .get("http://localhost:5000/v1/city/" + city_name, config)
-      .then(response => {
-        console.log("Render Response data: " + response.data);
-        this.successHandler(response.data);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+    return (
+      axios
+        .get("http://localhost:5000/v1/city/" + city_name, config)
+        // .get("http://104.248.233.14:5000/v1/city" + city_name, config)
+        .then(response => {
+          console.log("Render Response data: " + response.data);
+          this.successHandler(response.data);
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+    );
   }
 
   successHandler(data) {
@@ -163,8 +164,8 @@ class RenderResult extends Component {
     console.log("+_____+");
   }
 
-  loadResult(id) {
-    this.getExtendedResults(this.state.results[id].city_name);
+  async loadResult(id) {
+    await this.getExtendedResults(this.state.results[id].city_name);
     console.log("Loading result");
     this.setState({
       redirect: true

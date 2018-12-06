@@ -22,40 +22,16 @@ class ResultList extends Component {
       survey: this.props.ts,
       cities: [
         {
-          city_name: "Baton Rouge",
-          state_name: "Louisiana",
-          city_img: "https://picsum.photos/200",
-          population: 226505,
-          cost_index: 2,
-          high: 81.7,
-          low: 50.1,
-          busy: 5,
-          density: 1017.8673,
-          score: 205
-        },
-        {
-          city_name: "Atlanta",
-          state_name: "Georgia",
-          city_img: "https://picsum.photos/200",
-          population: 491626,
-          cost_index: 2,
-          high: 80.0,
-          low: 42.7,
-          busy: 1,
-          density: 1422.5653,
-          score: 204
-        },
-        {
-          city_name: "Miami",
-          state_name: "Florida",
-          city_img: "https://picsum.photos/200",
-          population: 479009,
-          cost_index: 1,
-          high: 83.7,
-          low: 68.1,
-          busy: 1,
-          density: 5139.2676,
-          score: 187
+          city_name: "",
+          state_name: "",
+          city_img: "",
+          population: null,
+          cost_index: null,
+          high: null,
+          low: null,
+          busy: null,
+          density: null,
+          score: null
         }
       ]
     };
@@ -82,31 +58,34 @@ class ResultList extends Component {
       </div>
     );
   }
-  getResultsFromSurveyChoices() {
+  async getResultsFromSurveyChoices() {
     let config = {
       headers: {
         Authorization: this.Auth.getToken(),
         "Content-Type": "application/json"
       }
     };
-    let payload = {
-      cities: this.state.survey,
-      save: !!this.props.save ? this.props.save : false
-    };
-    return axios
-      .post("http://localhost:5000/v1/survey", payload, config)
-      .then(response => {
-        this.successHandler(response.data);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+
+    let payload = this.state.survey;
+    payload["save"] = this.props.save;
+
+    return (
+      axios
+        .post("http://localhost:5000/v1/survey", payload, config)
+        // .post("http://104.248.233.14:5000", payload, config)
+        .then(response => {
+          this.successHandler(response.data);
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+    );
   }
 
   successHandler(data) {
     this.setState({ cities: data });
     console.log("+_____+");
-    console.log(this.state.cities);
+    console.log("Success cities: " + this.state.cities);
   }
 
   handleClose() {
@@ -115,8 +94,8 @@ class ResultList extends Component {
     // return <Redirect push to="/login" />;
   }
 
-  handleShow() {
-    this.getResultsFromSurveyChoices();
+  async handleShow() {
+    await this.getResultsFromSurveyChoices();
     this.setState({ show: true });
   }
   componentWillMount = () => {

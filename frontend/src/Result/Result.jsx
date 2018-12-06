@@ -17,9 +17,7 @@ class Result extends Component {
         <Media className="Result">
           <Media.Left align="middle">
             <img
-              // src="https://picsum.photos/200"
               src={this.state.result.city_img}
-              // src="http://localhost:5000/v1/city_img/"+{this.state.result.city_name}
               alt="City"
               className="ResultImg"
             />
@@ -34,7 +32,7 @@ class Result extends Component {
                 State: {this.state.result.state_name} <br />
                 City: {this.state.result.city_name} <br />
                 Population: {this.state.result.population} <br />
-                How busy it is: {this.state.result.busy} <br />
+                How busy it is: {this.state.result.busy}/4 <br />
                 High temperature (F): {this.state.result.high} <br />
                 Low temperature (F): {this.state.result.low} <br />
               </p>
@@ -44,14 +42,15 @@ class Result extends Component {
         <Media>
           <Media.Body>
             <p>
-              Annual Precipitation (in):
+              Annual Precipitation (in):{" "}
               {this.state.result.annual_precipitation} <br />
               How pricy: {this.state.result.cost_index}/4 <br />
-              Average Flight Cost: {this.state.result.flight_cost} <br />
+              {/* Average Flight Cost: {this.state.result.flight_cost} <br /> */}
               Nearest Airport: {this.state.result.airport_name},{" "}
               {this.state.result.airport_code} <br />
               Annual Passengers: {this.state.result.annual_passengers} <br />
-              Small or big city: {this.state.result.density}
+              Small or big city (people per square mile):{" "}
+              {this.state.result.density}
               <br />
             </p>
           </Media.Body>

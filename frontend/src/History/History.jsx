@@ -82,15 +82,19 @@ class History extends Component {
                 Start Date: {this.state.surveys[i].startDate} <br />
                 End Date: {this.state.surveys[i].endDate} <br />
                 Closest airport: {this.state.surveys[i].startAirport} <br />
-                Budget: {this.state.surveys[i].expensive} <br />
+                Budget: {this.state.surveys[i].expensive}/100 <br />
               </Col>
               <Col xs={4}>
-                Population: {this.state.surveys[i].population} <br />
-                Small or big city: {this.state.surveys[i].density} <br />
-                How quiet or busy: {this.state.surveys[i].busy} <br />
-                Preferred Temperature: {this.state.surveys[i].climate} <br />
-                Preferred Amount of Precipitation:{" "}
-                {this.state.surveys[i].precipitation} <br />
+                Small to big city: {this.state.surveys[i].population}/100 <br />
+                Less crowded to bustling: {
+                  this.state.surveys[i].density
+                }/100 <br />
+                Less traveled to busy: {this.state.surveys[i].busy}/100 <br />
+                Temperature cold to hot: {
+                  this.state.surveys[i].climate
+                }/100 <br />
+                Enjoy rain to avoid rain: {this.state.surveys[i].precipitation}
+                /100 <br />
               </Col>
               <Col xs={4}>
                 <br />
@@ -112,20 +116,24 @@ class History extends Component {
       }
     };
 
-    return axios
-      .get("http://localhost:5000/v1/history", config)
-      .then(response => {
-        console.log("History Response data: " + response.data);
-        this.successHandler(response.data);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+    return (
+      axios
+        .get("http://localhost:5000/v1/history", config)
+        // .get("http://104.248.233.14:5000/v1/history", config)
+        .then(response => {
+          console.log("History Response data: " + response.data);
+          this.successHandler(response.data);
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+    );
   }
 
   successHandler(data) {
-    // this.setState({ surveys: data });
+    this.setState({ surveys: data });
     console.log("+_____+");
+    console.log("History survey data: " + data);
   }
 
   componentWillMount = () => {
