@@ -147,8 +147,8 @@ class RenderResult extends Component {
     };
     return (
       axios
-        .get("http://localhost:5000/v1/city/" + city_name, config)
-        // .get("http://104.248.233.14:5000/v1/city" + city_name, config)
+        // .get("http://localhost:5000/v1/city/" + city_name, config)
+        .get("http://104.248.233.14:5000/v1/city" + city_name, config)
         .then(response => {
           console.log("Render Response data: " + response.data);
           this.successHandler(response.data);

@@ -125,7 +125,8 @@ class Register extends Component {
   async submit(e) {
     e.preventDefault();
 
-    let url = "http://localhost:5000/v1/auth/register";
+    // let url = "http://localhost:5000/v1/auth/register";
+    let url = "http://104.248.233.14:5000/v1/auth/register";
 
     let payload = {
       email: this.state.email,
