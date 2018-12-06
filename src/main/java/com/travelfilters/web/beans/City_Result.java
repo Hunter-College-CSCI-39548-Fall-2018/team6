@@ -9,7 +9,7 @@ public class City_Result {
     private String airport_name;
     private String airport_code;
     private String city_img;
-    private int population;
+    private String population;
     private int density;
     // out of 4
     private int cost_index;
@@ -101,11 +101,11 @@ public class City_Result {
         this.city_img = city_img;
     }
 
-    public int getPopulation() {
+    public String getPopulation() {
         return population;
     }
 
-    public void setPopulation(int population) {
+    public void setPopulation(String population) {
         this.population = population;
     }
 

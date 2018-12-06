@@ -37,7 +37,7 @@ public class HistoryController {
             Connection connection = sqlConnector.getConnection();
             ResultSet rs;
 
-            String query = "SELECT * FROM History WHERE userid = ? ORDER BY creation_date DESC;";
+            String query = "SELECT * FROM History WHERE userid = ? ORDER BY creation_date;";
 
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setLong(1, currentUser.getId());
