@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../Login/Login.css";
 import AuthService from "../AuthService/AuthService";
+import queryString from "query-string";
 
 class ResetPassword extends Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class ResetPassword extends Component {
       email: "",
       password: "",
       reenterPass: "",
+      token: "",
       hasError: false
     };
     this.handleChange = this.handleChange.bind(this);
@@ -92,8 +94,12 @@ class ResetPassword extends Component {
 
   submit(e) {
     e.preventDefault();
-    this.Auth.login(this.state.email, this.state.password) // change?
-      .then(res => {
+    this.Auth.resetPassword(
+      this.state.email,
+      this.state.token,
+      this.state.password
+    )
+      .then(_res => {
         this.props.history.replace("/login");
       })
       .catch(err => {
@@ -101,10 +107,12 @@ class ResetPassword extends Component {
         this.setState({ hasError: true });
       });
   }
+
   componentWillMount = () => {
-    if (this.Auth.loggedIn()) {
-      this.props.history.replace("/survey");
-    }
+    const values = queryString.parse(this.props.location.search);
+    console.log("Email: " + values.email);
+    console.log("Token: " + values.token);
+    this.setState({ email: values.email, token: values.token });
     document.body.classList.add("LoginBg");
   };
 
