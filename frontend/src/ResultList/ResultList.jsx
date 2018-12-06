@@ -88,17 +88,15 @@ class ResultList extends Component {
         "Content-Type": "application/json"
       }
     };
+    let payload = {
+      cities: this.state.survey,
+      save: !!this.props.save ? this.props.save : false
+    };
     return axios
-      .post(
-        "http://localhost:5000/v1/survey/",
-        {
-          cities: this.state.survey
-        },
-        config
-      )
+      .post("http://localhost:5000/v1/survey/", payload, config)
       .then(function(response) {
         console.log(response);
-        // this.setState({ cities: response.data });
+        this.setState({ cities: response.data });
       })
       .catch(function(error) {
         console.log(error);

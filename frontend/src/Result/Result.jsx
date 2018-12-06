@@ -2,14 +2,19 @@ import React, { Component } from "react";
 import "../ResultList/ResultList.css";
 import { Media, ListGroupItem, Tabs, Tab } from "react-bootstrap";
 // import withAuth from "../AuthService/WithAuth";
+// import AuthService from "../AuthService/AuthService";
+// import axios from "axios";
 
 class Result extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      result: this.props.extResults
+      result: this.props.extResults,
+      test: false
     };
+    // this.Auth = new AuthService();
   }
+
   render() {
     return (
       <div style={{ marginLeft: "5%" }}>
@@ -109,6 +114,27 @@ class Result extends Component {
     }
     return resultYelp;
   }
+
+  // getTest() {
+  //   let config = {
+  //     headers: {
+  //       Authorization: this.Auth.getToken(),
+  //       "Content-Type": "application/json"
+  //     }
+  //   };
+  //   let payload = {
+  //     save: !!this.props.test ? this.props.test : false
+  //   };
+  //   return axios
+  //     .post("http://localhost:5000/v1/survey/", payload, config)
+  //     .then(function(response) {
+  //       console.log(response);
+  //       this.setState({ save: response.data });
+  //     })
+  //     .catch(function(error) {
+  //       console.log(error);
+  //     });
+  // }
 
   componentWillMount = () => {
     document.body.classList.add("SurveyBg");

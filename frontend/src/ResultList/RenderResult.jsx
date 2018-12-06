@@ -149,7 +149,7 @@ class RenderResult extends Component {
     };
     return axios
       .get(
-        "http://localhost:5000/v1/survey/" + city_name,
+        "http://localhost:5000/v1/city/" + city_name,
         {
           // ext: this.state.city_name
         },
@@ -157,7 +157,7 @@ class RenderResult extends Component {
       )
       .then(function(response) {
         console.log(response);
-        // this.setState({ ext: response.data });
+        this.setState({ ext: response.data });
       })
       .catch(function(error) {
         console.log(error);

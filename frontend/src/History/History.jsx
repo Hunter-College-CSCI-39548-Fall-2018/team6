@@ -111,10 +111,10 @@ class History extends Component {
       }
     };
     return axios
-      .get("http://localhost:5000/v1/survey/history", config)
+      .get("http://localhost:5000/v1/history", config)
       .then(function(response) {
-        console.log(response.data);
-        this.setState({ surveys: response.data });
+        console.log("History Response data: " + response.data);
+        this.setState({ surveys: !!response.data ? response.data : [] });
       })
       .catch(function(error) {
         console.log(error);

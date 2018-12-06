@@ -89,7 +89,7 @@ class Survey extends Component {
     let submit;
 
     if (this.checkInput() == null) {
-      submit = <ResultList ts={this.getPayload()} />;
+      submit = <ResultList ts={this.getPayload()} save={true} />;
     } else {
       let err = this.checkInput().errMsg;
       submit = (
@@ -592,7 +592,7 @@ class Survey extends Component {
       endDate.getFullYear();
 
     let payload = {
-      airport: this.state.selectedAirport.value
+      startAirport: this.state.selectedAirport.value
         ? this.state.selectedAirport.value
         : this.state.selectedAirport,
       climate: this.state.temperature,
@@ -637,7 +637,7 @@ class Survey extends Component {
       endDate.getFullYear();
 
     return {
-      airport: this.state.selectedAirport.value
+      startAirport: this.state.selectedAirport.value
         ? this.state.selectedAirport.value
         : this.state.selectedAirport,
       climate: this.state.temperature,
