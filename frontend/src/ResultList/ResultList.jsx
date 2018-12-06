@@ -13,6 +13,7 @@ class ResultList extends Component {
     this.getResultsFromSurveyChoices = this.getResultsFromSurveyChoices.bind(
       this
     );
+    this.successHandler = this.successHandler.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.Auth = new AuthService();
     this.state = {
@@ -93,14 +94,19 @@ class ResultList extends Component {
       save: !!this.props.save ? this.props.save : false
     };
     return axios
-      .post("http://localhost:5000/v1/survey/", payload, config)
-      .then(function(response) {
-        console.log(response);
-        this.setState({ cities: response.data });
+      .post("http://localhost:5000/v1/survey", payload, config)
+      .then(response => {
+        this.successHandler(response.data);
       })
       .catch(function(error) {
         console.log(error);
       });
+  }
+
+  successHandler(data) {
+    this.setState({ cities: data });
+    console.log("+_____+");
+    console.log(this.state.cities);
   }
 
   handleClose() {
