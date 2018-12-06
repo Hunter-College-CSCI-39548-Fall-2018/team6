@@ -155,7 +155,7 @@ class Survey extends Component {
             style={{ backgroundImage: this.mapBg("temperature") }}
           >
             <div className="slider-inside">
-              <h4 className="w-full">What temperature do you prefer?</h4>
+              <h4 className="w-full">What temperature do you prefer (F)?</h4>
               <h5 className="w-full">(cold to hot)</h5>
             </div>
           </div>
@@ -273,7 +273,8 @@ class Survey extends Component {
             style={{ backgroundImage: this.mapBg("density") }}
           >
             <div className="slider-inside">
-              <h4 className="w-full">Somewhere remote or bustling?</h4>
+              <h4 className="w-full">Somewhere less crowded or bustling?</h4>
+              <h5 className="w-full">(less crowded to bustling)</h5>
             </div>
           </div>
           <Slider
@@ -333,7 +334,7 @@ class Survey extends Component {
               <h4 className="text-2xl sm:text-3xl w-full">
                 Would you like to visit a small city or large city?
               </h4>
-              <h5 className="w-full">(low to high)</h5>
+              <h5 className="w-full">(small to large)</h5>
             </div>
           </div>
           <Slider
@@ -454,8 +455,8 @@ class Survey extends Component {
             style={{ backgroundImage: this.mapBg("busy") }}
           >
             <div className="slider-inside">
-              <h4 className="w-full">City that is less familiar or popular?</h4>
-              <h5 className="w-full">(less familiar to popular)</h5>
+              <h4 className="w-full">City that is less traveled or popular?</h4>
+              <h5 className="w-full">(less traveled to popular)</h5>
             </div>
           </div>
           <Slider
