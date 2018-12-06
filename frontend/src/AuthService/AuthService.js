@@ -5,6 +5,8 @@ export default class AuthService {
   constructor(domain) {
     this.baseurl = "http://localhost:5000";
     this.domain = domain || this.baseurl + "/v1/auth/login"; // API server domain
+    this.forgotpw = this.baseurl + "/v1/auth/forgot";
+    this.resetpw = this.baseurl + "/v1/auth/change-password";
     this.fetch = this.fetch.bind(this);
     this.login = this.login.bind(this);
     this.getProfile = this.getProfile.bind(this);
@@ -33,16 +35,42 @@ export default class AuthService {
     }
   }
 
-  forgotPassword(email) {
-    return this.fetch(`${this.domain}/login`, {
-      method: "POST",
-      body: JSON.stringify({
-        email
-      })
-    }).then(res => {
-      this.setToken(res.token);
-      return Promise.resolve(res);
-    });
+  async forgotPassword(email) {
+    let payload = {
+      email: email
+    };
+    let config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    try {
+      let response = await axios.post(this.forgotpw, payload, config);
+      console.log(response.data);
+    } catch (err) {
+      console.log(err.response);
+      alert(err.response.data.message);
+    }
+  }
+
+  async resetPassword(email, resetToken, password) {
+    let payload = {
+      email: email,
+      resetToken: resetToken,
+      password: password
+    };
+    let config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    try {
+      let response = await axios.get(this.resetpw, payload, config);
+      console.log(response.data);
+    } catch (err) {
+      console.log(err.response);
+      alert(err.response.data.message);
+    }
   }
 
   loggedIn() {

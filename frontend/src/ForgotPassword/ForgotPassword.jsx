@@ -6,17 +6,24 @@ class ForgotPassword extends Component {
     super(props);
     this.state = {
       email: "",
-      hasError: false
+      hasError: false,
+      sent: false
     };
     this.Auth = new AuthService();
   }
   render() {
     let errorMessage;
+    let emailSent;
     if (this.state.hasError) {
       errorMessage = (
         <p style={{ color: "red", fontSize: "15px" }}>
           Email not found. Try again.
         </p>
+      );
+    }
+    if (this.state.sent) {
+      emailSent = (
+        <p style={{ fontSize: "15px" }}>An email will be sent soon.</p>
       );
     }
     return (
@@ -37,6 +44,7 @@ class ForgotPassword extends Component {
         <input className="button" type="submit" value="Submit" />
         <br />
         {errorMessage}
+        {emailSent}
       </form>
     );
   }
@@ -49,7 +57,8 @@ class ForgotPassword extends Component {
   submit(e) {
     e.preventDefault();
     this.Auth.forgotPassword(this.state.email)
-      .then(res => {
+      .then(_res => {
+        this.setState({ sent: true });
         this.props.history.replace("/login");
       })
       .catch(err => {
