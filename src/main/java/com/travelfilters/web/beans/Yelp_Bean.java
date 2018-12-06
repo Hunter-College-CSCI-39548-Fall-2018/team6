@@ -4,7 +4,7 @@ public class Yelp_Bean {
     private String image_url;
     private String page_url;
     private int review_count;
-    private int review_score;
+    private float review_score;
     private String name;
 
     public String getImage_url() {
@@ -31,11 +31,11 @@ public class Yelp_Bean {
         this.review_count = review_count;
     }
 
-    public int getReview_score() {
+    public float getReview_score() {
         return review_score;
     }
 
-    public void setReview_score(int review_score) {
+    public void setReview_score(float review_score) {
         this.review_score = review_score;
     }
 
