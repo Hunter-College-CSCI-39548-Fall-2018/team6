@@ -107,11 +107,10 @@ public class AuthController {
                 new ClassPathXmlApplicationContext("SpringMail.xml");
 
         MailMail mm = (MailMail) context.getBean("mailMail");
-        String msg = "Please reset your password at the link found here " + token;
+        String msg = "Please reset your password at the following url: http://104.248.233.14:5000/change-password?email=" + email + "&token=" + token;
         mm.sendMail("travelapphunter@gmail.com", email, "Forgot Password", msg);
 
-
-        return ResponseEntity.ok().body(new ApiResponse(true, msg));
+        return ResponseEntity.ok().body(new ApiResponse(true, "Email sent with reset link"));
     }
 
     @PostMapping("/change-password")
