@@ -25,12 +25,13 @@ public class LoadSQL {
         loadCSV(csvRoot + "Cost_Indexes.csv", "Cost_Indexes");
         loadCSV(csvRoot + "Fares.csv", "Fares");
         loadCSV(csvRoot + "States.csv", "States");
+        loadCSV(csvRoot + "City_Images.csv", "City_Images");
 
         // drops indexed_tables
-        runSqlQueries("src/test/resources/Drop_Indexed_Tables/");
+//        runSqlQueries("src/test/resources/Drop_Indexed_Tables/");
 
         // creates indexed_tables
-        runSqlQueries("src/test/resources/indexed_tables/");
+//        runSqlQueries("src/test/resources/indexed_tables/");
     }
 
     private static void runSqlQueries(String schemaPath) {

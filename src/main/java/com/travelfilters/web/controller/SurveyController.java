@@ -142,14 +142,14 @@ public class SurveyController {
                         "  (SELECT passengers FROM Airport_Passengers WHERE city_name = ? LIMIT 1) as passengers,\n" +
                         "  (SELECT pop_2018 FROM City_Populations WHERE city_name = ? LIMIT 1) as population,\n" +
                         "  (SELECT density_2018 FROM City_Populations WHERE city_name = ? LIMIT 1) as density,\n" +
+                        "  (SELECT image_link FROM City_Images WHERE city_name = ? LIMIT 1) as image_link,\n" +
                         "  (SELECT high FROM Climate WHERE city_name = ? LIMIT 1) as high,\n" +
                         "  (SELECT low FROM Climate WHERE city_name = ? LIMIT 1) as low;";
 
+                query = query.replace("?", '"' + entry + '"');
+
                 pstmt = connection.prepareStatement(query);
 
-                for (int i = 1; i <= 6; i++) {
-                    pstmt.setString(i, entry);
-                }
 
 
                 rs = pstmt.executeQuery();
@@ -167,7 +167,7 @@ public class SurveyController {
                     surveyResult.setPopulation(rs.getInt("population"));
                     surveyResult.setCost_index(Cost_Indexes.get(entry) / 24 + 1);
                     surveyResult.setScore(results.get(entry));
-                    surveyResult.setCity_img("http://localhost:5000/city_picture/" + entry);
+                    surveyResult.setCity_img(rs.getString("image_link"));
                     surveyResultArr.add(surveyResult);
                 }
             } catch (Exception e) {
@@ -203,8 +203,26 @@ public class SurveyController {
     }
 
     public static void saveRequest(UserPrincipal currentUser, SurveyRequest surveyRequest, boolean save) {
+        SQLConnector connector = new SQLConnector();
+        try {
+            Connection connection = connector.getConnection();
+
+            String query = "REPLACE INTO Session (userid, start_date, end_date, start_airport) VALUES\n" +
+                    "\t(?, ?, ?, ?);";
+
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setLong(1, currentUser.getId());
+            pstmt.setString(2, surveyRequest.getStartDate());
+            pstmt.setString(3, surveyRequest.getEndDate());
+            pstmt.setString(4, surveyRequest.getStartAirport());
+
+            pstmt.executeUpdate();
+            connection.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         if (save) {
-            SQLConnector connector = new SQLConnector();
             try {
                 Connection connection = connector.getConnection();
                 PreparedStatement pstmt = null;
@@ -230,25 +248,6 @@ public class SurveyController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-
-        SQLConnector connector = new SQLConnector();
-        try {
-            Connection connection = connector.getConnection();
-
-            String query = "REPLACE INTO Session (userid, start_date, end_date, start_airport) VALUES\n" +
-                    "\t(?, ?, ?, ?);";
-
-            PreparedStatement pstmt = connection.prepareStatement(query);
-            pstmt.setLong(1, currentUser.getId());
-            pstmt.setString(2, surveyRequest.getStartDate());
-            pstmt.setString(3, surveyRequest.getEndDate());
-            pstmt.setString(4, surveyRequest.getStartAirport());
-
-            pstmt.executeUpdate();
-            connection.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }
